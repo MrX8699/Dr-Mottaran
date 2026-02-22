@@ -1,6 +1,7 @@
 'use client'
 
 import Link from "next/link"
+import Image from 'next/image'
 import { Card } from "@/components/ui/card"
 
 export default function ServicesPage() {
@@ -24,13 +25,22 @@ export default function ServicesPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary/10 to-secondary/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">Professional Services</h1>
-            <p className="text-xl text-foreground/80 max-w-3xl mx-auto">
-              Comprehensive treatment solutions tailored to your recovery and performance goals
-            </p>
+      <section
+        className="pt-32 pb-16"
+        style={{ backgroundImage: "url('/images/Calia_Piega.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+      >
+        <div className="absolute inset-0 z-0">
+          <Image src="/images/Calia_Piega.webp" alt="Services background - Calia Piega" fill className="object-cover" priority />
+          <div className="absolute inset-0 bg-black/40 z-10" />
+        </div>
+        <div className="relative z-20">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center">
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Professional Services</h1>
+              <p className="text-xl text-white/90 max-w-3xl mx-auto">
+                Comprehensive treatment solutions tailored to your recovery and performance goals
+              </p>
+            </div>
           </div>
         </div>
       </section>

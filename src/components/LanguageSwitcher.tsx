@@ -12,7 +12,7 @@ export function LanguageSwitcher() {
         className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
           language === 'it'
             ? 'bg-primary text-primary-foreground shadow-sm'
-            : 'text-foreground/60 hover:text-foreground hover:bg-muted'
+            : 'text-foreground/60 hover:text-foreground hover:bg-muted/70'
         }`}
         aria-label="Switch to Italian"
       >
@@ -23,7 +23,7 @@ export function LanguageSwitcher() {
         className={`px-3 py-1.5 rounded-md text-sm font-medium transition-all ${
           language === 'en'
             ? 'bg-primary text-primary-foreground shadow-sm'
-            : 'text-foreground/60 hover:text-foreground hover:bg-muted'
+            : 'text-foreground/60 hover:text-foreground hover:bg-muted/70'
         }`}
         aria-label="Switch to English"
       >
