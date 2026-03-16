@@ -16,9 +16,8 @@ export default function AboutPage() {
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/#about" className="text-foreground hover:text-primary transition-colors">About</Link>
-              <Link href="/#services" className="text-foreground hover:text-primary transition-colors">Services</Link>
-              <Link href="/#approach" className="text-foreground hover:text-primary transition-colors">Approach</Link>
-              <Link href="/#testimonials" className="text-foreground hover:text-primary transition-colors">Testimonials</Link>
+              <Link href="/services" className="text-foreground hover:text-primary transition-colors">Services</Link>
+              <Link href="/approach" className="text-foreground hover:text-primary transition-colors">Approach</Link>
               <Link href="/#contact" className="text-foreground hover:text-primary transition-colors">Contact</Link>
             </div>
           </div>
@@ -32,8 +31,8 @@ export default function AboutPage() {
       >
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Calia_Piega.webp"
-            alt="Clinic and movement background - Calia Piega"
+            src="/images/busa_butterfly.jpg"
+            alt="Clinic and movement background"
             fill
             className="object-cover"
             priority

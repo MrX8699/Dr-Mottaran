@@ -17,7 +17,7 @@ export default function ServicesPage() {
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-foreground hover:text-primary transition-colors">About</Link>
               <Link href="/services" className="text-primary font-semibold">Services</Link>
-              <Link href="/#approach" className="text-foreground hover:text-primary transition-colors">Approach</Link>
+              <Link href="/approach" className="text-foreground hover:text-primary transition-colors">Approach</Link>
               <Link href="/#contact" className="text-foreground hover:text-primary transition-colors">Contact</Link>
             </div>
           </div>
@@ -26,8 +26,8 @@ export default function ServicesPage() {
 
       {/* Hero Section */}
       <section
-        className="pt-32 pb-16"
-        style={{ backgroundImage: "url('/images/Calia_Piega.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        className="relative overflow-hidden pt-32 pb-16"
+        style={{ backgroundImage: "url('/images/Calia_Piega.webp')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '40vh' }}
       >
         <div className="absolute inset-0 z-0">
           <Image src="/images/Calia_Piega.webp" alt="Services background - Calia Piega" fill className="object-cover" priority />
@@ -36,9 +36,9 @@ export default function ServicesPage() {
         <div className="relative z-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Professional Services</h1>
+              <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">Servizi Professionali</h1>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
-                Comprehensive treatment solutions tailored to your recovery and performance goals
+                Soluzioni terapeutiche complete e personalizzate per il tuo recupero e le tue performance
               </p>
             </div>
           </div>
@@ -57,10 +57,10 @@ export default function ServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Orthopedic & Post-Traumatic Rehabilitation</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Riabilitazione Ortopedica e Post-Traumatica</h3>
               <p className="text-foreground/70 leading-relaxed mb-4">
-                Specialized recovery programs following orthopedic surgery or traumatic injuries. From ACL reconstruction
-                to fracture recovery, we guide you through every phase of healing.
+                Programmi di recupero specializzati dopo interventi ortopedici o traumi. Dalla ricostruzione del legamento crociato
+                al recupero da fratture, ti accompagniamo in ogni fase del percorso.
               </p>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li className="flex items-start gap-2">
@@ -89,10 +89,10 @@ export default function ServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Manual Therapy</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Terapia Manuale</h3>
               <p className="text-foreground/70 leading-relaxed mb-4">
-                Hands-on techniques including joint mobilization, soft tissue manipulation, and myofascial release
-                to restore optimal movement and reduce pain.
+                Tecniche manuali come mobilizzazioni articolari, manipolazione dei tessuti molli e rilascio miofasciale
+                per ripristinare il movimento e ridurre il dolore.
               </p>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li className="flex items-start gap-2">
@@ -121,10 +121,10 @@ export default function ServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Sports Massage</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Massaggio Sportivo</h3>
               <p className="text-foreground/70 leading-relaxed mb-4">
-                Specialized massage techniques for athletes to enhance performance, accelerate recovery,
-                and prevent injuries. Pre-event, post-event, and maintenance protocols.
+                Tecniche di massaggio dedicate agli atleti per migliorare la performance, accelerare il recupero
+                e prevenire gli infortuni. Protocollo pre-gara, post-gara e di mantenimento.
               </p>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li className="flex items-start gap-2">
@@ -153,10 +153,10 @@ export default function ServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Functional Postural Re-education</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Rieducazione Posturale Funzionale</h3>
               <p className="text-foreground/70 leading-relaxed mb-4">
-                Address postural imbalances and movement dysfunctions through targeted exercises and
-                awareness training to improve alignment and reduce chronic pain.
+                Correggiamo squilibri posturali e disfunzioni del movimento con esercizi mirati e training di consapevolezza
+                per migliorare l'allineamento e ridurre il dolore cronico.
               </p>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li className="flex items-start gap-2">
@@ -185,10 +185,10 @@ export default function ServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Kinesiology Consulting</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Consulenza in Chinesiologia</h3>
               <p className="text-foreground/70 leading-relaxed mb-4">
-                Advanced movement analysis and biomechanical assessment to optimize performance and
-                identify potential risk factors for injury.
+                Analisi avanzata del movimento e valutazioni biomeccaniche per ottimizzare la performance
+                e identificare fattori di rischio per gli infortuni.
               </p>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li className="flex items-start gap-2">
@@ -217,10 +217,10 @@ export default function ServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Personal Training</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Allenamento Personalizzato</h3>
               <p className="text-foreground/70 leading-relaxed mb-4">
-                Customized training programs designed to improve strength, endurance, flexibility, and
-                overall fitness while preventing injury and optimizing movement quality.
+                Programmi di allenamento su misura per migliorare forza, resistenza, flessibilità e forma fisica,
+                prevenendo gli infortuni e ottimizzando la qualità del movimento.
               </p>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li className="flex items-start gap-2">
@@ -249,10 +249,10 @@ export default function ServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Injury Prevention</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Prevenzione Infortuni</h3>
               <p className="text-foreground/70 leading-relaxed mb-4">
-                Proactive programs to identify and address risk factors before injuries occur. Essential
-                for athletes and active individuals looking to maintain peak performance.
+                Programmi proattivi per identificare e correggere i fattori di rischio prima che si traducano in infortuni.
+                Fondamentale per atleti e persone attive che vogliono mantenere la performance.
               </p>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li className="flex items-start gap-2">
@@ -281,10 +281,10 @@ export default function ServicesPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold text-foreground mb-4">Recovery Pathways</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">Percorsi di Recupero</h3>
               <p className="text-foreground/70 leading-relaxed mb-4">
-                Structured, evidence-based recovery programs that guide you from acute injury through
-                return to activity, ensuring safe and effective progression.
+                Percorsi di recupero strutturati e basati sull'evidenza che ti guidano dall'infortunio acuto
+                fino al ritorno all'attività, garantendo progressione sicura ed efficace.
               </p>
               <ul className="space-y-2 text-sm text-foreground/60">
                 <li className="flex items-start gap-2">
@@ -314,10 +314,10 @@ export default function ServicesPage() {
       <section className="py-20 bg-muted">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">Services in Action</h2>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">I servizi in azione</h2>
             <div className="w-24 h-1 bg-primary mx-auto mb-8"></div>
             <p className="text-xl text-foreground/80">
-              Professional treatment environments and personalized care
+              Ambienti di cura professionali e assistenza personalizzata
             </p>
           </div>
 
@@ -331,12 +331,12 @@ export default function ServicesPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <p className="text-sm text-white font-medium">Replace with:<br/>service-manual-therapy.jpg</p>
+                  <p className="text-sm text-white font-medium">Sostituisci con:<br/>service-manual-therapy.jpg</p>
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-white font-bold text-xl">Manual Therapy Session</h3>
-                <p className="text-white/80 text-sm">Hands-on treatment techniques</p>
+                <h3 className="text-white font-bold text-xl">Sessione di Terapia Manuale</h3>
+                <p className="text-white/80 text-sm">Tecniche di trattamento manuale</p>
               </div>
             </div>
 
@@ -349,12 +349,12 @@ export default function ServicesPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <p className="text-sm text-white font-medium">Replace with:<br/>service-rehabilitation.jpg</p>
+                  <p className="text-sm text-white font-medium">Sostituisci con:<br/>service-rehabilitation.jpg</p>
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-white font-bold text-xl">Rehabilitation Training</h3>
-                <p className="text-white/80 text-sm">Progressive recovery programs</p>
+                <h3 className="text-white font-bold text-xl">Allenamento di Riabilitazione</h3>
+                <p className="text-white/80 text-sm">Programmi di recupero progressivi</p>
               </div>
             </div>
 
@@ -367,19 +367,19 @@ export default function ServicesPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                   </div>
-                  <p className="text-sm text-white font-medium">Replace with:<br/>service-assessment.jpg</p>
+                  <p className="text-sm text-white font-medium">Sostituisci con:<br/>service-assessment.jpg</p>
                 </div>
               </div>
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <h3 className="text-white font-bold text-xl">Movement Assessment</h3>
-                <p className="text-white/80 text-sm">Biomechanical analysis</p>
+                <h3 className="text-white font-bold text-xl">Valutazione del Movimento</h3>
+                <p className="text-white/80 text-sm">Analisi biomeccanica</p>
               </div>
             </div>
           </div>
 
           <div className="mt-8 text-center">
             <p className="text-foreground/60 text-sm">
-              📸 Upload images to <code className="bg-foreground/10 px-2 py-1 rounded">public/</code> folder
+              📸 Carica le immagini nella cartella <code className="bg-foreground/10 px-2 py-1 rounded">public/</code>
             </p>
           </div>
         </div>
@@ -388,9 +388,9 @@ export default function ServicesPage() {
       {/* CTA Section */}
       <section className="py-16 bg-secondary text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Ready to Begin Your Treatment?</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6">Pronto a iniziare il tuo percorso di cura?</h2>
           <p className="text-xl text-white/90 mb-8">
-            Contact me today to discuss which services best suit your needs
+            Contattami oggi per discutere quali servizi sono più adatti alle tue esigenze
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a

@@ -46,7 +46,7 @@ export default function Home() {
             <div className="hidden md:flex items-center space-x-8">
               <Link href="/about" className="text-foreground hover:text-primary transition-colors">{t('nav.about')}</Link>
               <Link href="/services" className="text-foreground hover:text-primary transition-colors">{t('nav.services')}</Link>
-              <a href="#approach" className="text-foreground hover:text-primary transition-colors">{t('nav.approach')}</a>
+              <Link href="/approach" className="text-foreground hover:text-primary transition-colors">{t('nav.approach')}</Link>
               <a href="#contact" className="text-foreground hover:text-primary transition-colors">{t('nav.contact')}</a>
               <LanguageSwitcher />
               <a href={`https://wa.me/393661459269?text=${encodeURIComponent(getWhatsAppMessage())}`} target="_blank" rel="noopener noreferrer">
@@ -72,7 +72,7 @@ export default function Home() {
             <div className="md:hidden pb-4 space-y-3">
               <Link href="/about" className="block text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>{t('nav.about')}</Link>
               <Link href="/services" className="block text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>{t('nav.services')}</Link>
-              <a href="#approach" className="block text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>{t('nav.approach')}</a>
+              <Link href="/approach" className="block text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>{t('nav.approach')}</Link>
               <a href="#contact" className="block text-foreground hover:text-primary transition-colors" onClick={() => setMobileMenuOpen(false)}>{t('nav.contact')}</a>
               <div className="pt-2">
                 <LanguageSwitcher />
@@ -93,7 +93,7 @@ export default function Home() {
         {/* Background image using next/image for responsive loading */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/Calia_Piega.webp"
+            src="/images/Fieda Nuoto.jpg"
             alt="Hero background - Calia Piega"
             fill
             className="object-cover"
@@ -436,7 +436,7 @@ export default function Home() {
               <ul className="space-y-2">
                 <li><a href="#about" className="text-white/80 hover:text-white transition-colors">{t('nav.about')}</a></li>
                 <li><Link href="/services" className="text-white/80 hover:text-white transition-colors">{t('nav.services')}</Link></li>
-                <li><a href="#approach" className="text-white/80 hover:text-white transition-colors">{t('nav.approach')}</a></li>
+                <li><Link href="/approach" className="text-white/80 hover:text-white transition-colors">{t('nav.approach')}</Link></li>
                 <li><a href="#contact" className="text-white/80 hover:text-white transition-colors">{t('nav.contact')}</a></li>
               </ul>
             </div>
