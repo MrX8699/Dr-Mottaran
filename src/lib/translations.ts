@@ -177,6 +177,10 @@ export const translations = {
     'servicesPage.recovery.item4': 'Test e monitoraggio delle prestazioni',
     'servicesPage.gallery.title': 'Servizi in Azione',
     'servicesPage.gallery.subtitle': 'Ambienti di trattamento professionale e cura personalizzata',
+  // Gallery helpers
+  'gallery.replaceWith': 'Sostituisci con:',
+  'gallery.placeholdersHint': '📸 Segnaposto immagini: carica le tue foto nella cartella {folder}',
+  'servicesPage.gallery.uploadHint': '📸 Carica le immagini nella cartella {folder}',
     'servicesPage.gallery.manual': 'Sessione di Terapia Manuale',
     'servicesPage.gallery.manual.subtitle': 'Tecniche di trattamento manuale',
     'servicesPage.gallery.rehab': 'Allenamento Riabilitativo',
@@ -366,6 +370,10 @@ export const translations = {
     'servicesPage.recovery.item4': 'Performance testing and monitoring',
     'servicesPage.gallery.title': 'Services in Action',
     'servicesPage.gallery.subtitle': 'Professional treatment environments and personalized care',
+  // Gallery helpers
+  'gallery.replaceWith': 'Replace with:',
+  'gallery.placeholdersHint': '📸 Image placeholders: upload your photos to the {folder} folder',
+  'servicesPage.gallery.uploadHint': '📸 Upload images to the {folder} folder',
     'servicesPage.gallery.manual': 'Manual Therapy Session',
     'servicesPage.gallery.manual.subtitle': 'Hands-on treatment techniques',
     'servicesPage.gallery.rehab': 'Rehabilitation Training',
@@ -380,5 +388,7 @@ export const translations = {
 }
 
 export function getTranslation(lang: 'it' | 'en', key: string): string {
-  return translations[lang][key] || key
+  // dynamic key access - cast to any to satisfy TypeScript
+  const dict: any = translations[lang] as any
+  return dict[key] || key
 }
