@@ -55,6 +55,7 @@ export const translations = {
     'approach.step2.description': 'Terapia su misura che combina tecniche manuali, esercizi terapeutici ed educazione.',
     'approach.step3.title': 'Recupero Progressivo',
     'approach.step3.description': 'Monitoraggio continuo e adattamento del programma per garantire un progresso ottimale e risultati duraturi.',
+    'approach.cta.title': 'Pronto per un trattamento su misura per te?',
 
     // Contact Section
     'contact.title': 'CONTATTAMI',
@@ -248,6 +249,7 @@ export const translations = {
     'approach.step2.description': 'Tailored therapy combining manual techniques, therapeutic exercises, and education.',
     'approach.step3.title': 'Progressive Recovery',
     'approach.step3.description': 'Ongoing monitoring and adjustment of your program to ensure optimal progress and lasting results.',
+    'approach.cta.title': 'Ready for a treatment tailored to you?',
 
     // Contact Section
     'contact.title': 'GET IN TOUCH',

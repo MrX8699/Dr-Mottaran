@@ -108,7 +108,7 @@ export default function ApproachPage() {
   {/* CTA Section (unified, light blue) */}
   <section className="py-16 bg-[#e6eef6]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">{t('aboutPage.cta.title')}</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-primary">{t('approach.cta.title')}</h2>
           <p className="text-xl text-foreground/80 mb-8">{t('aboutPage.cta.subtitle')}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
