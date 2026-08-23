@@ -11,14 +11,14 @@ export const translations = {
     'hero.welcome': 'Benvenuto alla Cura Professionale',
     'hero.name': 'DR. LUCA\nMOTTARAN',
     'hero.title': 'Fisioterapista • Chinesiologo • Osteopata',
-    'hero.subtitle': 'Prevenzione. Diagnosi. Cura. Riabilitazione.',
-    'hero.description': 'Fisioterapia e riabilitazione personalizzata per prevenire gli infortuni, recuperare da traumi e ritrovare piena libertà di movimento.',
+    'hero.subtitle': 'Fisioterapia e riabilitazione personalizzata per la piena libertà di movimento.',
+    'hero.description': 'Cura su misura per atleti, persone in fase di recupero da un infortunio e pazienti di ogni età. Valutazione esperta del movimento e percorsi di riabilitazione personalizzati per ritrovare forza, mobilità e benessere.',
     'hero.whatsapp': 'Contatta via WhatsApp',
     'hero.call': 'Chiama Ora',
 
     // WhatsApp Messages
     'whatsapp.open': 'Ciao Dr. Mottaran, vorrei fissare un appuntamento per un trattamento fisioterapico.',
-    'whatsapp.closed': 'Ciao Dr. Mottaran, vorrei fissare un appuntamento. Per favore fammi sapere i tuoi orari disponibili.',
+    'whatsapp.closed': 'Ciao Dr. Luca Mottaran, vorrei fissare un appuntamento. Potresti indicarmi i tuoi giorni e orari disponibili? Grazie!',
 
     // About Section
     'about.title': 'LA MIA MISSIONE',
@@ -207,14 +207,14 @@ export const translations = {
     'hero.welcome': 'Welcome to Professional Care',
     'hero.name': 'DR. LUCA\nMOTTARAN',
     'hero.title': 'Physiotherapist • Kinesiologist • Osteopath',
-    'hero.subtitle': 'Prevention. Diagnosis. Care. Rehabilitation.',
-    'hero.description': 'Personalized physiotherapy and rehabilitation to prevent injuries, recover from trauma, and regain full freedom of movement.',
+    'hero.subtitle': 'Personalized physiotherapy and rehabilitation for full freedom of movement.',
+    'hero.description': 'Tailored care for athletes, people recovering from an injury, and patients of every age. Expert movement assessment and personalized rehabilitation plans to restore strength, mobility, and wellbeing.',
     'hero.whatsapp': 'Contact via WhatsApp',
     'hero.call': 'Call Now',
 
     // WhatsApp Messages
     'whatsapp.open': 'Hi Dr. Mottaran, I would like to schedule an appointment for physiotherapy treatment.',
-    'whatsapp.closed': 'Hi Dr. Mottaran, I would like to schedule an appointment. Please let me know your available times.',
+    'whatsapp.closed': 'Hi Dr. Luca Mottaran, I would like to schedule an appointment. Could you let me know your available days and times? Thank you!',
 
     // About Section
     'about.title': 'MY MISSION',
