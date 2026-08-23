@@ -69,7 +69,6 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'contact.phone.label': 'Telefono',
     'contact.email.label': 'Email',
     'contact.location.label': 'Posizione',
-    'contact.location.value': 'Poliambulatorio Selice 102 – Via G. Saragat 1, Imola (BO)',
 
     // Footer
     'footer.description': 'Fisioterapista, Chinesiologo e Osteopata a Imola, al fianco di atleti, pazienti in riabilitazione da un infortunio e persone di ogni età nel percorso verso salute e mobilità ottimali.',
@@ -265,7 +264,6 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'contact.phone.label': 'Phone',
     'contact.email.label': 'Email',
     'contact.location.label': 'Location',
-    'contact.location.value': 'Poliambulatorio Selice 102 – Via G. Saragat 1, Imola (BO), Italy',
 
     // Footer
     'footer.description': 'Physiotherapist, Kinesiologist & Osteopath in Imola, supporting athletes, patients recovering from an injury, and people of every age on the path to optimal health and mobility.',

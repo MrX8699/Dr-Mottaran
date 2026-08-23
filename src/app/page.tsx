@@ -409,7 +409,7 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="font-semibold text-foreground mb-2">{t('contact.email.label')}</h3>
-              <p className="text-foreground/70">info@lucamottaran.com</p>
+              <a href="mailto:lucamottaran99@gmail.com" className="text-foreground/70 hover:text-primary transition-colors">lucamottaran99@gmail.com</a>
             </div>
             <div>
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -419,7 +419,25 @@ export default function Home() {
                 </svg>
               </div>
               <h3 className="font-semibold text-foreground mb-2">{t('contact.location.label')}</h3>
-              <p className="text-foreground/70">{t('contact.location.value')}</p>
+              <p className="text-foreground/70">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Imola%2C+Italia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  Imola
+                </a>
+                {', '}
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Gambulaga%2C+Italia"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-primary transition-colors"
+                >
+                  Gambulaga
+                </a>
+              </p>
             </div>
           </div>
         </div>
