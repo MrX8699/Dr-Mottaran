@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, type FormEvent } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -32,6 +32,28 @@ export default function Home() {
 
   const prevHero = () => setHeroIndex((i) => (i - 1 + heroImages.length) % heroImages.length)
   const nextHero = () => setHeroIndex((i) => (i + 1) % heroImages.length)
+
+  const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.currentTarget
+    const formData = new FormData(form)
+    const name = (formData.get('name') as string || '').trim()
+    const email = (formData.get('email') as string || '').trim()
+    const phone = (formData.get('phone') as string || '').trim()
+    const message = (formData.get('message') as string || '').trim()
+
+    const lines = [
+      `${t('contact.name')}: ${name}`,
+      `${t('contact.email')}: ${email}`,
+      phone ? `${t('contact.phone')}: ${phone}` : null,
+      '',
+      message,
+    ].filter((line): line is string => line !== null).join('\n')
+
+    const whatsappUrl = `https://wa.me/393661459269?text=${encodeURIComponent(lines)}`
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+    form.reset()
+  }
 
   return (
     <div className="min-h-screen">
@@ -330,26 +352,26 @@ export default function Home() {
           </div>
 
           <Card className="p-8 md:p-12">
-            <form className="space-y-6">
+            <form className="space-y-6" onSubmit={handleContactSubmit}>
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
                   <label htmlFor="name" className="block text-sm font-medium text-foreground mb-2">
                     {t('contact.name')} *
                   </label>
-                  <Input id="name" placeholder={t('contact.name')} required />
+                  <Input id="name" name="name" placeholder={t('contact.name')} required />
                 </div>
                 <div>
                   <label htmlFor="email" className="block text-sm font-medium text-foreground mb-2">
                     {t('contact.email')} *
                   </label>
-                  <Input id="email" type="email" placeholder={t('contact.email')} required />
+                  <Input id="email" name="email" type="email" placeholder={t('contact.email')} required />
                 </div>
               </div>
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
                   {t('contact.phone')}
                 </label>
-                <Input id="phone" type="tel" placeholder="+39 366 145 9269" />
+                <Input id="phone" name="phone" type="tel" placeholder="+39 366 145 9269" />
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
@@ -357,6 +379,7 @@ export default function Home() {
                 </label>
                 <Textarea
                   id="message"
+                  name="message"
                   placeholder={t('contact.messagePlaceholder')}
                   rows={6}
                   required
