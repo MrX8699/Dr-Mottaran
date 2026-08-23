@@ -13,14 +13,15 @@ import { Footer } from "@/components/Footer"
 import Link from "next/link"
 import Image from 'next/image'
 
+// Hero images rotation (public/ folder)
+const heroImages = [
+  '/images/fisioterapia stretching.webp',
+  '/images/terapia_rullo.jpg'
+]
+
 export default function Home() {
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
-  // Hero images rotation (public/ folder)
-  const heroImages = [
-    '/images/fisioterapia stretching.webp',
-    '/images/terapia_rullo.jpg'
-  ]
   const [heroIndex, setHeroIndex] = useState<number>(0)
 
   useEffect(() => {

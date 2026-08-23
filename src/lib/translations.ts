@@ -1,4 +1,4 @@
-export const translations = {
+export const translations: Record<'it' | 'en', Record<string, string>> = {
   it: {
     // Navigation
     'nav.about': 'Chi Sono',
@@ -394,7 +394,5 @@ export const translations = {
 }
 
 export function getTranslation(lang: 'it' | 'en', key: string): string {
-  // dynamic key access - cast to any to satisfy TypeScript
-  const dict: any = translations[lang] as any
-  return dict[key] || key
+  return translations[lang][key] || key
 }

@@ -29,8 +29,8 @@ export default function ApproachPage() {
         <div className="relative z-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center">
-              <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">{t('approach.title')}</h1>
-              <p className="text-lg text-white/90 max-w-3xl mx-auto">{t('approach.heading')}</p>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4">{t('approach.title')}</h1>
+              <p className="text-lg sm:text-xl text-white/90 max-w-3xl mx-auto">{t('approach.heading')}</p>
             </div>
           </div>
         </div>
