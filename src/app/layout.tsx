@@ -14,8 +14,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Dr. Luca Mottaran - Fisioterapista e Chinesiologo",
-  description: "Fisioterapista e Chinesiologo specializzato in riabilitazione sportiva e medicina dello sport",
+  title: "Dr. Luca Mottaran - Fisioterapista, Chinesiologo e Osteopata",
+  description: "Fisioterapista, Chinesiologo e Osteopata a Imola. Trattamenti per atleti, riabilitazione post-infortunio e cura di pazienti di ogni età.",
 };
 
 export default function RootLayout({

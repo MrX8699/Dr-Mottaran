@@ -19,10 +19,10 @@ export default function ApproachPage() {
       {/* Hero */}
       <section
         className="relative overflow-hidden pt-32 pb-16"
-        style={{ backgroundImage: "url('/images/Calia_Piega.webp')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '40vh' }}
+        style={{ backgroundImage: "url('/images/Fieda Nuoto.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '40vh' }}
       >
         <div className="absolute inset-0 z-0">
-          <Image src="/images/Calia_Piega.webp" alt="Approach background" fill className="object-cover" priority />
+          <Image src="/images/Fieda Nuoto.jpg" alt="Approach background" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
 

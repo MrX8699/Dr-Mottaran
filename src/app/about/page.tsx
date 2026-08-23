@@ -18,8 +18,8 @@ export default function AboutPage() {
 
       {/* Hero Section with background image */}
       <section
-        className="relative w-full"
-        style={{ backgroundImage: "url('/images/Calia_Piega.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        className="relative overflow-hidden pt-32 pb-16"
+        style={{ backgroundImage: "url('/images/busa_butterfly.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '40vh' }}
       >
         <div className="absolute inset-0 z-0">
           <Image
@@ -32,7 +32,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
 
-        <div className="relative z-10 py-28 sm:py-32">
+        <div className="relative z-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-3xl text-center md:text-left mx-auto">
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white mb-4">{t('aboutPage.title')}</h1>
@@ -98,40 +98,40 @@ export default function AboutPage() {
       </section>
 
       {/* Professional Experience */}
-      <section className="py-20 bg-secondary text-white">
+      <section className="py-20 bg-gradient-to-br from-[hsl(174,55%,15%)] to-[hsl(200,55%,13%)] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-center">{t('aboutPage.experience.title')}</h2>
           <div className="w-24 h-1 bg-accent mx-auto mb-12" />
 
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8">
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/15 hover:border-accent/50 transition-colors p-8">
               <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold mb-4">{t('aboutPage.experience.motorsports.title')}</h3>
-              <p className="text-white/90 leading-relaxed">{t('aboutPage.experience.motorsports.description')}</p>
+              <h3 className="text-2xl font-bold mb-4 text-white">{t('aboutPage.experience.motorsports.title')}</h3>
+              <p className="text-white/85 leading-relaxed">{t('aboutPage.experience.motorsports.description')}</p>
             </Card>
 
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8">
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/15 hover:border-accent/50 transition-colors p-8">
               <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold mb-4">{t('aboutPage.experience.swimming.title')}</h3>
-              <p className="text-white/90 leading-relaxed">{t('aboutPage.experience.swimming.description')}</p>
+              <h3 className="text-2xl font-bold mb-4 text-white">{t('aboutPage.experience.swimming.title')}</h3>
+              <p className="text-white/85 leading-relaxed">{t('aboutPage.experience.swimming.description')}</p>
             </Card>
 
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8">
+            <Card className="bg-white/10 backdrop-blur-sm border border-white/15 hover:border-accent/50 transition-colors p-8">
               <div className="w-16 h-16 bg-accent/20 rounded-full flex items-center justify-center mb-6">
                 <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
               </div>
-              <h3 className="text-2xl font-bold mb-4">{t('aboutPage.experience.basketball.title')}</h3>
-              <p className="text-white/90 leading-relaxed">{t('aboutPage.experience.basketball.description')}</p>
+              <h3 className="text-2xl font-bold mb-4 text-white">{t('aboutPage.experience.basketball.title')}</h3>
+              <p className="text-white/85 leading-relaxed">{t('aboutPage.experience.basketball.description')}</p>
             </Card>
           </div>
         </div>
@@ -196,71 +196,49 @@ export default function AboutPage() {
           <div className="w-24 h-1 bg-primary mx-auto mb-12" />
 
           <div className="grid md:grid-cols-3 gap-8 mb-12">
-            {/* Photo Placeholder 1 - Le Mans */}
+            {/* Photo 1 - Le Mans / Motorsport */}
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 to-primary/40 flex items-center justify-center">
-                <div className="text-center p-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm text-white font-medium">{t('gallery.replaceWith')}<br/>lemans-team.jpg</p>
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+              <Image
+                src="/images/Calia_Derapata.jpg"
+                alt={t('aboutPage.collaborations.lemans')}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
                 <h3 className="text-white font-bold text-lg">{t('aboutPage.collaborations.lemans')}</h3>
                 <p className="text-white/80 text-sm">{t('aboutPage.collaborations.lemans.subtitle')}</p>
               </div>
             </div>
 
-            {/* Photo Placeholder 2 - Swimming */}
+            {/* Photo 2 - Swimming / Imola Nuoto */}
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 to-primary/40 flex items-center justify-center">
-                <div className="text-center p-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm text-white font-medium">{t('gallery.replaceWith')}<br/>imola-nuoto.jpg</p>
-                </div>
-              </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+              <Image
+                src="/images/Poggio Podio.jpeg"
+                alt={t('aboutPage.collaborations.swimming')}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
                 <h3 className="text-white font-bold text-lg">{t('aboutPage.collaborations.swimming')}</h3>
                 <p className="text-white/80 text-sm">{t('aboutPage.collaborations.swimming.subtitle')}</p>
               </div>
             </div>
 
-            {/* Photo Placeholder 3 - Basketball */}
+            {/* Photo 3 - Swim team podium */}
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/40 to-primary/40 flex items-center justify-center">
-                <div className="text-center p-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-full mx-auto mb-3 flex items-center justify-center">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm text-white font-medium">{t('gallery.replaceWith')}<br/>basketball-team.jpg</p>
-                </div>
+              <Image
+                src="/images/Busa_Podio.webp"
+                alt={t('aboutPage.collaborations.swimteam')}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <h3 className="text-white font-bold text-lg">{t('aboutPage.collaborations.swimteam')}</h3>
+                <p className="text-white/80 text-sm">{t('aboutPage.collaborations.swimteam.subtitle')}</p>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                <h3 className="text-white font-bold text-lg">{t('aboutPage.collaborations.basketball')}</h3>
-                <p className="text-white/80 text-sm">{t('aboutPage.collaborations.basketball.subtitle')}</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="text-center">
-            <p className="text-foreground/60 text-sm mb-4">{t('gallery.placeholdersHint').split('{folder}')[0]}<code className="bg-foreground/10 px-2 py-1 rounded">public/</code>{t('gallery.placeholdersHint').split('{folder}')[1]}</p>
-            <div className="flex flex-wrap justify-center gap-2 text-xs text-foreground/50">
-              <span>• about-portrait.jpg</span>
-              <span>• lemans-team.jpg</span>
-              <span>• imola-nuoto.jpg</span>
-              <span>• basketball-team.jpg</span>
-              <span>• athletes-1.jpg</span>
-              <span>• treatment-session.jpg</span>
-              <span>• competition-support.jpg</span>
             </div>
           </div>
         </div>

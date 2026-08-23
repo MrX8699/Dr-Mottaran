@@ -148,20 +148,20 @@ export default function Home() {
 
           <div className="grid md:grid-cols-4 gap-8 mt-16">
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center text-white">
-              <div className="text-5xl font-bold text-white mb-2">15+</div>
-              <div className="text-lg"> {t('about.experience')}</div>
+              <div className="text-5xl font-bold text-white mb-2">46</div>
+              <div className="text-lg">{t('about.estefan')}</div>
             </Card>
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center text-white">
-              <div className="text-5xl font-bold text-white mb-2">2000+</div>
+              <div className="text-5xl font-bold text-white mb-2">200+</div>
               <div className="text-lg">{t('about.patients')}</div>
             </Card>
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center text-white">
-              <div className="text-5xl font-bold text-white mb-2">98%</div>
-              <div className="text-lg">{t('about.success')}</div>
+              <div className="text-5xl font-bold text-white mb-2">8</div>
+              <div className="text-lg">{t('about.certifications')}</div>
             </Card>
             <Card className="bg-white/10 backdrop-blur-sm border-white/20 p-8 text-center text-white">
-              <div className="text-5xl font-bold text-white mb-2">100%</div>
-              <div className="text-lg">{t('about.care')}</div>
+              <div className="text-5xl font-bold text-white mb-2">15+</div>
+              <div className="text-lg">{t('about.experience')}</div>
             </Card>
           </div>
         </div>

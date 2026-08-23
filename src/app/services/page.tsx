@@ -272,6 +272,35 @@ export default function ServicesPage() {
               </ul>
             </Card>
 
+            {/* Physiotherapy for Older Adults */}
+            <Card className="p-8 hover:shadow-xl transition-all border-2 hover:border-primary">
+              <div className="w-16 h-16 bg-accent/10 rounded-full flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
+                </svg>
+              </div>
+              <h3 className="text-2xl font-bold text-foreground mb-4">{t('servicesPage.geriatric.title')}</h3>
+              <p className="text-foreground/70 leading-relaxed mb-4">{t('servicesPage.geriatric.description')}</p>
+              <ul className="space-y-2 text-sm text-foreground/60">
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>{t('servicesPage.geriatric.item1')}</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>{t('servicesPage.geriatric.item2')}</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>{t('servicesPage.geriatric.item3')}</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="text-primary mt-1">•</span>
+                  <span>{t('servicesPage.geriatric.item4')}</span>
+                </li>
+              </ul>
+            </Card>
+
           </div>
         </div>
       </section>
@@ -286,63 +315,47 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Placeholder 1 */}
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm text-white font-medium">{t('gallery.replaceWith')}<br/>service-manual-therapy.jpg</p>
-                </div>
+              <Image
+                src="/images/servizio-terapia-manuale.jpg"
+                alt={t('servicesPage.gallery.manual')}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-white font-bold text-xl">{t('servicesPage.gallery.manual')}</h3>
+                <p className="text-white/80 text-sm">{t('servicesPage.gallery.manual.subtitle')}</p>
               </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <h3 className="text-white font-bold text-xl">{t('servicesPage.gallery.manual')}</h3>
-                  <p className="text-white/80 text-sm">{t('servicesPage.gallery.manual.subtitle')}</p>
-                </div>
             </div>
 
-            {/* Placeholder 2 */}
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
-              <div className="absolute inset-0 bg-gradient-to-br from-secondary/30 to-accent/30 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm text-white font-medium">{t('gallery.replaceWith')}<br/>service-rehabilitation.jpg</p>
-                </div>
+              <Image
+                src="/images/servizio-riabilitazione.jpg"
+                alt={t('servicesPage.gallery.rehab')}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-white font-bold text-xl">{t('servicesPage.gallery.rehab')}</h3>
+                <p className="text-white/80 text-sm">{t('servicesPage.gallery.rehab.subtitle')}</p>
               </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <h3 className="text-white font-bold text-xl">{t('servicesPage.gallery.rehab')}</h3>
-                  <p className="text-white/80 text-sm">{t('servicesPage.gallery.rehab.subtitle')}</p>
-                </div>
             </div>
 
-            {/* Placeholder 3 */}
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
-              <div className="absolute inset-0 bg-gradient-to-br from-accent/30 to-primary/30 flex items-center justify-center">
-                <div className="text-center p-8">
-                  <div className="w-20 h-20 bg-white/20 rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-sm text-white font-medium">{t('gallery.replaceWith')}<br/>service-assessment.jpg</p>
-                </div>
+              <Image
+                src="/images/motta studio.jpg"
+                alt={t('servicesPage.gallery.assessment')}
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <h3 className="text-white font-bold text-xl">{t('servicesPage.gallery.assessment')}</h3>
+                <p className="text-white/80 text-sm">{t('servicesPage.gallery.assessment.subtitle')}</p>
               </div>
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                  <h3 className="text-white font-bold text-xl">{t('servicesPage.gallery.assessment')}</h3>
-                  <p className="text-white/80 text-sm">{t('servicesPage.gallery.assessment.subtitle')}</p>
-                </div>
             </div>
-          </div>
-
-          <div className="mt-8 text-center">
-            <p className="text-foreground/60 text-sm">{t('servicesPage.gallery.uploadHint').split('{folder}')[0]}<code className="bg-foreground/10 px-2 py-1 rounded">public/</code>{t('servicesPage.gallery.uploadHint').split('{folder}')[1]}</p>
           </div>
         </div>
       </section>
