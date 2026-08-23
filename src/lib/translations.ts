@@ -48,7 +48,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     // Approach Section
     'approach.title': 'IL MIO APPROCCIO',
     'approach.heading': 'Eccellenza Centrata sul Paziente',
-    'approach.intro': 'Ogni paziente riceve una valutazione iniziale completa per comprendere la sua condizione unica, i suoi obiettivi e il suo stile di vita. Questo mi permette di creare un piano di trattamento veramente personalizzato che affronta la causa principale, non solo i sintomi.',
+    'approach.intro': 'Ogni paziente riceve una valutazione iniziale completa e personalizzata per comprendere la propria condizione attuale, i suoi obiettivi e il suo stile di vita. Questo mi permette di creare un piano di trattamento veramente personalizzato che affronta la causa principale, non solo i sintomi.',
     'approach.step1.title': 'Valutazione Dettagliata',
     'approach.step1.description': 'Valutazione completa della tua condizione, schemi di movimento e limitazioni funzionali.',
     'approach.step2.title': 'Trattamento Personalizzato',
@@ -243,7 +243,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     // Approach Section
     'approach.title': 'MY APPROACH',
     'approach.heading': 'Patient-Centered Excellence',
-    'approach.intro': 'Every patient receives a comprehensive initial assessment to understand their unique condition, goals, and lifestyle. This allows me to create a truly personalized treatment plan that addresses the root cause, not just the symptoms.',
+    'approach.intro': 'Every patient receives a comprehensive, personalized initial assessment to understand their current condition, goals, and lifestyle. This allows me to create a truly personalized treatment plan that addresses the root cause, not just the symptoms.',
     'approach.step1.title': 'Detailed Assessment',
     'approach.step1.description': 'Comprehensive evaluation of your condition, movement patterns, and functional limitations.',
     'approach.step2.title': 'Customized Treatment',
