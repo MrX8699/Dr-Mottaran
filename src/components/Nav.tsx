@@ -10,6 +10,8 @@ import { getWhatsAppMessage } from "@/lib/whatsapp"
 
 type NavLink = "about" | "services" | "approach"
 
+const NAV_HEIGHT = 80 // px, matches the h-20 bar height
+
 const links: { key: NavLink; href: string; label: string }[] = [
   { key: "about", href: "/about", label: "nav.about" },
   { key: "services", href: "/services", label: "nav.services" },
@@ -18,14 +20,30 @@ const links: { key: NavLink; href: string; label: string }[] = [
 
 export function Nav({ active }: { active?: NavLink }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [navVisible, setNavVisible] = useState(true)
+  const [atTop, setAtTop] = useState(true)
+  const [hoverReveal, setHoverReveal] = useState(false)
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
+  const navVisible = atTop || hoverReveal
 
   useEffect(() => {
-    const handleScroll = () => setNavVisible(window.scrollY <= 10)
+    const handleScroll = () => setAtTop(window.scrollY <= 10)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      const inZone = e.clientY <= NAV_HEIGHT
+      setHoverReveal((prev) => (prev === inZone ? prev : inZone))
+    }
+    const handleMouseLeaveWindow = () => setHoverReveal(false)
+    window.addEventListener('mousemove', handleMouseMove, { passive: true })
+    document.documentElement.addEventListener('mouseleave', handleMouseLeaveWindow)
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove)
+      document.documentElement.removeEventListener('mouseleave', handleMouseLeaveWindow)
+    }
   }, [])
 
   const linkClass = (key: NavLink) =>
