@@ -18,11 +18,11 @@ export default function AboutPage() {
       {/* Hero Section with background image */}
       <section
         className="relative overflow-hidden pt-32 pb-12"
-        style={{ backgroundImage: "url('/images/busa_butterfly.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
+        style={{ backgroundImage: "url('/images/dorso2.png')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
       >
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/busa_butterfly.jpg"
+            src="/images/dorso2.png"
             alt="Clinic and movement background"
             fill
             className="object-cover"

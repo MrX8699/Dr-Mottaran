@@ -23,6 +23,7 @@ export default function Home() {
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
   const [heroIndex, setHeroIndex] = useState<number>(0)
+  const certifications = [1, 2, 3, 4, 5, 6, 7].map((n) => t(`about.cert.${n}`))
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -30,9 +31,6 @@ export default function Home() {
     }, 15000) // 15 seconds
     return () => clearInterval(interval)
   }, [])
-
-  const prevHero = () => setHeroIndex((i) => (i - 1 + heroImages.length) % heroImages.length)
-  const nextHero = () => setHeroIndex((i) => (i + 1) % heroImages.length)
 
   const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -85,27 +83,6 @@ export default function Home() {
             ))}
           </div>
 
-          {/* Navigation arrows */}
-          <button
-            aria-label="Previous background"
-            onClick={prevHero}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 z-30 bg-black/40 hover:bg-black/50 text-white rounded-full p-2 focus:outline-none"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-
-          <button
-            aria-label="Next background"
-            onClick={nextHero}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 z-30 bg-black/40 hover:bg-black/50 text-white rounded-full p-2 focus:outline-none"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
           {/* overlay to improve text contrast over the photo */}
           <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/35 to-transparent z-10" />
           <div className="absolute inset-0 bg-black/10 mix-blend-multiply z-10" />
@@ -113,10 +90,6 @@ export default function Home() {
 
         <div className="relative z-20 px-6 py-12 w-full max-w-7xl mx-auto">
           <div className="max-w-2xl w-full ml-0 text-left [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
-            <p className="text-sm md:text-base text-white/90 font-medium tracking-wide uppercase mb-4">
-              {t('hero.welcome')}
-            </p>
-
             <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-semibold text-white leading-[1.1] mb-4 whitespace-pre-line">
               {t('hero.name')}
             </h1>
@@ -159,9 +132,6 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
             <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">{t('about.title')}</h2>
-            <p className="text-lg text-white/85 leading-relaxed">
-              {t('about.description')}
-            </p>
           </div>
 
           <div className="grid grid-cols-3 divide-x divide-white/15 border-t border-white/15 pt-8">
@@ -169,9 +139,17 @@ export default function Home() {
               <div className="font-serif text-4xl md:text-5xl font-medium mb-2">200+</div>
               <div className="text-sm md:text-base text-white/70">{t('about.patients')}</div>
             </div>
-            <div className="text-center px-4">
-              <div className="font-serif text-4xl md:text-5xl font-medium mb-2">8</div>
+            <div className="group relative text-center px-4 cursor-default">
+              <div className="font-serif text-4xl md:text-5xl font-medium mb-2">7</div>
               <div className="text-sm md:text-base text-white/70">{t('about.certifications')}</div>
+              <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 w-64 -translate-x-1/2 rounded-lg bg-white p-4 text-left text-sm text-secondary opacity-0 shadow-xl transition-opacity duration-200 group-hover:opacity-100">
+                <ul className="space-y-1.5">
+                  {certifications.map((cert, i) => (
+                    <li key={i}>{cert}</li>
+                  ))}
+                </ul>
+                <div className="absolute left-1/2 top-full -translate-x-1/2 border-8 border-transparent border-t-white" />
+              </div>
             </div>
             <div className="text-center px-4">
               <div className="font-serif text-4xl md:text-5xl font-medium mb-2">15+</div>
@@ -199,23 +177,9 @@ export default function Home() {
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-8">
             <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{t('services.manual.title')}</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">{t('services.pain.title')}</h3>
               <p className="text-foreground/70 leading-relaxed text-sm">
-                {t('services.manual.description')}
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{t('services.movement.title')}</h3>
-              <p className="text-foreground/70 leading-relaxed text-sm">
-                {t('services.movement.description')}
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{t('services.sports.title')}</h3>
-              <p className="text-foreground/70 leading-relaxed text-sm">
-                {t('services.sports.description')}
+                {t('services.pain.description')}
               </p>
             </div>
 
@@ -227,16 +191,9 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{t('services.pain.title')}</h3>
+              <h3 className="text-lg font-semibold text-foreground mb-2">{t('services.sports.title')}</h3>
               <p className="text-foreground/70 leading-relaxed text-sm">
-                {t('services.pain.description')}
-              </p>
-            </div>
-
-            <div>
-              <h3 className="text-lg font-semibold text-foreground mb-2">{t('services.functional.title')}</h3>
-              <p className="text-foreground/70 leading-relaxed text-sm">
-                {t('services.functional.description')}
+                {t('services.sports.description')}
               </p>
             </div>
           </div>
@@ -284,7 +241,7 @@ export default function Home() {
             </div>
             <div className="relative h-96 md:h-full rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/images/servizio-valutazione-movimento.jpg"
+                src="/images/motta-cera.jpeg"
                 alt="Valutazione del movimento"
                 fill
                 className="object-cover"

@@ -148,6 +148,55 @@ export default function ServicesPage() {
               </ul>
             </Card>
 
+            {/* Pain Management */}
+            <Card className="p-6 shadow-none">
+              <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.painManagement.title')}</h3>
+              <p className="text-foreground/70 leading-relaxed mb-4 text-sm">{t('servicesPage.painManagement.description')}</p>
+              <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
+                <li>{t('servicesPage.painManagement.item1')}</li>
+                <li>{t('servicesPage.painManagement.item2')}</li>
+                <li>{t('servicesPage.painManagement.item3')}</li>
+                <li>{t('servicesPage.painManagement.item4')}</li>
+              </ul>
+            </Card>
+
+            {/* Post-Operative Rehabilitation */}
+            <Card className="p-6 shadow-none">
+              <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.postOpRehab.title')}</h3>
+              <p className="text-foreground/70 leading-relaxed mb-4 text-sm">{t('servicesPage.postOpRehab.description')}</p>
+              <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
+                <li>{t('servicesPage.postOpRehab.item1')}</li>
+                <li>{t('servicesPage.postOpRehab.item2')}</li>
+                <li>{t('servicesPage.postOpRehab.item3')}</li>
+                <li>{t('servicesPage.postOpRehab.item4')}</li>
+              </ul>
+            </Card>
+
+            {/* Sports Rehabilitation */}
+            <Card className="p-6 shadow-none">
+              <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.sportsRehab.title')}</h3>
+              <p className="text-foreground/70 leading-relaxed mb-4 text-sm">{t('servicesPage.sportsRehab.description')}</p>
+              <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
+                <li>{t('servicesPage.sportsRehab.item1')}</li>
+                <li>{t('servicesPage.sportsRehab.item2')}</li>
+                <li>{t('servicesPage.sportsRehab.item3')}</li>
+                <li>{t('servicesPage.sportsRehab.item4')}</li>
+              </ul>
+            </Card>
+
+            {/* Electro-Medical Equipment */}
+            <Card className="p-6 shadow-none">
+              <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.equipment.title')}</h3>
+              <p className="text-foreground/70 leading-relaxed mb-4 text-sm">{t('servicesPage.equipment.description')}</p>
+              <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
+                <li>{t('servicesPage.equipment.item1')}</li>
+                <li>{t('servicesPage.equipment.item2')}</li>
+                <li>{t('servicesPage.equipment.item3')}</li>
+                <li>{t('servicesPage.equipment.item4')}</li>
+                <li>{t('servicesPage.equipment.item5')}</li>
+              </ul>
+            </Card>
+
           </div>
         </div>
       </section>
@@ -163,10 +212,10 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/servizio-terapia-manuale.jpg"
+                src="/images/manuale.png"
                 alt={t('servicesPage.gallery.manual')}
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover object-[50%_75%] transition-transform duration-500 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
@@ -177,7 +226,7 @@ export default function ServicesPage() {
 
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/servizio-riabilitazione.jpg"
+                src="/images/lata-masi.png"
                 alt={t('servicesPage.gallery.rehab')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -191,7 +240,7 @@ export default function ServicesPage() {
 
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/motta studio.jpg"
+                src="/images/movimento.png"
                 alt={t('servicesPage.gallery.assessment')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
