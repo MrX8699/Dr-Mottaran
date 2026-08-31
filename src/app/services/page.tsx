@@ -1,5 +1,6 @@
 'use client'
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from 'next/image'
 import { Card } from "@/components/ui/card"
@@ -9,9 +10,23 @@ import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
 import { withBasePath } from "@/lib/basePath"
 
+const manualTherapyImages = [
+  { src: withBasePath("/images/manuale.png"), position: "object-[50%_75%]" },
+  { src: withBasePath("/images/motta-trattamento.jpeg"), position: "object-[50%_38%]" },
+]
+
 export default function ServicesPage() {
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
+
+  const [activeManualImage, setActiveManualImage] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveManualImage((prev) => (prev + 1) % manualTherapyImages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="min-h-screen">
@@ -212,12 +227,17 @@ export default function ServicesPage() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
-              <Image
-                src={withBasePath("/images/manuale.png")}
-                alt={t('servicesPage.gallery.manual')}
-                fill
-                className="object-cover object-[50%_75%] transition-transform duration-500 group-hover:scale-105"
-              />
+              {manualTherapyImages.map(({ src, position }, index) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt={t('servicesPage.gallery.manual')}
+                  fill
+                  className={`object-cover ${position} transition-all duration-1000 ease-in-out group-hover:scale-105 ${
+                    index === activeManualImage ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-6">
                 <h3 className="text-white font-bold text-xl">{t('servicesPage.gallery.manual')}</h3>

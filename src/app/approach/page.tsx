@@ -9,7 +9,11 @@ import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
 import { withBasePath } from "@/lib/basePath"
 
-const approachImages = [withBasePath("/images/Calia_Derapata.jpg"), withBasePath("/images/Cera Medaglia.webp")]
+const approachImages = [
+  withBasePath("/images/motta-pit-walk.jpeg"),
+  withBasePath("/images/motta-cinque-cera.jpeg"),
+  withBasePath("/images/motta-haga.jpeg"),
+]
 
 export default function ApproachPage() {
   const { language } = useLanguage()
