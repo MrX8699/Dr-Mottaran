@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/contexts/LanguageContext"
@@ -7,9 +8,20 @@ import { getTranslation } from "@/lib/translations"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
 
+const approachImages = ["/images/Calia_Derapata.jpg", "/images/Cera Medaglia.webp"]
+
 export default function ApproachPage() {
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
+
+  const [activeImage, setActiveImage] = useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImage((prev) => (prev + 1) % approachImages.length)
+    }, 3000)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="min-h-screen">
@@ -77,7 +89,17 @@ export default function ApproachPage() {
             </div>
 
             <div className="relative h-72 md:h-96 rounded-lg overflow-hidden shadow-md">
-              <Image src="/images/Cera Medaglia.webp" alt="Approach image" fill className="object-cover" />
+              {approachImages.map((src, index) => (
+                <Image
+                  key={src}
+                  src={src}
+                  alt="Approach image"
+                  fill
+                  className={`object-cover transition-opacity duration-1000 ease-in-out ${
+                    index === activeImage ? "opacity-100" : "opacity-0"
+                  }`}
+                />
+              ))}
             </div>
           </div>
 
