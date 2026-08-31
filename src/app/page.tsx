@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, type FormEvent } from "react"
+import { useState, useEffect, useRef, type FormEvent } from "react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
@@ -23,6 +23,8 @@ export default function Home() {
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
   const [heroIndex, setHeroIndex] = useState<number>(0)
+  const [showPhoneNumber, setShowPhoneNumber] = useState(false)
+  const callButtonRef = useRef<HTMLAnchorElement>(null)
   const certifications = [1, 2, 3, 4, 5, 6, 7].map((n) => t(`about.cert.${n}`))
 
   useEffect(() => {
@@ -31,6 +33,23 @@ export default function Home() {
     }, 15000) // 15 seconds
     return () => clearInterval(interval)
   }, [])
+
+  useEffect(() => {
+    if (!showPhoneNumber) return
+    const button = callButtonRef.current
+    if (!button) return
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) {
+          setShowPhoneNumber(false)
+        }
+      },
+      { threshold: 0 }
+    )
+    observer.observe(button)
+    return () => observer.disconnect()
+  }, [showPhoneNumber])
 
   const handleContactSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -114,13 +133,21 @@ export default function Home() {
               </a>
 
               <a
+                ref={callButtonRef}
                 href="tel:+393661459269"
+                onClick={(e) => {
+                  const isMobile = window.matchMedia('(pointer: coarse)').matches
+                  if (!isMobile) {
+                    e.preventDefault()
+                    setShowPhoneNumber(true)
+                  }
+                }}
                 className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-md text-base font-medium text-white border border-white/60 hover:bg-white/10 transition-colors"
               >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                {t('hero.call')}
+                {showPhoneNumber ? '+39 366 145 9269' : t('hero.call')}
               </a>
             </div>
           </div>

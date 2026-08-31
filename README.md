@@ -3,6 +3,11 @@
 
 Sito web di Dr. Luca Mottaran, Fisioterapista e Chinesiologo.
 
+> Mani che ascoltano, corpo che risponde,
+> ogni passo un ritorno al movimento.
+> Non forza, ma cura; non fretta, ma metodo,
+> la strada verso te stesso, un gesto alla volta.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
