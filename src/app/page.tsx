@@ -12,11 +12,12 @@ import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
 import Link from "next/link"
 import Image from 'next/image'
+import { withBasePath } from "@/lib/basePath"
 
 // Hero images rotation (public/ folder)
 const heroImages = [
-  '/images/fisioterapia stretching.webp',
-  '/images/terapia_rullo.jpg'
+  withBasePath('/images/fisioterapia stretching.webp'),
+  withBasePath('/images/terapia_rullo.jpg')
 ]
 
 export default function Home() {
@@ -80,7 +81,7 @@ export default function Home() {
       {/* Hero Section */}
       <section
         className="relative h-screen flex items-center justify-start overflow-hidden"
-        style={{ backgroundImage: "url('/images/Calia_Piega.webp')", backgroundSize: 'cover', backgroundPosition: 'center' }}
+        style={{ backgroundImage: `url('${withBasePath('/images/Calia_Piega.webp')}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         {/* Background image using next/image for responsive loading */}
         <div className="absolute inset-0 z-0">
@@ -268,7 +269,7 @@ export default function Home() {
             </div>
             <div className="relative h-96 md:h-full rounded-lg overflow-hidden shadow-lg">
               <Image
-                src="/images/motta-cera.jpeg"
+                src={withBasePath("/images/motta-cera.jpeg")}
                 alt="Valutazione del movimento"
                 fill
                 className="object-cover"

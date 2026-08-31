@@ -7,8 +7,9 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
+import { withBasePath } from "@/lib/basePath"
 
-const approachImages = ["/images/Calia_Derapata.jpg", "/images/Cera Medaglia.webp"]
+const approachImages = [withBasePath("/images/Calia_Derapata.jpg"), withBasePath("/images/Cera Medaglia.webp")]
 
 export default function ApproachPage() {
   const { language } = useLanguage()
@@ -30,10 +31,10 @@ export default function ApproachPage() {
       {/* Hero */}
       <section
         className="relative overflow-hidden pt-32 pb-12"
-        style={{ backgroundImage: "url('/images/Fieda Nuoto.jpg')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
+        style={{ backgroundImage: `url('${withBasePath('/images/Fieda Nuoto.jpg')}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
       >
         <div className="absolute inset-0 z-0">
-          <Image src="/images/Fieda Nuoto.jpg" alt="Approach background" fill className="object-cover" priority />
+          <Image src={withBasePath("/images/Fieda Nuoto.jpg")} alt="Approach background" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
 

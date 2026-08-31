@@ -6,6 +6,7 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
+import { withBasePath } from "@/lib/basePath"
 
 export default function AboutPage() {
   const { language } = useLanguage()
@@ -18,11 +19,11 @@ export default function AboutPage() {
       {/* Hero Section with background image */}
       <section
         className="relative overflow-hidden pt-32 pb-12"
-        style={{ backgroundImage: "url('/images/dorso2.png')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
+        style={{ backgroundImage: `url('${withBasePath('/images/dorso2.png')}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
       >
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/dorso2.png"
+            src={withBasePath("/images/dorso2.png")}
             alt="Clinic and movement background"
             fill
             className="object-cover"
@@ -59,7 +60,7 @@ export default function AboutPage() {
             <div className="relative">
               <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-md">
                 <Image
-                  src="/images/motta-chi-sono.JPG"
+                  src={withBasePath("/images/motta-chi-sono.JPG")}
                   alt="Luca Mottaran"
                   fill
                   className="object-cover"
@@ -144,7 +145,7 @@ export default function AboutPage() {
             {/* Photo 1 - Le Mans / Motorsport */}
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/Calia_Derapata.jpg"
+                src={withBasePath("/images/Calia_Derapata.jpg")}
                 alt={t('aboutPage.collaborations.lemans')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -159,7 +160,7 @@ export default function AboutPage() {
             {/* Photo 2 - Swimming / Imola Nuoto */}
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/Poggio Podio.jpeg"
+                src={withBasePath("/images/Poggio Podio.jpeg")}
                 alt={t('aboutPage.collaborations.swimming')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -174,7 +175,7 @@ export default function AboutPage() {
             {/* Photo 3 - Swim team podium */}
             <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/Busa_Podio.webp"
+                src={withBasePath("/images/Busa_Podio.webp")}
                 alt={t('aboutPage.collaborations.swimteam')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"

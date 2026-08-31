@@ -13,6 +13,12 @@ const nextConfig = {
   outputFileTracingRoot: __dirname,
   allowedDevOrigins: ["*.preview.same-app.com"],
   poweredByHeader: false,
+  // Exposed to client code (src/lib/basePath.ts) so hardcoded "/images/…"
+  // paths — which next/image does NOT auto-prefix when unoptimized — can be
+  // built with the right prefix for GitHub Pages project-page subpaths.
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubPages ? `/${repoName}` : "",
+  },
   ...(isGithubPages && {
     output: "export",
     basePath: `/${repoName}`,

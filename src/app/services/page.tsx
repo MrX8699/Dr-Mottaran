@@ -7,6 +7,7 @@ import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
+import { withBasePath } from "@/lib/basePath"
 
 export default function ServicesPage() {
   const { language } = useLanguage()
@@ -19,10 +20,10 @@ export default function ServicesPage() {
       {/* Hero Section */}
       <section
         className="relative overflow-hidden pt-32 pb-12"
-        style={{ backgroundImage: "url('/images/Calia_Piega.webp')", backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '34vh' }}
+        style={{ backgroundImage: `url('${withBasePath('/images/Calia_Piega.webp')}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '34vh' }}
       >
         <div className="absolute inset-0 z-0">
-          <Image src="/images/Calia_Piega.webp" alt="Services background - Calia Piega" fill className="object-cover" priority />
+          <Image src={withBasePath("/images/Calia_Piega.webp")} alt="Services background - Calia Piega" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
         <div className="relative z-20">
@@ -212,7 +213,7 @@ export default function ServicesPage() {
           <div className="grid md:grid-cols-3 gap-8">
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/manuale.png"
+                src={withBasePath("/images/manuale.png")}
                 alt={t('servicesPage.gallery.manual')}
                 fill
                 className="object-cover object-[50%_75%] transition-transform duration-500 group-hover:scale-105"
@@ -226,7 +227,7 @@ export default function ServicesPage() {
 
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/lata-masi.png"
+                src={withBasePath("/images/lata-masi.png")}
                 alt={t('servicesPage.gallery.rehab')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -240,7 +241,7 @@ export default function ServicesPage() {
 
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src="/images/movimento.png"
+                src={withBasePath("/images/movimento.png")}
                 alt={t('servicesPage.gallery.assessment')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
