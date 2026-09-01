@@ -52,13 +52,14 @@ GitHub Pages only serves static files, so the site is built with `next build` in
 **One-time setup (in the GitHub repo, on github.com):**
 
 1. Go to **Settings → Pages** and set **Source** to **GitHub Actions**.
-2. If you have a custom domain, add it under **Settings → Pages → Custom domain** (this also creates the `CNAME` file for you) and set your DNS records to point at GitHub Pages.
+2. If you have a custom domain, add it under **Settings → Pages → Custom domain** and set your DNS records to point at GitHub Pages.
+   - Note: unlike the "Deploy from a branch" source, the **GitHub Actions** source does **not** auto-create a `CNAME` file for you — the file has to be part of the build artifact itself. That's why one lives at `public/CNAME` in this repo (Next copies everything in `public/` into the exported `out/` folder, which is what the workflow publishes). If the domain ever changes, edit `public/CNAME` — don't rely on the Settings UI alone.
 
 **How the build works:**
 
 - `.github/workflows/deploy-gh-pages.yml` builds and publishes the site automatically on every push to `main`.
-- The workflow sets `GITHUB_PAGES=true`, which makes `next.config.js` switch to `output: "export"` and prefix all paths with `/Dr-Mottaran` (the repo name) via `basePath`/`assetPrefix`. This subpath is only needed for the default `https://<user>.github.io/<repo>/` URL.
-- **If you use a custom domain**, the site is served from the domain root, so the `/Dr-Mottaran` subpath is wrong. Open `next.config.js` and remove the `basePath`/`assetPrefix` lines (or set `repoName = ""`) before that build.
+- The workflow sets `GITHUB_PAGES=true`, which makes `next.config.js` switch to `output: "export"`.
+- The site is currently served from the custom domain root (`https://whodriving.com/`), so `next.config.js` has `repoName = ""` and adds no `basePath`/`assetPrefix`. That prefix is only needed for the default `https://<user>.github.io/<repo>/` project-page URL — if the custom domain is ever removed, set `repoName` back to the repo name (e.g. `"Dr-Mottaran"`) and delete `public/CNAME`.
 - The security headers (`Content-Security-Policy`, `Strict-Transport-Security`, etc.) in `next.config.js` only apply on server-based hosts like Netlify/Vercel — GitHub Pages cannot send custom HTTP headers, so they're skipped in the static export build.
 
 **Manual deploy (no GitHub Actions):**

@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
 
 // GitHub Pages serves static files only (no Node server), so a build for it
-// needs `output: "export"` plus a `basePath`/`assetPrefix` matching the repo
-// name (project pages are served from a /<repo> subpath). GitHub Pages also
-// can't send custom HTTP headers, so the security headers below only apply
-// on hosts that run the Next server (Netlify/Vercel) — see README for the
-// GitHub Pages deployment notes.
+// needs `output: "export"`. GitHub Pages also can't send custom HTTP
+// headers, so the security headers below only apply on hosts that run the
+// Next server (Netlify/Vercel) — see README for the GitHub Pages deployment
+// notes.
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-const repoName = "Dr-Mottaran";
+// The site is served from the custom domain root (https://whodriving.com/,
+// see public/CNAME), not the default GitHub Pages project-page subpath
+// (https://<user>.github.io/<repo>/). Leave this empty while that's true —
+// a non-empty value here adds a "/<repoName>" prefix to every asset path,
+// which 404s at the domain root. Set it back to "Dr-Mottaran" only if the
+// custom domain is ever removed and the site reverts to the project-page URL.
+const repoName = "";
 
 const nextConfig = {
   outputFileTracingRoot: __dirname,
@@ -17,13 +22,15 @@ const nextConfig = {
   // paths — which next/image does NOT auto-prefix when unoptimized — can be
   // built with the right prefix for GitHub Pages project-page subpaths.
   env: {
-    NEXT_PUBLIC_BASE_PATH: isGithubPages ? `/${repoName}` : "",
+    NEXT_PUBLIC_BASE_PATH: isGithubPages && repoName ? `/${repoName}` : "",
   },
   ...(isGithubPages && {
     output: "export",
-    basePath: `/${repoName}`,
-    assetPrefix: `/${repoName}/`,
     trailingSlash: true,
+    ...(repoName && {
+      basePath: `/${repoName}`,
+      assetPrefix: `/${repoName}/`,
+    }),
   }),
   images: {
     unoptimized: true,
