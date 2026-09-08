@@ -22,25 +22,17 @@ export function Nav({ active }: { active?: NavLink }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [atTop, setAtTop] = useState(true)
   const [hoverReveal, setHoverReveal] = useState(false)
-  const [isMobile, setIsMobile] = useState(false)
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
-  // On mobile there's no mouse to trigger hoverReveal, so keep the nav
-  // always visible there instead of hiding it on scroll.
-  const navVisible = atTop || hoverReveal || isMobile
+  // Keep the bar visible while the mobile dropdown is open so its links
+  // don't vanish mid-tap; otherwise it hides on scroll like on desktop,
+  // leaving just the floating "Prenota Appuntamento" button reachable.
+  const navVisible = atTop || hoverReveal || mobileMenuOpen
 
   useEffect(() => {
     const handleScroll = () => setAtTop(window.scrollY <= 10)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 767px)')
-    const handleChange = () => setIsMobile(mediaQuery.matches)
-    handleChange()
-    mediaQuery.addEventListener('change', handleChange)
-    return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
   useEffect(() => {
