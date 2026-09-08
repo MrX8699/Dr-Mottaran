@@ -10,7 +10,6 @@ import { Footer } from "@/components/Footer"
 import { withBasePath } from "@/lib/basePath"
 
 const approachImages = [
-  withBasePath("/images/motta-pit-walk.jpeg"),
   withBasePath("/images/motta-cinque-cera.jpeg"),
   withBasePath("/images/motta-haga.jpeg"),
 ]
@@ -24,7 +23,7 @@ export default function ApproachPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveImage((prev) => (prev + 1) % approachImages.length)
-    }, 3000)
+    }, 6000)
     return () => clearInterval(interval)
   }, [])
 

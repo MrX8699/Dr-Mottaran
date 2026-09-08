@@ -22,14 +22,25 @@ export function Nav({ active }: { active?: NavLink }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [atTop, setAtTop] = useState(true)
   const [hoverReveal, setHoverReveal] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
-  const navVisible = atTop || hoverReveal
+  // On mobile there's no mouse to trigger hoverReveal, so keep the nav
+  // always visible there instead of hiding it on scroll.
+  const navVisible = atTop || hoverReveal || isMobile
 
   useEffect(() => {
     const handleScroll = () => setAtTop(window.scrollY <= 10)
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 767px)')
+    const handleChange = () => setIsMobile(mediaQuery.matches)
+    handleChange()
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
   }, [])
 
   useEffect(() => {
@@ -60,7 +71,7 @@ export function Nav({ active }: { active?: NavLink }) {
           navVisible ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="flex justify-between items-center h-20">
             <Link href="/" className="flex items-center">
               <h1 className="font-serif text-2xl font-medium text-primary">Dr. Luca Mottaran</h1>

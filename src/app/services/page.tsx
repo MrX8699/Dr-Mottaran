@@ -24,7 +24,7 @@ export default function ServicesPage() {
   useEffect(() => {
     const interval = setInterval(() => {
       setActiveManualImage((prev) => (prev + 1) % manualTherapyImages.length)
-    }, 3000)
+    }, 6000)
     return () => clearInterval(interval)
   }, [])
 

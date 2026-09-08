@@ -168,15 +168,17 @@ export default function Home() {
               <div className="text-sm md:text-base text-white/70">{t('about.patients')}</div>
             </div>
             <div className="group relative text-center px-4 cursor-default">
-              <div className="font-serif text-4xl md:text-5xl font-medium mb-2">7</div>
+              <div className="font-serif text-4xl md:text-5xl font-medium mb-2">{certifications.length}</div>
               <div className="text-sm md:text-base text-white/70">{t('about.certifications')}</div>
-              <div className="pointer-events-none absolute bottom-full left-1/2 z-30 mb-3 w-64 -translate-x-1/2 rounded-lg bg-white p-4 text-left text-sm text-secondary opacity-0 shadow-xl transition-opacity duration-200 group-hover:opacity-100">
-                <ul className="space-y-1.5">
-                  {certifications.map((cert, i) => (
-                    <li key={i}>{cert}</li>
-                  ))}
-                </ul>
-                <div className="absolute left-1/2 top-full -translate-x-1/2 border-8 border-transparent border-t-white" />
+              <div className="pointer-events-none absolute bottom-full left-1/2 z-30 w-64 -translate-x-1/2 pb-3 opacity-0 transition-opacity duration-200 group-hover:pointer-events-auto group-hover:opacity-100">
+                <div className="relative rounded-lg bg-white p-4 text-left text-sm text-secondary shadow-xl">
+                  <ul className="space-y-1.5">
+                    {certifications.map((cert, i) => (
+                      <li key={i}>{cert}</li>
+                    ))}
+                  </ul>
+                  <div className="absolute left-1/2 top-full -translate-x-1/2 border-8 border-transparent border-t-white" />
+                </div>
               </div>
             </div>
             <div className="text-center px-4">
