@@ -63,8 +63,6 @@ export default function ServicesPage() {
               <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
                 <li>{t('servicesPage.orthopedic.item1')}</li>
                 <li>{t('servicesPage.orthopedic.item2')}</li>
-                <li>{t('servicesPage.orthopedic.item3')}</li>
-                <li>{t('servicesPage.orthopedic.item4')}</li>
               </ul>
             </Card>
 
@@ -116,18 +114,6 @@ export default function ServicesPage() {
               </ul>
             </Card>
 
-            {/* Personal Training */}
-            <Card className="p-6 shadow-none">
-              <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.training.title')}</h3>
-              <p className="text-foreground/70 leading-relaxed mb-4 text-sm">{t('servicesPage.training.description')}</p>
-              <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
-                <li>{t('servicesPage.training.item1')}</li>
-                <li>{t('servicesPage.training.item2')}</li>
-                <li>{t('servicesPage.training.item3')}</li>
-                <li>{t('servicesPage.training.item4')}</li>
-              </ul>
-            </Card>
-
             {/* Injury Prevention */}
             <Card className="p-6 shadow-none">
               <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.prevention.title')}</h3>
@@ -137,18 +123,6 @@ export default function ServicesPage() {
                 <li>{t('servicesPage.prevention.item2')}</li>
                 <li>{t('servicesPage.prevention.item3')}</li>
                 <li>{t('servicesPage.prevention.item4')}</li>
-              </ul>
-            </Card>
-
-            {/* Recovery Pathways */}
-            <Card className="p-6 shadow-none">
-              <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.recovery.title')}</h3>
-              <p className="text-foreground/70 leading-relaxed mb-4 text-sm">{t('servicesPage.recovery.description')}</p>
-              <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
-                <li>{t('servicesPage.recovery.item1')}</li>
-                <li>{t('servicesPage.recovery.item2')}</li>
-                <li>{t('servicesPage.recovery.item3')}</li>
-                <li>{t('servicesPage.recovery.item4')}</li>
               </ul>
             </Card>
 
@@ -173,30 +147,6 @@ export default function ServicesPage() {
                 <li>{t('servicesPage.painManagement.item2')}</li>
                 <li>{t('servicesPage.painManagement.item3')}</li>
                 <li>{t('servicesPage.painManagement.item4')}</li>
-              </ul>
-            </Card>
-
-            {/* Post-Operative Rehabilitation */}
-            <Card className="p-6 shadow-none">
-              <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.postOpRehab.title')}</h3>
-              <p className="text-foreground/70 leading-relaxed mb-4 text-sm">{t('servicesPage.postOpRehab.description')}</p>
-              <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
-                <li>{t('servicesPage.postOpRehab.item1')}</li>
-                <li>{t('servicesPage.postOpRehab.item2')}</li>
-                <li>{t('servicesPage.postOpRehab.item3')}</li>
-                <li>{t('servicesPage.postOpRehab.item4')}</li>
-              </ul>
-            </Card>
-
-            {/* Sports Rehabilitation */}
-            <Card className="p-6 shadow-none">
-              <h3 className="text-xl font-semibold text-foreground mb-3">{t('servicesPage.sportsRehab.title')}</h3>
-              <p className="text-foreground/70 leading-relaxed mb-4 text-sm">{t('servicesPage.sportsRehab.description')}</p>
-              <ul className="space-y-1.5 text-sm text-foreground/60 list-disc list-inside marker:text-primary/40">
-                <li>{t('servicesPage.sportsRehab.item1')}</li>
-                <li>{t('servicesPage.sportsRehab.item2')}</li>
-                <li>{t('servicesPage.sportsRehab.item3')}</li>
-                <li>{t('servicesPage.sportsRehab.item4')}</li>
               </ul>
             </Card>
 
