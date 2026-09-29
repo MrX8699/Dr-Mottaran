@@ -7,6 +7,7 @@ import { getTranslation } from "@/lib/translations"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
 import { withBasePath } from "@/lib/basePath"
+import { whatsappUrl } from "@/lib/whatsapp"
 
 export function AboutContent() {
   const { language } = useLanguage()
@@ -197,7 +198,7 @@ export function AboutContent() {
           <p className="text-lg text-foreground/75 mb-8">{t('aboutPage.cta.subtitle')}</p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
-              href="https://wa.me/393661459269"
+              href={whatsappUrl()}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center justify-center gap-3 bg-[#25D366] hover:brightness-95 text-white px-8 py-3 rounded-md font-medium transition-colors"

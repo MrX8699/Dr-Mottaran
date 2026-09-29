@@ -7,7 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
-import { getWhatsAppMessage } from "@/lib/whatsapp"
+import { getWhatsAppMessage, whatsappUrl } from "@/lib/whatsapp"
+import { site, formatAddress, mapsUrl } from "@/lib/site"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
 import Link from "next/link"
@@ -69,8 +70,7 @@ export function HomeContent() {
       message,
     ].filter((line): line is string => line !== null).join('\n')
 
-    const whatsappUrl = `https://wa.me/393661459269?text=${encodeURIComponent(lines)}`
-    window.open(whatsappUrl, '_blank', 'noopener,noreferrer')
+    window.open(whatsappUrl(lines), '_blank', 'noopener,noreferrer')
     form.reset()
   }
 
@@ -122,7 +122,7 @@ export function HomeContent() {
 
             <div className="flex flex-col sm:flex-row items-start gap-3">
               <a
-                href={`https://wa.me/393661459269?text=${encodeURIComponent(getWhatsAppMessage(t))}`}
+                href={whatsappUrl(getWhatsAppMessage(t))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center justify-center gap-3 px-6 py-3 rounded-md text-base font-medium text-white bg-[#25D366] shadow-sm hover:brightness-95 transition-colors"
@@ -135,7 +135,7 @@ export function HomeContent() {
 
               <a
                 ref={callButtonRef}
-                href="tel:+393661459269"
+                href={`tel:${site.phone}`}
                 onClick={(e) => {
                   const isMobile = window.matchMedia('(pointer: coarse)').matches
                   if (!isMobile) {
@@ -148,7 +148,7 @@ export function HomeContent() {
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                 </svg>
-                {showPhoneNumber ? '+39 366 145 9269' : t('hero.call')}
+                {showPhoneNumber ? site.phoneDisplay : t('hero.call')}
               </a>
             </div>
           </div>
@@ -311,7 +311,7 @@ export function HomeContent() {
                 <label htmlFor="phone" className="block text-sm font-medium text-foreground mb-2">
                   {t('contact.phone')}
                 </label>
-                <Input id="phone" name="phone" type="tel" placeholder="+39 366 145 9269" />
+                <Input id="phone" name="phone" type="tel"/>
               </div>
               <div>
                 <label htmlFor="message" className="block text-sm font-medium text-foreground mb-2">
@@ -331,7 +331,7 @@ export function HomeContent() {
             </form>
           </Card>
 
-          <div className="mt-10 grid md:grid-cols-3 gap-8 text-center">
+          <div className="mt-10 grid md:grid-cols-2 gap-8 text-center">
             <div>
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -339,7 +339,7 @@ export function HomeContent() {
                 </svg>
               </div>
               <h3 className="font-semibold text-foreground mb-2">{t('contact.phone.label')}</h3>
-              <a href="tel:+393661459269" className="text-foreground/70 hover:text-primary transition-colors">+39 366 145 9269</a>
+              <a href={`tel:${site.phone}`} className="text-foreground/70 hover:text-primary transition-colors">{site.phoneDisplay}</a>
             </div>
             <div>
               <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -348,35 +348,35 @@ export function HomeContent() {
                 </svg>
               </div>
               <h3 className="font-semibold text-foreground mb-2">{t('contact.email.label')}</h3>
-              <a href="mailto:lucamottaran99@gmail.com" className="text-foreground/70 hover:text-primary transition-colors">lucamottaran99@gmail.com</a>
+              <a href={`mailto:${site.email}`} className="text-foreground/70 hover:text-primary transition-colors">{site.email}</a>
             </div>
-            <div>
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                </svg>
-              </div>
-              <h3 className="font-semibold text-foreground mb-2">{t('contact.location.label')}</h3>
-              <p className="text-foreground/70">
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Imola%2C+Italia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  Imola
-                </a>
-                {', '}
-                <a
-                  href="https://www.google.com/maps/search/?api=1&query=Gambulaga%2C+Italia"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                >
-                  Gambulaga
-                </a>
-              </p>
+          </div>
+
+          {/* Locations */}
+          <div className="mt-12">
+            <h3 className="font-serif text-2xl md:text-3xl font-medium text-foreground text-center mb-2">{t('contact.locations.title')}</h3>
+            <p className="text-center text-foreground/75 mb-6">{t('contact.hours')}</p>
+            <div className="grid md:grid-cols-2 gap-6">
+              {site.locations.map((location) => (
+                <Card key={location.id} className="p-6 shadow-none text-center">
+                  <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                  </div>
+                  <h4 className="font-semibold text-foreground mb-2">{location.label}</h4>
+                  <address className="not-italic text-foreground/70 mb-3">{formatAddress(location)}</address>
+                  <a
+                    href={mapsUrl(location)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-primary hover:text-primary/80 font-medium transition-colors"
+                  >
+                    {t('contact.locations.directions')}
+                  </a>
+                </Card>
+              ))}
             </div>
           </div>
         </div>

@@ -20,6 +20,7 @@ export const site = {
   locations: [
     {
       id: "imola",
+      label: "Imola",
       streetAddress: "Via Banfi 42",
       postalCode: "40026",
       locality: "Imola",
@@ -28,6 +29,7 @@ export const site = {
     },
     {
       id: "portomaggiore",
+      label: "Gambulaga, Portomaggiore",
       streetAddress: "Via Gambulaga Masi 104",
       postalCode: "44015",
       locality: "Portomaggiore",
@@ -38,3 +40,16 @@ export const site = {
   // Every day, by appointment only.
   hours: { opens: "08:00", closes: "18:00" },
 } as const
+
+export type Location = (typeof site.locations)[number]
+
+// "Via Banfi 42, 40026 Imola (BO)"
+export function formatAddress(location: Location) {
+  return `${location.streetAddress}, ${location.postalCode} ${location.locality} (${location.region})`
+}
+
+// Points at the exact street address rather than just the town.
+export function mapsUrl(location: Location) {
+  const query = `${location.streetAddress}, ${location.postalCode} ${location.locality} ${location.region}, Italia`
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`
+}

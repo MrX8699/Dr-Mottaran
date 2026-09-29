@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { LanguageSwitcher } from "@/components/LanguageSwitcher"
-import { getWhatsAppMessage } from "@/lib/whatsapp"
+import { getWhatsAppMessage, whatsappUrl } from "@/lib/whatsapp"
 
 type NavLink = "about" | "services" | "approach"
 
@@ -54,7 +54,7 @@ export function Nav({ active }: { active?: NavLink }) {
       ? "text-primary font-semibold"
       : "text-foreground hover:text-primary transition-colors"
 
-  const whatsappHref = `https://wa.me/393661459269?text=${encodeURIComponent(getWhatsAppMessage(t))}`
+  const whatsappHref = whatsappUrl(getWhatsAppMessage(t))
 
   return (
     <>

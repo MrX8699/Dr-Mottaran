@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
+import { site, formatAddress, mapsUrl } from "@/lib/site"
 
 export function Footer() {
   const { language } = useLanguage()
@@ -11,7 +12,7 @@ export function Footer() {
   return (
     <footer className="bg-secondary text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <h3 className="font-serif text-2xl font-medium mb-4">Dr. Luca Mottaran</h3>
             <p className="text-white/80">
@@ -26,6 +27,22 @@ export function Footer() {
               <li><Link href="/approach" className="text-white/80 hover:text-white transition-colors">{t('nav.approach')}</Link></li>
               <li><a href="#contact" className="text-white/80 hover:text-white transition-colors">{t('nav.contact')}</a></li>
             </ul>
+          </div>
+          <div>
+            <h4 className="text-lg font-semibold mb-4">{t('footer.contact')}</h4>
+            <address className="not-italic space-y-3 text-white/80">
+              {site.locations.map((location) => (
+                <p key={location.id}>
+                  <a href={mapsUrl(location)} target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+                    {formatAddress(location)}
+                  </a>
+                </p>
+              ))}
+              <p>
+                <a href={`tel:${site.phone}`} className="hover:text-white transition-colors">{site.phoneDisplay}</a>
+              </p>
+              <p>{t('contact.hours')}</p>
+            </address>
           </div>
           <div>
             <h4 className="text-lg font-semibold mb-4">{t('footer.connect')}</h4>

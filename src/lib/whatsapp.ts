@@ -1,14 +1,23 @@
+import { site } from "@/lib/site"
+
+const toMinutes = (hhmm: string) => {
+  const [h, m] = hhmm.split(":").map(Number)
+  return h * 60 + m
+}
+
 export function getWhatsAppMessage(t: (key: string) => string) {
   const now = new Date()
   const minutesSinceMidnight = now.getHours() * 60 + now.getMinutes()
-  const day = now.getDay() // 0 = Sunday, 6 = Saturday
 
-  // Clinic hours: Monday-Friday 8:30-19:30, Saturday 9:00-12:00
-  const isWeekday = day >= 1 && day <= 5
-  const isSaturday = day === 6
+  // Available every day within site.hours, by appointment only
   const isOpen =
-    (isWeekday && minutesSinceMidnight >= 8 * 60 + 30 && minutesSinceMidnight < 19 * 60 + 30) ||
-    (isSaturday && minutesSinceMidnight >= 9 * 60 && minutesSinceMidnight < 12 * 60)
+    minutesSinceMidnight >= toMinutes(site.hours.opens) &&
+    minutesSinceMidnight < toMinutes(site.hours.closes)
 
   return isOpen ? t('whatsapp.open') : t('whatsapp.closed')
+}
+
+export function whatsappUrl(text?: string) {
+  const base = `https://wa.me/${site.phone.replace(/\D/g, "")}`
+  return text ? `${base}?text=${encodeURIComponent(text)}` : base
 }

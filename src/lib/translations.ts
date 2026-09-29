@@ -67,11 +67,14 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'contact.send': 'Invia Messaggio',
     'contact.phone.label': 'Telefono',
     'contact.email.label': 'Email',
-    'contact.location.label': 'Posizione',
+    'contact.locations.title': 'Dove ricevo',
+    'contact.locations.directions': 'Apri in Google Maps',
+    'contact.hours': 'Tutti i giorni dalle 8:00 alle 18:00, solo su appuntamento.',
 
     // Footer
-    'footer.description': 'Fisioterapista e Chinesiologo a Imola. Seguo atleti, persone in fase di recupero da un infortunio e pazienti di ogni età.',
+    'footer.description': 'Fisioterapista e Chinesiologo a Imola e Portomaggiore. Seguo atleti, persone in fase di recupero da un infortunio e pazienti di ogni età.',
     'footer.quickLinks': 'Link Rapidi',
+    'footer.contact': 'Contatti',
     'footer.connect': 'Connettiti',
     'footer.copyright': 'Dr. Luca Mottaran. Tutti i diritti riservati.',
 
@@ -260,11 +263,14 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'contact.send': 'Send Message',
     'contact.phone.label': 'Phone',
     'contact.email.label': 'Email',
-    'contact.location.label': 'Location',
+    'contact.locations.title': 'Where to find me',
+    'contact.locations.directions': 'Open in Google Maps',
+    'contact.hours': 'Every day from 8:00 to 18:00, by appointment only.',
 
     // Footer
-    'footer.description': 'Physiotherapist and Kinesiologist in Imola. I work with athletes, people recovering from an injury, and patients of every age.',
+    'footer.description': 'Physiotherapist and Kinesiologist in Imola and Portomaggiore. I work with athletes, people recovering from an injury, and patients of every age.',
     'footer.quickLinks': 'Quick Links',
+    'footer.contact': 'Contact',
     'footer.connect': 'Connect',
     'footer.copyright': 'Dr. Luca Mottaran. All rights reserved.',
 
