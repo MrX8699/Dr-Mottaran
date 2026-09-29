@@ -94,7 +94,7 @@ export function HomeContent() {
               >
                 <Image
                   src={src}
-                  alt={`Hero background ${i + 1}`}
+                  alt=""
                   fill
                   className="object-cover"
                   priority={i === heroIndex}
@@ -110,13 +110,15 @@ export function HomeContent() {
 
         <div className="relative z-20 px-6 py-12 w-full max-w-7xl mx-auto">
           <div className="max-w-2xl w-full ml-0 text-left [text-shadow:0_1px_12px_rgba(0,0,0,0.35)]">
-            <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-semibold text-white leading-[1.1] mb-4 whitespace-pre-line">
-              {t('hero.name')}
+            {/* Name, profession and towns form one H1 so the page's main heading says who, what and where */}
+            <h1 className="mb-4">
+              <span className="block font-serif text-4xl sm:text-5xl md:text-6xl font-semibold text-white leading-[1.1] whitespace-pre-line">
+                {t('hero.name')}
+              </span>
+              <span className="block mt-4 text-lg md:text-xl text-white/95 font-medium">
+                {t('hero.title')}
+              </span>
             </h1>
-
-            <p className="text-lg md:text-xl text-white/95 font-medium mb-4">
-              {t('hero.title')}
-            </p>
 
             <p className="text-base md:text-lg text-white/85 mb-8 leading-relaxed max-w-xl">{t('hero.description')}</p>
 
@@ -271,8 +273,8 @@ export function HomeContent() {
             </div>
             <div className="relative h-96 md:h-full rounded-lg overflow-hidden shadow-lg">
               <Image
-                src={withBasePath("/images/motta-cera.jpeg")}
-                alt="Valutazione del movimento"
+                src={withBasePath("/images/luca-mottaran-trattamento-coppettazione.jpeg")}
+                alt={t('images.cupping')}
                 fill
                 className="object-cover"
               />

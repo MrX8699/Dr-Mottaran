@@ -12,8 +12,8 @@ import { withBasePath } from "@/lib/basePath"
 import { whatsappUrl } from "@/lib/whatsapp"
 
 const manualTherapyImages = [
-  { src: withBasePath("/images/manuale.png"), position: "object-[50%_75%]" },
-  { src: withBasePath("/images/motta-trattamento.jpeg"), position: "object-[50%_38%]" },
+  { src: withBasePath("/images/manuale.png"), position: "object-[50%_75%]", altKey: "servicesPage.gallery.manual" },
+  { src: withBasePath("/images/luca-mottaran-terapia-manuale-atm.jpeg"), position: "object-[50%_38%]", altKey: "images.tmj" },
 ]
 
 export function ServicesContent() {
@@ -39,7 +39,7 @@ export function ServicesContent() {
         style={{ backgroundImage: `url('${withBasePath('/images/Calia_Piega.webp')}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '34vh' }}
       >
         <div className="absolute inset-0 z-0">
-          <Image src={withBasePath("/images/Calia_Piega.webp")} alt="Services background - Calia Piega" fill className="object-cover" priority />
+          <Image src={withBasePath("/images/Calia_Piega.webp")} alt="" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
         <div className="relative z-20">
@@ -178,11 +178,11 @@ export function ServicesContent() {
 
           <div className="grid md:grid-cols-3 gap-8">
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
-              {manualTherapyImages.map(({ src, position }, index) => (
+              {manualTherapyImages.map(({ src, position, altKey }, index) => (
                 <Image
                   key={src}
                   src={src}
-                  alt={t('servicesPage.gallery.manual')}
+                  alt={t(altKey)}
                   fill
                   className={`object-cover ${position} transition-all duration-1000 ease-in-out group-hover:scale-105 ${
                     index === activeManualImage ? "opacity-100" : "opacity-0"

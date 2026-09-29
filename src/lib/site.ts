@@ -13,6 +13,9 @@ export const site = {
   phone: "+393661459269",
   phoneDisplay: "+39 366 145 9269",
   email: "lucamottaran99@gmail.com",
+  portrait: "/images/luca-mottaran-fisioterapista.jpg",
+  // 1200x630 share card, generated from the portrait.
+  ogImage: "/og.jpg",
   sameAs: [
     "https://www.instagram.com/cn_motta_/",
     "https://www.linkedin.com/in/luca-mottaran-428050293/",

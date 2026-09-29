@@ -25,7 +25,7 @@ export function AboutContent() {
         <div className="absolute inset-0 z-0">
           <Image
             src={withBasePath("/images/dorso2.png")}
-            alt="Clinic and movement background"
+            alt=""
             fill
             className="object-cover"
             priority
@@ -61,8 +61,8 @@ export function AboutContent() {
             <div className="relative">
               <div className="relative h-96 md:h-[500px] rounded-lg overflow-hidden shadow-md">
                 <Image
-                  src={withBasePath("/images/motta-chi-sono.JPG")}
-                  alt="Luca Mottaran"
+                  src={withBasePath("/images/luca-mottaran-fisioterapista.jpg")}
+                  alt={t('images.portrait')}
                   fill
                   className="object-cover"
                   priority

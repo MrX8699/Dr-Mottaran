@@ -3,6 +3,9 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { SITE_URL, site } from "@/lib/site";
+import { ogImage } from "@/lib/seo";
+import { siteGraph } from "@/lib/structuredData";
+import { JsonLd } from "@/components/JsonLd";
 
 // Self-hosted instead of next/font/google: Google Fonts started serving this
 // family from "/l/font?kit=…&skey=…" URLs, which Turbopack's font loader
@@ -30,6 +33,7 @@ export const metadata: Metadata = {
     type: "website",
     siteName: site.name,
     locale: "it_IT",
+    images: [ogImage("it")],
   },
 };
 
@@ -43,6 +47,7 @@ export default function RootLayout({
       <body
         className={`${newsreader.variable} antialiased`}
       >
+        <JsonLd data={siteGraph("it")} />
         <LanguageProvider>
           {children}
         </LanguageProvider>

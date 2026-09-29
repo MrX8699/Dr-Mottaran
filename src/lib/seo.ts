@@ -60,6 +60,15 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
 
 const ogLocale: Record<Language, string> = { it: "it_IT", en: "en_US" }
 
+const ogAlt: Record<Language, string> = {
+  it: "Dr. Luca Mottaran, fisioterapista e chinesiologo a Imola e Portomaggiore",
+  en: "Dr. Luca Mottaran, physiotherapist and kinesiologist in Imola and Portomaggiore",
+}
+
+export function ogImage(lang: Language) {
+  return { url: site.ogImage, width: 1200, height: 630, alt: ogAlt[lang] }
+}
+
 export function pageMetadata(lang: Language, page: PageKey): Metadata {
   const { title, absolute, description } = pages[lang][page]
   const path = paths[page]
@@ -77,6 +86,7 @@ export function pageMetadata(lang: Language, page: PageKey): Metadata {
       url: path,
       title,
       description,
+      images: [ogImage(lang)],
     },
   }
 }

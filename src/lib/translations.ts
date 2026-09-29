@@ -9,7 +9,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
 
     // Hero Section
     'hero.name': 'DR. LUCA\nMOTTARAN',
-    'hero.title': 'Fisioterapista • Chinesiologo',
+    'hero.title': 'Fisioterapista e Chinesiologo a Imola e Portomaggiore',
     'hero.subtitle': 'Fisioterapia e riabilitazione personalizzata per la piena libertà di movimento.',
     'hero.description': 'Fisioterapia, valutazione del movimento e riabilitazione per atleti, persone in fase di recupero da un infortunio e pazienti di età avanzata. Torna a muoverti senza dolore e raggiungi nuovamente il tuo benessere.',
     'hero.whatsapp': 'Contatta via WhatsApp',
@@ -73,16 +73,17 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
 
     // Footer
     'footer.description': 'Fisioterapista e Chinesiologo a Imola e Portomaggiore. Seguo atleti, persone in fase di recupero da un infortunio e pazienti di ogni età.',
+    'footer.name': 'Dott. Luca Mottaran',
     'footer.quickLinks': 'Link Rapidi',
     'footer.contact': 'Contatti',
     'footer.connect': 'Connettiti',
     'footer.copyright': 'Dr. Luca Mottaran. Tutti i diritti riservati.',
 
     // About Page
-    'aboutPage.title': 'Chi è Dr. Luca Mottaran',
+    'aboutPage.title': 'Chi è il Dott. Luca Mottaran',
     'aboutPage.subtitle': 'Fisioterapista e Chinesiologo',
     'aboutPage.journey.title': 'Il Mio Percorso',
-    'aboutPage.journey.p1': 'Nato nel 1999, ho scoperto la mia passione per il movimento umano e la riabilitazione in giovane età. Come nuotatore agonista specializzato nel dorso, ho sperimentato in prima persona l\'importanza della corretta meccanica corporea, della prevenzione degli infortuni e dei protocolli di recupero.',
+    'aboutPage.journey.p1': 'Mi chiamo Luca Mottaran e sono nato nel 1999. Ho scoperto la mia passione per il movimento umano e la riabilitazione in giovane età. Come nuotatore agonista specializzato nel dorso, ho sperimentato in prima persona l\'importanza della corretta meccanica corporea, della prevenzione degli infortuni e dei protocolli di recupero.',
     'aboutPage.journey.p2': 'Questo background atletico ha plasmato il mio percorso formativo, portandomi a conseguire lauree avanzate sia in Fisioterapia che in Scienze Motorie. La mia formazione accademica, combinata con anni di nuoto agonistico, mi ha fornito una prospettiva unica sulla biomeccanica della performance umana.',
     'aboutPage.journey.p3': 'Oggi porto questa comprensione olistica a ogni paziente che tratto: dall\'atleta che vuole tornare in campo dopo un infortunio, alla persona in riabilitazione, fino all\'anziano che desidera mantenere autonomia e qualità della vita nel quotidiano.',
     'aboutPage.athletic.title': 'Background Atletico',
@@ -194,6 +195,13 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'servicesPage.cta.subtitle': 'Contattami oggi per discutere quali servizi si adattano meglio alle tue esigenze',
     'servicesPage.cta.whatsapp': 'Contatta su WhatsApp',
     'servicesPage.cta.book': 'Prenota Appuntamento',
+
+    // Image alt text
+    'images.portrait': 'Ritratto del Dott. Luca Mottaran, fisioterapista a Imola',
+    'images.cupping': 'Il Dott. Luca Mottaran durante un trattamento con coppette sulla schiena di un paziente',
+    'images.pool': 'Il Dott. Luca Mottaran con un nuotatore a bordo piscina',
+    'images.lemans': 'Il Dott. Luca Mottaran in griglia al Mondiale Endurance FIM di Le Mans',
+    'images.tmj': 'Il Dott. Luca Mottaran esegue una tecnica manuale sull\'articolazione temporo mandibolare',
   },
   en: {
     // Navigation
@@ -205,7 +213,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
 
     // Hero Section
     'hero.name': 'DR. LUCA\nMOTTARAN',
-    'hero.title': 'Physiotherapist • Kinesiologist',
+    'hero.title': 'Physiotherapist and Kinesiologist in Imola and Portomaggiore',
     'hero.subtitle': 'Personalized physiotherapy and rehabilitation for full freedom of movement.',
     'hero.description': 'Physiotherapy, movement assessment, and rehabilitation for athletes, people recovering from an injury, and older adults. Move without pain again and get back to feeling your best.',
     'hero.whatsapp': 'Contact via WhatsApp',
@@ -269,6 +277,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
 
     // Footer
     'footer.description': 'Physiotherapist and Kinesiologist in Imola and Portomaggiore. I work with athletes, people recovering from an injury, and patients of every age.',
+    'footer.name': 'Dr. Luca Mottaran',
     'footer.quickLinks': 'Quick Links',
     'footer.contact': 'Contact',
     'footer.connect': 'Connect',
@@ -278,7 +287,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'aboutPage.title': 'About Dr. Luca Mottaran',
     'aboutPage.subtitle': 'Physiotherapist and Kinesiologist',
     'aboutPage.journey.title': 'My Journey',
-    'aboutPage.journey.p1': 'Born in 1999, I discovered my passion for human movement and rehabilitation at an early age. As a competitive backstroke swimmer, I experienced firsthand the importance of proper body mechanics, injury prevention, and recovery protocols.',
+    'aboutPage.journey.p1': 'I\'m Luca Mottaran, born in 1999. I discovered my passion for human movement and rehabilitation at an early age. As a competitive backstroke swimmer, I experienced firsthand the importance of proper body mechanics, injury prevention, and recovery protocols.',
     'aboutPage.journey.p2': 'This athletic background shaped my educational path, leading me to pursue advanced degrees in both Physiotherapy and Motor Sciences. My academic foundation, combined with years of competitive swimming, provided me with a unique perspective on the biomechanics of human performance.',
     'aboutPage.journey.p3': 'Today, I bring this holistic understanding to every patient I treat: from the athlete working their way back after an injury, to the person in rehabilitation, to the older adult who wants to maintain independence and quality of life day to day.',
     'aboutPage.athletic.title': 'Athletic Background',
@@ -390,6 +399,13 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'servicesPage.cta.subtitle': 'Contact me today to discuss which services best suit your needs',
     'servicesPage.cta.whatsapp': 'Contact on WhatsApp',
     'servicesPage.cta.book': 'Book Appointment',
+
+    // Image alt text
+    'images.portrait': 'Portrait of Dr. Luca Mottaran, physiotherapist in Imola',
+    'images.cupping': 'Dr. Luca Mottaran treating a patient\'s back with cupping therapy',
+    'images.pool': 'Dr. Luca Mottaran with a swimmer by the pool',
+    'images.lemans': 'Dr. Luca Mottaran on the grid at the FIM Endurance World Championship in Le Mans',
+    'images.tmj': 'Dr. Luca Mottaran performing a manual technique on the jaw joint',
   }
 }
 

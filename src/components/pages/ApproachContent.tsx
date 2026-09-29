@@ -11,8 +11,8 @@ import { withBasePath } from "@/lib/basePath"
 import { whatsappUrl } from "@/lib/whatsapp"
 
 const approachImages = [
-  withBasePath("/images/motta-cinque-cera.jpeg"),
-  withBasePath("/images/motta-haga.jpeg"),
+  { src: withBasePath("/images/luca-mottaran-bordo-vasca.jpeg"), altKey: "images.pool" },
+  { src: withBasePath("/images/luca-mottaran-fim-endurance-le-mans.jpeg"), altKey: "images.lemans" },
 ]
 
 export function ApproachContent() {
@@ -38,7 +38,7 @@ export function ApproachContent() {
         style={{ backgroundImage: `url('${withBasePath('/images/Fieda Nuoto.jpg')}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
       >
         <div className="absolute inset-0 z-0">
-          <Image src={withBasePath("/images/Fieda Nuoto.jpg")} alt="Approach background" fill className="object-cover" priority />
+          <Image src={withBasePath("/images/Fieda Nuoto.jpg")} alt="" fill className="object-cover" priority />
           <div className="absolute inset-0 bg-black/40 z-10" />
         </div>
 
@@ -94,11 +94,11 @@ export function ApproachContent() {
             </div>
 
             <div className="relative h-72 md:h-96 rounded-lg overflow-hidden shadow-md">
-              {approachImages.map((src, index) => (
+              {approachImages.map(({ src, altKey }, index) => (
                 <Image
                   key={src}
                   src={src}
-                  alt="Approach image"
+                  alt={t(altKey)}
                   fill
                   className={`object-cover transition-opacity duration-1000 ease-in-out ${
                     index === activeImage ? "opacity-100" : "opacity-0"
