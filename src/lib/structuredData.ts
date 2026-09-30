@@ -1,6 +1,5 @@
 import { SITE_URL, site, mapsUrl } from "@/lib/site"
-
-type Language = "it" | "en"
+import { localizedHref, type Language } from "@/lib/i18n"
 
 // Every value here must match something visible on the site (Google's
 // structured data guidelines). No ratings, reviews or awards.
@@ -34,7 +33,7 @@ export function siteGraph(lang: Language) {
     url: `${SITE_URL}/`,
     name: site.name,
     alternateName: ["Dott. Luca Mottaran", "Luca Mottaran Fisioterapista"],
-    inLanguage: inLanguage[lang],
+    inLanguage: [inLanguage.it, inLanguage.en],
     publisher: { "@id": ids.person },
   }
 
@@ -89,9 +88,9 @@ export function siteGraph(lang: Language) {
   }
 }
 
-// Marks /about/ as the page that is about Luca Mottaran.
+// Marks the about page as the page that is about Luca Mottaran.
 export function profilePageGraph(lang: Language, title: string) {
-  const url = `${SITE_URL}/about/`
+  const url = `${SITE_URL}${localizedHref(lang, "/about/")}`
   return {
     "@context": "https://schema.org",
     "@type": "ProfilePage",

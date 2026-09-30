@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
+import { localizedHref } from "@/lib/i18n"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
 import { withBasePath } from "@/lib/basePath"
@@ -209,7 +210,7 @@ export function AboutContent() {
               {t('aboutPage.cta.whatsapp')}
             </a>
             <Link
-              href="/#contact"
+              href={localizedHref(language, "/#contact")}
               className="inline-flex items-center justify-center gap-3 bg-transparent hover:bg-primary/5 text-primary px-8 py-3 rounded-md font-medium border border-primary transition-colors"
             >
               {t('aboutPage.cta.book')}

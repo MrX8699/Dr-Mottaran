@@ -1,38 +1,19 @@
 'use client'
 
-import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
-
-type Language = 'it' | 'en'
+import { createContext, useContext, ReactNode } from 'react'
+import type { Language } from '@/lib/i18n'
 
 interface LanguageContextType {
   language: Language
-  setLanguage: (lang: Language) => void
-  t: (key: string) => string
 }
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined)
 
-export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [language, setLanguageState] = useState<Language>('it')
-
-  useEffect(() => {
-    const saved = localStorage.getItem('language') as Language
-    if (saved && (saved === 'it' || saved === 'en')) {
-      setLanguageState(saved)
-    }
-  }, [])
-
-  const setLanguage = (lang: Language) => {
-    setLanguageState(lang)
-    localStorage.setItem('language', lang)
-  }
-
-  const t = (key: string) => {
-    return key // This will be overridden by page-specific translations
-  }
-
+// The language comes from the URL (root layout for "/" vs "/en"), so each
+// language is a separate, indexable page instead of a client-side toggle.
+export function LanguageProvider({ language, children }: { language: Language; children: ReactNode }) {
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider value={{ language }}>
       {children}
     </LanguageContext.Provider>
   )

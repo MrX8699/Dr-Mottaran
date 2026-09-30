@@ -5,6 +5,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
+import { localizedHref } from "@/lib/i18n"
 import { LanguageSwitcher } from "@/components/LanguageSwitcher"
 import { getWhatsAppMessage, whatsappUrl } from "@/lib/whatsapp"
 
@@ -65,14 +66,14 @@ export function Nav({ active }: { active?: NavLink }) {
       >
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="flex justify-between items-center h-20">
-            <Link href="/" className="flex items-center">
+            <Link href={localizedHref(language, "/")} className="flex items-center">
               <h1 className="font-serif text-2xl font-medium text-primary">Dr. Luca Mottaran</h1>
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               {links.map(({ key, href, label }) => (
-                <Link key={key} href={href} className={linkClass(key)}>{t(label)}</Link>
+                <Link key={key} href={localizedHref(language, href)} className={linkClass(key)}>{t(label)}</Link>
               ))}
-              <Link href="/#contact" className="text-foreground hover:text-primary transition-colors">{t('nav.contact')}</Link>
+              <Link href={localizedHref(language, "/#contact")} className="text-foreground hover:text-primary transition-colors">{t('nav.contact')}</Link>
               <LanguageSwitcher />
               <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
                 <Button className="bg-primary text-primary-foreground hover:brightness-95">{t('nav.book')}</Button>
@@ -97,7 +98,7 @@ export function Nav({ active }: { active?: NavLink }) {
               {links.map(({ key, href, label }) => (
                 <Link
                   key={key}
-                  href={href}
+                  href={localizedHref(language, href)}
                   className={`block ${linkClass(key)}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -105,7 +106,7 @@ export function Nav({ active }: { active?: NavLink }) {
                 </Link>
               ))}
               <Link
-                href="/#contact"
+                href={localizedHref(language, "/#contact")}
                 className="block text-foreground hover:text-primary transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >

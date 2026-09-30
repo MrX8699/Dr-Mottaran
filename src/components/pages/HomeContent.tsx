@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
+import { localizedHref } from "@/lib/i18n"
 import { getWhatsAppMessage, whatsappUrl } from "@/lib/whatsapp"
 import { site, formatAddress, mapsUrl } from "@/lib/site"
 import { Nav } from "@/components/Nav"
@@ -199,7 +200,7 @@ export function HomeContent() {
             <p className="text-lg text-foreground/75 leading-relaxed mb-4">
               {t('services.description')}
             </p>
-            <Link href="/services" className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors">
+            <Link href={localizedHref(language, "/services")} className="inline-flex items-center gap-2 text-primary hover:text-primary/80 font-medium transition-colors">
               {t('services.viewAll')}
               <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

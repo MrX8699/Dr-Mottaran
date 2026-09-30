@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
+import { localizedHref } from "@/lib/i18n"
 import { site, formatAddress, mapsUrl } from "@/lib/site"
 
 export function Footer() {
@@ -22,10 +23,10 @@ export function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4">{t('footer.quickLinks')}</h4>
             <ul className="space-y-2">
-              <li><a href="#about" className="text-white/80 hover:text-white transition-colors">{t('nav.about')}</a></li>
-              <li><Link href="/services" className="text-white/80 hover:text-white transition-colors">{t('nav.services')}</Link></li>
-              <li><Link href="/approach" className="text-white/80 hover:text-white transition-colors">{t('nav.approach')}</Link></li>
-              <li><a href="#contact" className="text-white/80 hover:text-white transition-colors">{t('nav.contact')}</a></li>
+              <li><Link href={localizedHref(language, "/about")} className="text-white/80 hover:text-white transition-colors">{t('nav.about')}</Link></li>
+              <li><Link href={localizedHref(language, "/services")} className="text-white/80 hover:text-white transition-colors">{t('nav.services')}</Link></li>
+              <li><Link href={localizedHref(language, "/approach")} className="text-white/80 hover:text-white transition-colors">{t('nav.approach')}</Link></li>
+              <li><Link href={localizedHref(language, "/#contact")} className="text-white/80 hover:text-white transition-colors">{t('nav.contact')}</Link></li>
             </ul>
           </div>
           <div>
