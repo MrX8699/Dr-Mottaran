@@ -1,0 +1,68 @@
+name: Deploy to GitHub Pages
+
+# Production releases only. This runs when a version tag like v1.2.0 is
+# pushed; normal pushes to main are deployed by Vercel and never reach
+# GitHub Pages. See "Releasing a new version" in README.md.
+on:
+  push:
+    tags:
+      - "v[0-9]+.[0-9]+.[0-9]+"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One Pages deploy at a time; a queued release waits instead of cancelling
+# the one in progress.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Only release code that is already on main, so the live site never
+      # runs something Vercel hasn't built and previewed first.
+      - name: Check that the tag points to a commit on main
+        run: |
+          git fetch origin main
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" origin/main; then
+            echo "::error::Tag $GITHUB_REF_NAME ($GITHUB_SHA) is not on main. Tag a commit that is already on main."
+            exit 1
+          fi
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      # Next.js static export: GITHUB_PAGES=true makes next.config.js set
+      # output: "export", which writes the site to ./out.
+      - name: Build static export
+        run: npm run build
+        env:
+          GITHUB_PAGES: "true"
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
