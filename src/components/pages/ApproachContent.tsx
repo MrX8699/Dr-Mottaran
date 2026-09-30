@@ -12,8 +12,8 @@ import { withBasePath } from "@/lib/basePath"
 import { whatsappUrl } from "@/lib/whatsapp"
 
 const approachImages = [
-  { src: withBasePath("/images/luca-mottaran-bordo-vasca.jpeg"), altKey: "images.pool" },
-  { src: withBasePath("/images/luca-mottaran-fim-endurance-le-mans.jpeg"), altKey: "images.lemans" },
+  { src: withBasePath("/images/luca-mottaran-bordo-vasca.webp"), altKey: "images.pool" },
+  { src: withBasePath("/images/luca-mottaran-fim-endurance-le-mans.webp"), altKey: "images.lemans" },
 ]
 
 export function ApproachContent() {

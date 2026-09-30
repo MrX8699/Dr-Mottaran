@@ -203,7 +203,7 @@ export function ServicesContent() {
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
                 src={withBasePath("/images/lata-masi.webp")}
-                alt={t('servicesPage.gallery.rehab')}
+                alt={t('images.motorsport')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
               />

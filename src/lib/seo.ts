@@ -39,7 +39,8 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
       description: "Il Dott. Luca Mottaran, fisioterapista, chinesiologo ed ex nuotatore agonista. Collabora con Imola Nuoto, International Imola e team di motorsport endurance.",
     },
     services: {
-      title: "Servizi di fisioterapia a Imola e Portomaggiore",
+      title: "Fisioterapia a Imola e Portomaggiore | Dr. Luca Mottaran",
+      absolute: true,
       description: "Riabilitazione ortopedica, terapia manuale, massaggio sportivo, rieducazione posturale, tecarterapia, laser Yag e onde d'urto a Imola e Portomaggiore.",
     },
     approach: {

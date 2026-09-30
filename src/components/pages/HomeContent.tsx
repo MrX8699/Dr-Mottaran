@@ -16,10 +16,14 @@ import Link from "next/link"
 import Image from 'next/image'
 import { withBasePath } from "@/lib/basePath"
 
-// Hero images rotation (public/ folder)
-const heroImages = [
-  withBasePath('/images/fisioterapia stretching.webp'),
-  withBasePath('/images/terapia_rullo.jpg')
+// Hero images rotation (public/ folder). Decorative, so they keep an empty
+// alt unless an entry sets altKey. The first one is the LCP image, so it is
+// the sharpest: fisioterapia-valutazione-spalla.webp is 1920px, from Unsplash
+// (photo by Sincerely Media, Unsplash License: free, no attribution needed).
+const heroImages: { src: string; altKey?: string }[] = [
+  { src: withBasePath('/images/fisioterapia-valutazione-spalla.webp') },
+  { src: withBasePath('/images/fisioterapia stretching.webp') },
+  { src: withBasePath('/images/terapia_rullo.jpg') },
 ]
 
 export function HomeContent() {
@@ -28,7 +32,7 @@ export function HomeContent() {
   const [heroIndex, setHeroIndex] = useState<number>(0)
   const [showPhoneNumber, setShowPhoneNumber] = useState(false)
   const callButtonRef = useRef<HTMLAnchorElement>(null)
-  const certifications = [1, 2, 3, 4, 5, 6, 7].map((n) => t(`about.cert.${n}`))
+  const certifications = [1, 2, 3, 4, 5, 6].map((n) => t(`about.cert.${n}`))
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -88,7 +92,7 @@ export function HomeContent() {
         {/* Background image using next/image for responsive loading */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0">
-            {heroImages.map((src, i) => (
+            {heroImages.map(({ src, altKey }, i) => (
               <div
                 key={src}
                 className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${i === heroIndex ? 'opacity-100' : 'opacity-0'}`}
@@ -96,7 +100,7 @@ export function HomeContent() {
               >
                 <Image
                   src={src}
-                  alt=""
+                  alt={altKey ? t(altKey) : ""}
                   fill
                   className="object-cover"
                   priority={i === heroIndex}
