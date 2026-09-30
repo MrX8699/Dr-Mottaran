@@ -79,10 +79,11 @@ export function HomeContent() {
     <div className="min-h-screen">
       <Nav />
 
+      <main>
+
       {/* Hero Section */}
       <section
         className="relative h-screen flex items-center justify-start overflow-hidden"
-        style={{ backgroundImage: `url('${withBasePath('/images/Calia_Piega.webp')}')`, backgroundSize: 'cover', backgroundPosition: 'center' }}
       >
         {/* Background image using next/image for responsive loading */}
         <div className="absolute inset-0 z-0">
@@ -248,7 +249,7 @@ export function HomeContent() {
                     <span className="text-base font-semibold">1</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">{t('approach.step1.title')}</h4>
+                    <h3 className="text-lg font-semibold mb-1">{t('approach.step1.title')}</h3>
                     <p className="text-white/75 text-sm leading-relaxed">{t('approach.step1.description')}</p>
                   </div>
                 </div>
@@ -257,7 +258,7 @@ export function HomeContent() {
                     <span className="text-base font-semibold">2</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">{t('approach.step2.title')}</h4>
+                    <h3 className="text-lg font-semibold mb-1">{t('approach.step2.title')}</h3>
                     <p className="text-white/75 text-sm leading-relaxed">{t('approach.step2.description')}</p>
                   </div>
                 </div>
@@ -266,7 +267,7 @@ export function HomeContent() {
                     <span className="text-base font-semibold">3</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">{t('approach.step3.title')}</h4>
+                    <h3 className="text-lg font-semibold mb-1">{t('approach.step3.title')}</h3>
                     <p className="text-white/75 text-sm leading-relaxed">{t('approach.step3.description')}</p>
                   </div>
                 </div>
@@ -384,6 +385,8 @@ export function HomeContent() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

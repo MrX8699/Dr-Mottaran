@@ -13,7 +13,7 @@ import { withBasePath } from "@/lib/basePath"
 import { whatsappUrl } from "@/lib/whatsapp"
 
 const manualTherapyImages = [
-  { src: withBasePath("/images/manuale.png"), position: "object-[50%_75%]", altKey: "servicesPage.gallery.manual" },
+  { src: withBasePath("/images/manuale.webp"), position: "object-[50%_75%]", altKey: "servicesPage.gallery.manual" },
   { src: withBasePath("/images/luca-mottaran-terapia-manuale-atm.jpeg"), position: "object-[50%_38%]", altKey: "images.tmj" },
 ]
 
@@ -34,10 +34,12 @@ export function ServicesContent() {
     <div className="min-h-screen">
       <Nav active="services" />
 
+      <main>
+
       {/* Hero Section */}
       <section
         className="relative overflow-hidden pt-32 pb-12"
-        style={{ backgroundImage: `url('${withBasePath('/images/Calia_Piega.webp')}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '34vh' }}
+        style={{ minHeight: '34vh' }}
       >
         <div className="absolute inset-0 z-0">
           <Image src={withBasePath("/images/Calia_Piega.webp")} alt="" fill className="object-cover" priority />
@@ -56,6 +58,7 @@ export function ServicesContent() {
       {/* Main Services */}
       <section className="py-12 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="sr-only">{t('servicesPage.list.title')}</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
             {/* Orthopedic and Post-Traumatic Rehabilitation */}
@@ -199,7 +202,7 @@ export function ServicesContent() {
 
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src={withBasePath("/images/lata-masi.png")}
+                src={withBasePath("/images/lata-masi.webp")}
                 alt={t('servicesPage.gallery.rehab')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -213,7 +216,7 @@ export function ServicesContent() {
 
             <div className="relative h-80 rounded-xl overflow-hidden shadow-lg group">
               <Image
-                src={withBasePath("/images/movimento.png")}
+                src={withBasePath("/images/movimento.webp")}
                 alt={t('servicesPage.gallery.assessment')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -254,6 +257,8 @@ export function ServicesContent() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

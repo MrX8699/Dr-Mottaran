@@ -22,11 +22,19 @@ const newsreader = localFont({
 // The <html> shell shared by the two root layouts: app/(it)/layout.tsx for
 // Italian at "/" and app/en/layout.tsx for English at "/en", so each language
 // gets the correct <html lang>.
-export function RootDocument({ lang, children }: { lang: Language; children: ReactNode }) {
+export function RootDocument({
+  lang,
+  withStructuredData = true,
+  children,
+}: {
+  lang: Language;
+  withStructuredData?: boolean;
+  children: ReactNode;
+}) {
   return (
     <html lang={lang}>
       <body className={`${newsreader.variable} antialiased`}>
-        <JsonLd data={siteGraph(lang)} />
+        {withStructuredData && <JsonLd data={siteGraph(lang)} />}
         <LanguageProvider language={lang}>
           {children}
         </LanguageProvider>

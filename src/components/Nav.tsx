@@ -23,12 +23,14 @@ export function Nav({ active }: { active?: NavLink }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [atTop, setAtTop] = useState(true)
   const [hoverReveal, setHoverReveal] = useState(false)
+  const [focusReveal, setFocusReveal] = useState(false)
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
   // Keep the bar visible while the mobile dropdown is open so its links
-  // don't vanish mid-tap; otherwise it hides on scroll like on desktop,
+  // don't vanish mid-tap, and while it holds keyboard focus so tabbing into
+  // it never lands on an off-screen link; otherwise it hides on scroll,
   // leaving just the floating "Prenota Appuntamento" button reachable.
-  const navVisible = atTop || hoverReveal || mobileMenuOpen
+  const navVisible = atTop || hoverReveal || focusReveal || mobileMenuOpen
 
   useEffect(() => {
     const handleScroll = () => setAtTop(window.scrollY <= 10)
@@ -63,11 +65,16 @@ export function Nav({ active }: { active?: NavLink }) {
         className={`fixed top-0 w-full bg-background/95 backdrop-blur-sm shadow-sm z-50 transition-transform duration-300 ${
           navVisible ? "translate-y-0" : "-translate-y-full"
         }`}
+        onFocus={() => setFocusReveal(true)}
+        onBlur={(e) => {
+          if (!e.currentTarget.contains(e.relatedTarget as Node | null)) setFocusReveal(false)
+        }}
       >
         <div className="w-full px-4 sm:px-6 lg:px-8 xl:px-12 2xl:px-16">
           <div className="flex justify-between items-center h-20">
-            <Link href={localizedHref(language, "/")} className="flex items-center">
-              <h1 className="font-serif text-2xl font-medium text-primary">Dr. Luca Mottaran</h1>
+            {/* Brand, not a heading: each page has its own single H1 */}
+            <Link href={localizedHref(language, "/")} className="flex items-center font-serif text-2xl font-medium text-primary">
+              Dr. Luca Mottaran
             </Link>
             <div className="hidden md:flex items-center space-x-8">
               {links.map(({ key, href, label }) => (
@@ -75,14 +82,16 @@ export function Nav({ active }: { active?: NavLink }) {
               ))}
               <Link href={localizedHref(language, "/#contact")} className="text-foreground hover:text-primary transition-colors">{t('nav.contact')}</Link>
               <LanguageSwitcher />
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer">
-                <Button className="bg-primary text-primary-foreground hover:brightness-95">{t('nav.book')}</Button>
-              </a>
+              <Button asChild className="bg-primary text-primary-foreground hover:brightness-95">
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer">{t('nav.book')}</a>
+              </Button>
             </div>
             <button
               className="md:hidden p-2"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              aria-label="Toggle menu"
+              aria-label={t('nav.menu')}
+              aria-expanded={mobileMenuOpen}
+              aria-controls="mobile-menu"
             >
               <svg className="w-6 h-6 text-foreground" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 {mobileMenuOpen ? (
@@ -94,7 +103,7 @@ export function Nav({ active }: { active?: NavLink }) {
             </button>
           </div>
           {mobileMenuOpen && (
-            <div className="md:hidden pb-4 space-y-3">
+            <div id="mobile-menu" className="md:hidden pb-4 space-y-3">
               {links.map(({ key, href, label }) => (
                 <Link
                   key={key}
@@ -115,23 +124,30 @@ export function Nav({ active }: { active?: NavLink }) {
               <div className="pt-2">
                 <LanguageSwitcher />
               </div>
-              <a href={whatsappHref} target="_blank" rel="noopener noreferrer" className="block">
-                <Button className="w-full bg-primary hover:bg-primary/90">{t('nav.book')}</Button>
-              </a>
+              <Button asChild className="w-full bg-primary hover:bg-primary/90">
+                <a href={whatsappHref} target="_blank" rel="noopener noreferrer">{t('nav.book')}</a>
+              </Button>
             </div>
           )}
         </div>
       </nav>
-      <a
-        href={whatsappHref}
-        target="_blank"
-        rel="noopener noreferrer"
-        className={`fixed top-4 right-4 z-50 transition-opacity duration-300 ${
+      {/* While the bar is visible this duplicate is hidden, so it also leaves the tab order */}
+      <Button
+        asChild
+        className={`fixed top-4 right-4 z-50 bg-primary text-primary-foreground hover:brightness-95 shadow-lg transition-opacity duration-300 ${
           navVisible ? "opacity-0 pointer-events-none" : "opacity-100 pointer-events-auto"
         }`}
       >
-        <Button className="bg-primary text-primary-foreground hover:brightness-95 shadow-lg">{t('nav.book')}</Button>
-      </a>
+        <a
+          href={whatsappHref}
+          target="_blank"
+          rel="noopener noreferrer"
+          tabIndex={navVisible ? -1 : undefined}
+          aria-hidden={navVisible ? true : undefined}
+        >
+          {t('nav.book')}
+        </a>
+      </Button>
     </>
   )
 }

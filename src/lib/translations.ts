@@ -6,11 +6,11 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'nav.approach': 'Approccio',
     'nav.contact': 'Contatti',
     'nav.book': 'Prenota Appuntamento',
+    'nav.menu': 'Menu',
 
     // Hero Section
     'hero.name': 'DR. LUCA\nMOTTARAN',
     'hero.title': 'Fisioterapista e Chinesiologo a Imola e Portomaggiore',
-    'hero.subtitle': 'Fisioterapia e riabilitazione personalizzata per la piena libertà di movimento.',
     'hero.description': 'Fisioterapia, valutazione del movimento e riabilitazione per atleti, persone in fase di recupero da un infortunio e pazienti di età avanzata. Torna a muoverti senza dolore e raggiungi nuovamente il tuo benessere.',
     'hero.whatsapp': 'Contatta via WhatsApp',
     'hero.call': 'Chiama Ora',
@@ -27,7 +27,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'about.cert.1': 'Atm di base',
     'about.cert.2': 'Onde d’urto',
     'about.cert.3': 'Cefalee',
-    'about.cert.4': 'Manipolazione mio fasciale 1° e 2° livello',
+    'about.cert.4': 'Manipolazione miofasciale 1° e 2° livello',
     'about.cert.5': 'Ecografia in ambiente fisioterapico',
     'about.cert.6': 'Eco',
     'about.cert.7': 'Neuromodulatore',
@@ -116,12 +116,6 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'aboutPage.collaborations.swimming.subtitle': 'Al fianco di sportivi professionisti',
     'aboutPage.collaborations.swimteam': 'Squadra Nazionale Nuoto',
     'aboutPage.collaborations.swimteam.subtitle': 'Supporto Atleti Olimpici',
-    'aboutPage.collaborations.athletes': 'Atleti d\'Elite',
-    'aboutPage.collaborations.athletes.subtitle': 'Allenamento e Recupero',
-    'aboutPage.collaborations.treatment': 'Sessioni di Trattamento',
-    'aboutPage.collaborations.treatment.subtitle': 'Terapia Manuale',
-    'aboutPage.collaborations.competition': 'Supporto Competizioni',
-    'aboutPage.collaborations.competition.subtitle': 'Copertura Eventi',
     'aboutPage.cta.title': 'Hai bisogno di una valutazione?',
     'aboutPage.cta.subtitle': 'Scrivimi per fissare la prima visita o per qualsiasi domanda.',
     'aboutPage.cta.whatsapp': 'Contatta su WhatsApp',
@@ -129,6 +123,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
 
     // Services Page
     'servicesPage.title': 'Servizi Professionali',
+    'servicesPage.list.title': 'Trattamenti e servizi',
     'servicesPage.subtitle': 'Fisioterapia e chinesiologia per atleti e persone in fase di recupero da un infortunio.',
     'servicesPage.orthopedic.title': 'Riabilitazione Ortopedica e Post-Traumatica',
     'servicesPage.orthopedic.description': 'Programmi di recupero specializzati dopo interventi ortopedici o infortuni traumatici. Dalla ricostruzione della cuffia dei rotatori, dei legamenti crociati e degli strappi muscolari al recupero da infortuni traumatici.',
@@ -196,6 +191,11 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'servicesPage.cta.whatsapp': 'Contatta su WhatsApp',
     'servicesPage.cta.book': 'Prenota Appuntamento',
 
+    // 404 page
+    'notFound.title': 'Pagina non trovata',
+    'notFound.text': 'La pagina che cerchi non esiste o è stata spostata.',
+    'notFound.home': 'Torna alla home',
+
     // Image alt text
     'images.portrait': 'Ritratto del Dott. Luca Mottaran, fisioterapista a Imola',
     'images.cupping': 'Il Dott. Luca Mottaran durante un trattamento con coppette sulla schiena di un paziente',
@@ -210,11 +210,11 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'nav.approach': 'Approach',
     'nav.contact': 'Contact',
     'nav.book': 'Book Appointment',
+    'nav.menu': 'Menu',
 
     // Hero Section
     'hero.name': 'DR. LUCA\nMOTTARAN',
     'hero.title': 'Physiotherapist and Kinesiologist in Imola and Portomaggiore',
-    'hero.subtitle': 'Personalized physiotherapy and rehabilitation for full freedom of movement.',
     'hero.description': 'Physiotherapy, movement assessment, and rehabilitation for athletes, people recovering from an injury, and older adults. Move without pain again and get back to feeling your best.',
     'hero.whatsapp': 'Contact via WhatsApp',
     'hero.call': 'Call Now',
@@ -320,12 +320,6 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'aboutPage.collaborations.swimming.subtitle': 'Working alongside professional athletes',
     'aboutPage.collaborations.swimteam': 'National Swim Team',
     'aboutPage.collaborations.swimteam.subtitle': 'Olympic Athletes Support',
-    'aboutPage.collaborations.athletes': 'Elite Athletes',
-    'aboutPage.collaborations.athletes.subtitle': 'Training & Recovery',
-    'aboutPage.collaborations.treatment': 'Treatment Sessions',
-    'aboutPage.collaborations.treatment.subtitle': 'Hands-On Therapy',
-    'aboutPage.collaborations.competition': 'Competition Support',
-    'aboutPage.collaborations.competition.subtitle': 'Event Coverage',
     'aboutPage.cta.title': 'Need an assessment?',
     'aboutPage.cta.subtitle': 'Message me to book your first visit or ask a question.',
     'aboutPage.cta.whatsapp': 'Contact on WhatsApp',
@@ -333,6 +327,7 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
 
     // Services Page
     'servicesPage.title': 'Professional Services',
+    'servicesPage.list.title': 'Treatments and services',
     'servicesPage.subtitle': 'Physiotherapy and kinesiology for athletes and people recovering from an injury.',
     'servicesPage.orthopedic.title': 'Orthopedic & Post-Traumatic Rehabilitation',
     'servicesPage.orthopedic.description': 'Specialized recovery programs following orthopedic surgery or traumatic injuries. From rotator cuff reconstruction, cruciate ligament repair, and muscle tears to recovery from traumatic injuries.',
@@ -399,6 +394,11 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'servicesPage.cta.subtitle': 'Contact me today to discuss which services best suit your needs',
     'servicesPage.cta.whatsapp': 'Contact on WhatsApp',
     'servicesPage.cta.book': 'Book Appointment',
+
+    // 404 page
+    'notFound.title': 'Page not found',
+    'notFound.text': 'The page you are looking for does not exist or has moved.',
+    'notFound.home': 'Back to home',
 
     // Image alt text
     'images.portrait': 'Portrait of Dr. Luca Mottaran, physiotherapist in Imola',

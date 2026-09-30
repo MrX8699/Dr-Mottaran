@@ -18,6 +18,11 @@ const nextConfig = {
   outputFileTracingRoot: __dirname,
   allowedDevOrigins: ["*.preview.same-app.com"],
   poweredByHeader: false,
+  // Lets src/app/global-not-found.tsx serve the 404 page: with two root
+  // layouts ("/" Italian, "/en" English) there is no single layout for it.
+  experimental: {
+    globalNotFound: true,
+  },
   // Exposed to client code (src/lib/basePath.ts) so hardcoded "/images/…"
   // paths — which next/image does NOT auto-prefix when unoptimized — can be
   // built with the right prefix for GitHub Pages project-page subpaths.
@@ -34,13 +39,6 @@ const nextConfig = {
   }),
   images: {
     unoptimized: true,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        pathname: "/**",
-      },
-    ],
   },
   // headers() is unsupported with output: "export" and has no effect on
   // GitHub Pages anyway, so it's only added for server-based hosts.
@@ -54,7 +52,7 @@ const nextConfig = {
         "default-src 'self'",
         "script-src 'self' 'unsafe-inline'",
         "style-src 'self' 'unsafe-inline'",
-        "img-src 'self' data: https://images.unsplash.com",
+        "img-src 'self' data:",
         "font-src 'self' data:",
         "connect-src 'self'",
         "frame-ancestors 'none'",

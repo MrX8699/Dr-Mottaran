@@ -18,14 +18,16 @@ export function AboutContent() {
     <div className="min-h-screen">
       <Nav active="about" />
 
+      <main>
+
       {/* Hero Section with background image */}
       <section
         className="relative overflow-hidden pt-32 pb-12"
-        style={{ backgroundImage: `url('${withBasePath('/images/dorso2.png')}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
+        style={{ minHeight: '32vh' }}
       >
         <div className="absolute inset-0 z-0">
           <Image
-            src={withBasePath("/images/dorso2.png")}
+            src={withBasePath("/images/dorso2.webp")}
             alt=""
             fill
             className="object-cover"
@@ -218,6 +220,8 @@ export function AboutContent() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>

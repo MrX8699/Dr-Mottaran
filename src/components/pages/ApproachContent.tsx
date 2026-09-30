@@ -33,10 +33,12 @@ export function ApproachContent() {
     <div className="min-h-screen">
       <Nav active="approach" />
 
+      <main>
+
       {/* Hero */}
       <section
         className="relative overflow-hidden pt-32 pb-12"
-        style={{ backgroundImage: `url('${withBasePath('/images/Fieda Nuoto.jpg')}')`, backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '32vh' }}
+        style={{ minHeight: '32vh' }}
       >
         <div className="absolute inset-0 z-0">
           <Image src={withBasePath("/images/Fieda Nuoto.jpg")} alt="" fill className="object-cover" priority />
@@ -67,7 +69,7 @@ export function ApproachContent() {
                     <span className="text-base font-semibold text-primary">1</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">{t('approach.step1.title')}</h4>
+                    <h3 className="text-lg font-semibold mb-1">{t('approach.step1.title')}</h3>
                     <p className="text-foreground/70 text-sm leading-relaxed">{t('approach.step1.description')}</p>
                   </div>
                 </div>
@@ -77,7 +79,7 @@ export function ApproachContent() {
                     <span className="text-base font-semibold text-primary">2</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">{t('approach.step2.title')}</h4>
+                    <h3 className="text-lg font-semibold mb-1">{t('approach.step2.title')}</h3>
                     <p className="text-foreground/70 text-sm leading-relaxed">{t('approach.step2.description')}</p>
                   </div>
                 </div>
@@ -87,7 +89,7 @@ export function ApproachContent() {
                     <span className="text-base font-semibold text-primary">3</span>
                   </div>
                   <div>
-                    <h4 className="text-lg font-semibold mb-1">{t('approach.step3.title')}</h4>
+                    <h3 className="text-lg font-semibold mb-1">{t('approach.step3.title')}</h3>
                     <p className="text-foreground/70 text-sm leading-relaxed">{t('approach.step3.description')}</p>
                   </div>
                 </div>
@@ -138,6 +140,8 @@ export function ApproachContent() {
           </div>
         </div>
       </section>
+
+      </main>
 
       <Footer />
     </div>
