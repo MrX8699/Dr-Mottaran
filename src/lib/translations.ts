@@ -55,6 +55,11 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'approach.step3.description': 'Monitoraggio continuo e adattamento del programma per garantire un progresso ottimale e risultati duraturi.',
     'approach.cta.title': 'Pronto per un trattamento su misura per te?',
 
+    // Approach Page
+    'approachPage.p1': 'Quando un paziente arriva in studio con un problema come il mal di schiena, inizio sempre ricostruendo la storia del dolore. Valuto poi movimento, mobilità e forza, così da comprendere meglio il problema e formulare un\'ipotesi di lavoro.',
+    'approachPage.p2': 'La seduta prosegue con tecniche di terapia manuale, accompagnate da esercizi semplici e mirati. Quando è utile, valuto anche l\'impiego delle onde d\'urto o di altre terapie strumentali.',
+    'approachPage.p3': 'Prima di salutarci, do sempre alcune indicazioni per i giorni successivi e concordiamo insieme i prossimi passi. All\'incontro seguente verifichiamo i progressi e adattiamo il percorso in base alla risposta al trattamento.',
+
     // Contact Section
     'contact.title': 'Contattami',
     'contact.subtitle': 'Hai un dolore o un infortunio? Scrivimi e organizziamo la prima visita.',
@@ -258,6 +263,11 @@ export const translations: Record<'it' | 'en', Record<string, string>> = {
     'approach.step3.title': 'Progressive Recovery',
     'approach.step3.description': 'Ongoing monitoring and adjustment of your program to ensure optimal progress and lasting results.',
     'approach.cta.title': 'Ready for a treatment built around you?',
+
+    // Approach Page
+    'approachPage.p1': 'When a patient comes to the practice with a problem such as back pain, I always start by going through the history of the pain. I then assess movement, mobility and strength, to understand the problem better and form a working hypothesis.',
+    'approachPage.p2': 'The session continues with manual therapy techniques, together with simple, targeted exercises. When it helps, I also consider shockwave therapy or other instrumental treatments.',
+    'approachPage.p3': 'Before we say goodbye, I always give a few guidelines for the next days and we agree on the next steps together. At the following appointment we check the progress and adapt the plan to how the patient is responding to treatment.',
 
     // Contact Section
     'contact.title': 'Get in touch',

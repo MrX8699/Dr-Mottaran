@@ -61,38 +61,11 @@ export function ApproachContent() {
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
               <h2 className="font-serif text-3xl md:text-4xl font-medium mb-4">{t('approach.heading')}</h2>
-              <p className="text-lg leading-relaxed mb-6 text-foreground/80">{t('approach.intro')}</p>
-
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="w-10 h-10 border border-primary/30 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-base font-semibold text-primary">1</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-1">{t('approach.step1.title')}</h3>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{t('approach.step1.description')}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-10 h-10 border border-primary/30 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-base font-semibold text-primary">2</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-1">{t('approach.step2.title')}</h3>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{t('approach.step2.description')}</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start">
-                  <div className="w-10 h-10 border border-primary/30 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                    <span className="text-base font-semibold text-primary">3</span>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-1">{t('approach.step3.title')}</h3>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{t('approach.step3.description')}</p>
-                  </div>
-                </div>
+              {/* A worked example of a first visit; the home page keeps the short three step summary */}
+              <div className="space-y-4 text-lg leading-relaxed text-foreground/80">
+                <p>{t('approachPage.p1')}</p>
+                <p>{t('approachPage.p2')}</p>
+                <p>{t('approachPage.p3')}</p>
               </div>
             </div>
 
