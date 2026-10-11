@@ -176,13 +176,17 @@ export function AboutContent() {
               </div>
             </div>
 
-            {/* Photo 3 - Swim team podium */}
-            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group">
+            {/* Photo 3 - International Basket Imola */}
+            <div className="relative h-64 rounded-xl overflow-hidden shadow-lg group" style={{ containerType: 'inline-size' }}>
+              {/* Portrait photo (399x501): hair top sits at 30.33% of the rendered width,
+                  so this keeps the head ~5mm below the card top at any card width,
+                  clamped so the image never leaves a gap at the top or bottom. */}
               <Image
-                src={withBasePath("/images/Busa_Podio.webp")}
+                src={withBasePath("/images/luca-mottaran-international.jpg")}
                 alt={t('aboutPage.collaborations.swimteam')}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
+                style={{ objectPosition: 'center min(0px, max(calc(5mm - 30.33cqw), calc(16rem - 125.56cqw)))' }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-4">
