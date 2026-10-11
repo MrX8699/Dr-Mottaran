@@ -2,9 +2,9 @@
 // the public site URL. Metadata, sitemap, structured data and contact blocks
 // should read from here so name, address and phone never drift apart.
 //
-// The URL comes from NEXT_PUBLIC_SITE_URL so moving off the current test
-// domain (see public/CNAME) is a one-line change. No trailing slash.
-export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://whodriving.com").replace(/\/+$/, "")
+// The URL comes from NEXT_PUBLIC_SITE_URL so moving to another domain
+// (see public/CNAME) is a one-line change. No trailing slash.
+export const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://drlucamottaran.it").replace(/\/+$/, "")
 
 export const site = {
   name: "Dr. Luca Mottaran",

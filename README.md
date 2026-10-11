@@ -13,7 +13,7 @@ Bilingual (Italian and English) website built with [Next.js](https://nextjs.org)
 | Environment | Where | Updated when |
 |---|---|---|
 | Staging | Vercel (`*.vercel.app`) | Automatically on every push to `main` |
-| Production | GitHub Pages, `https://whodriving.com` | Only when a version tag (`v1.2.0`) is pushed |
+| Production | GitHub Pages, `https://drlucamottaran.it` | Only when a version tag (`v1.2.0`) is pushed |
 
 ## Getting started
 
@@ -113,7 +113,7 @@ If any step fails, nothing is deployed and the live site stays as it was.
    ```
 
 4. Follow the run under **Actions → Deploy to GitHub Pages**. If the `github-pages` environment has a required reviewer, approve the deployment there.
-5. When it finishes, check `https://whodriving.com`.
+5. When it finishes, check `https://drlucamottaran.it`.
 6. Optional: on GitHub, **Releases → Draft a new release**, choose the tag, click **Generate release notes** and publish, so the release has a readable changelog. (The deploy is triggered by the tag, not by this step.)
 
 To see which versions exist: `git tag --list "v*"`. The newest tag is what is live.
@@ -130,13 +130,13 @@ To see which versions exist: `git tag --list "v*"`. The newest tag is what is li
 These live in the GitHub repository settings, not in the code:
 
 1. **Settings → Pages → Build and deployment → Source: GitHub Actions.** With "Deploy from a branch", GitHub runs its own "pages build and deployment" job, which does not build this Next.js site.
-2. **Settings → Pages → Custom domain:** `whodriving.com`, with **Enforce HTTPS** on. The static export also ships `public/CNAME` with the same domain.
+2. **Settings → Pages → Custom domain:** `drlucamottaran.it`, with **Enforce HTTPS** on. The static export also ships `public/CNAME` with the same domain.
 3. **Settings → Environments → github-pages → Deployment branches and tags:** add a **tag** rule `v*`. By default only `main` may deploy to `github-pages`, so without this rule every tag deploy is rejected.
 4. Optional, same page: **Required reviewers** → yourself, so every production deploy waits for your approval.
 
 ### Changing the domain
 
-`whodriving.com` is a test domain. To move to the final domain:
+The live domain is `drlucamottaran.it`. To move the site to a different domain:
 
 1. Point the new domain's DNS at GitHub Pages and set it in **Settings → Pages → Custom domain**.
 2. Replace the domain in `public/CNAME`.

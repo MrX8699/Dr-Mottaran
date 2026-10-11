@@ -6,7 +6,7 @@
 // Next server (Netlify/Vercel) — see README for the GitHub Pages deployment
 // notes.
 const isGithubPages = process.env.GITHUB_PAGES === "true";
-// The site is served from the custom domain root (https://whodriving.com/,
+// The site is served from the custom domain root (https://drlucamottaran.it/,
 // see public/CNAME), not the default GitHub Pages project-page subpath
 // (https://<user>.github.io/<repo>/). Leave this empty while that's true —
 // a non-empty value here adds a "/<repoName>" prefix to every asset path,
