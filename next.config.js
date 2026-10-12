@@ -78,6 +78,10 @@ const nextConfig = {
               value: "max-age=63072000; includeSubDomains; preload",
             },
             { key: "Content-Security-Policy", value: csp },
+            // Vercel is staging only (VERCEL=1 is set there at build and run
+            // time): keep it out of search results so it never competes
+            // with the live site on GitHub Pages.
+            ...(process.env.VERCEL ? [{ key: "X-Robots-Tag", value: "noindex" }] : []),
           ],
         },
       ];

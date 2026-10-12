@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 import { SITE_URL } from "@/lib/site"
-import { languageAlternates, pageKeys, pagePath } from "@/lib/seo"
+import { languageAlternates, pageKeys, pagePath } from "@/lib/routes"
 import type { Language } from "@/lib/i18n"
 
 // Required for `output: "export"` (GitHub Pages) to emit a static file.

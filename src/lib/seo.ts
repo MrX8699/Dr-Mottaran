@@ -1,28 +1,7 @@
 import type { Metadata } from "next"
 import { SITE_URL, site } from "@/lib/site"
-import { localizedHref, type Language } from "@/lib/i18n"
-
-export type PageKey = "home" | "about" | "services" | "approach"
-
-// Paths carry a trailing slash to match the static export's
-// `trailingSlash: true`, so canonicals point at the URLs GitHub Pages serves.
-const paths: Record<PageKey, string> = {
-  home: "/",
-  about: "/about/",
-  services: "/services/",
-  approach: "/approach/",
-}
-
-export const pagePath = (lang: Language, page: PageKey) => localizedHref(lang, paths[page])
-
-// hreflang alternates for a page; Italian is the default for other languages.
-export function languageAlternates(page: PageKey) {
-  return {
-    it: pagePath("it", page),
-    en: pagePath("en", page),
-    "x-default": pagePath("it", page),
-  }
-}
+import type { Language } from "@/lib/i18n"
+import { languageAlternates, pagePath, type PageKey } from "@/lib/routes"
 
 // `absolute` titles already contain the name and skip the root
 // "%s | Dr. Luca Mottaran" template; the others get it appended.
@@ -47,6 +26,36 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
       title: "Come lavoro: dalla valutazione al recupero",
       description: "Dalla prima visita al recupero: valutazione completa, trattamento personalizzato e monitoraggio dei progressi con il Dott. Luca Mottaran.",
     },
+    imola: {
+      title: "Fisioterapista a Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Fisioterapista a Imola in Via Banfi 42: fisioterapia sportiva, riabilitazione post operatoria, terapia manuale e onde d'urto. Solo su appuntamento.",
+    },
+    portomaggiore: {
+      title: "Fisioterapista a Portomaggiore | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Fisioterapista a Gambulaga di Portomaggiore (FE), in Via Gambulaga Masi 104: riabilitazione, terapia manuale e fisioterapia sportiva. Solo su appuntamento.",
+    },
+    sports: {
+      title: "Fisioterapia sportiva a Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Fisioterapia sportiva a Imola e Portomaggiore: recupero dagli infortuni, ritorno allo sport, prevenzione e massaggio sportivo con il Dott. Luca Mottaran.",
+    },
+    postop: {
+      title: "Riabilitazione post operatoria a Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Riabilitazione dopo protesi di anca, ginocchio e spalla, ricostruzione del crociato e della cuffia dei rotatori, a Imola e Portomaggiore.",
+    },
+    manual: {
+      title: "Terapia manuale e ATM a Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Terapia manuale e manipolazione miofasciale per mal di schiena, cervicale, dolore alla mandibola (ATM) e mal di testa, a Imola e Portomaggiore.",
+    },
+    instrumental: {
+      title: "Onde d'urto, tecarterapia e laser a Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Onde d'urto, tecarterapia, laser Yag ad alta potenza, ultrasuoni ed ecografia a Imola e Portomaggiore, sempre dentro un percorso di fisioterapia.",
+    },
   },
   en: {
     home: {
@@ -66,6 +75,36 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
     approach: {
       title: "How I work: from assessment to recovery",
       description: "From first visit to full recovery: thorough assessment, tailored treatment and ongoing progress checks with Dr. Luca Mottaran.",
+    },
+    imola: {
+      title: "Physiotherapist in Imola, Italy | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Physiotherapist in Imola, Italy, at Via Banfi 42: sports physiotherapy, rehab after surgery, manual therapy and shockwave therapy. By appointment only.",
+    },
+    portomaggiore: {
+      title: "Physiotherapist in Portomaggiore, Ferrara | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Physiotherapist in Gambulaga, Portomaggiore (Ferrara), at Via Gambulaga Masi 104: rehabilitation, manual therapy and sports physiotherapy. By appointment only.",
+    },
+    sports: {
+      title: "Sports physiotherapy in Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Sports physiotherapy in Imola: injury recovery, return to sport, injury prevention and sports massage, including support for teams at the Imola circuit.",
+    },
+    postop: {
+      title: "Rehabilitation after surgery in Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Rehabilitation after hip, knee and shoulder replacement, ACL reconstruction and rotator cuff repair, in Imola and Portomaggiore, Italy.",
+    },
+    manual: {
+      title: "Manual therapy and TMJ treatment in Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Manual therapy and myofascial manipulation for back and neck pain, jaw pain (TMJ) and headaches, in Imola and Portomaggiore, Italy.",
+    },
+    instrumental: {
+      title: "Shockwave, Tecar and laser therapy in Imola | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Shockwave therapy, Tecar therapy, high power Yag laser and ultrasound in Imola and Portomaggiore, always as part of a physiotherapy plan.",
     },
   },
 }
@@ -120,5 +159,3 @@ export function pageMetadata(lang: Language, page: PageKey): Metadata {
     },
   }
 }
-
-export const pageKeys = Object.keys(paths) as PageKey[]

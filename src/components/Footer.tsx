@@ -4,6 +4,7 @@ import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { localizedHref } from "@/lib/i18n"
+import { pagePath } from "@/lib/routes"
 import { site, formatAddress, mapsUrl } from "@/lib/site"
 
 export function Footer() {
@@ -27,6 +28,11 @@ export function Footer() {
               <li><Link href={localizedHref(language, "/services")} className="text-white/80 hover:text-white transition-colors">{t('nav.services')}</Link></li>
               <li><Link href={localizedHref(language, "/approach")} className="text-white/80 hover:text-white transition-colors">{t('nav.approach')}</Link></li>
               <li><Link href={localizedHref(language, "/#contact")} className="text-white/80 hover:text-white transition-colors">{t('nav.contact')}</Link></li>
+              {site.locations.map((location) => (
+                <li key={location.id}>
+                  <Link href={pagePath(language, location.id)} className="text-white/80 hover:text-white transition-colors">{t(`landing.${location.id}.name`)}</Link>
+                </li>
+              ))}
             </ul>
           </div>
           <div>

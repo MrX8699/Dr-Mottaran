@@ -7,6 +7,8 @@ import { Card } from "@/components/ui/card"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { localizedHref } from "@/lib/i18n"
+import { pagePath, type ServiceKey } from "@/lib/routes"
+import { MoreLink } from "@/components/MoreLink"
 import { Nav } from "@/components/Nav"
 import { Footer } from "@/components/Footer"
 import { withBasePath } from "@/lib/basePath"
@@ -20,6 +22,7 @@ const manualTherapyImages = [
 export function ServicesContent() {
   const { language } = useLanguage()
   const t = (key: string) => getTranslation(language, key)
+  const more = (service: ServiceKey) => pagePath(language, service)
 
   const [activeManualImage, setActiveManualImage] = useState(0)
 
@@ -69,6 +72,7 @@ export function ServicesContent() {
                 <li>{t('servicesPage.orthopedic.item1')}</li>
                 <li>{t('servicesPage.orthopedic.item2')}</li>
               </ul>
+              <MoreLink href={more("postop")} className="mt-4 text-sm">{t('landing.more')}</MoreLink>
             </Card>
 
             {/* Manual Therapy */}
@@ -81,6 +85,7 @@ export function ServicesContent() {
                 <li>{t('servicesPage.manual.item3')}</li>
                 <li>{t('servicesPage.manual.item4')}</li>
               </ul>
+              <MoreLink href={more("manual")} className="mt-4 text-sm">{t('landing.more')}</MoreLink>
             </Card>
 
             {/* Sports Massage */}
@@ -93,6 +98,7 @@ export function ServicesContent() {
                 <li>{t('servicesPage.sportsMassage.item3')}</li>
                 <li>{t('servicesPage.sportsMassage.item4')}</li>
               </ul>
+              <MoreLink href={more("sports")} className="mt-4 text-sm">{t('landing.more')}</MoreLink>
             </Card>
 
             {/* Functional Postural Re-education */}
@@ -166,6 +172,7 @@ export function ServicesContent() {
                 <li>{t('servicesPage.equipment.item4')}</li>
                 <li>{t('servicesPage.equipment.item5')}</li>
               </ul>
+              <MoreLink href={more("instrumental")} className="mt-4 text-sm">{t('landing.more')}</MoreLink>
             </Card>
 
           </div>

@@ -1,5 +1,6 @@
 import { SITE_URL, site, mapsUrl } from "@/lib/site"
 import { localizedHref, type Language } from "@/lib/i18n"
+import { pagePath } from "@/lib/routes"
 
 // Every value here must match something visible on the site (Google's
 // structured data guidelines). No ratings, reviews or awards.
@@ -58,7 +59,8 @@ export function siteGraph(lang: Language) {
     "@id": ids.location(location.id),
     name: `${site.name} (${location.label})`,
     description: `${jobTitle[lang]}. ${byAppointment[lang]}`,
-    url: `${SITE_URL}/`,
+    // Each studio's own page (/imola/, /portomaggiore/)
+    url: `${SITE_URL}${pagePath(lang, location.id)}`,
     image: `${SITE_URL}${site.portrait}`,
     telephone: site.phone,
     email: site.email,
@@ -85,6 +87,21 @@ export function siteGraph(lang: Language) {
   return {
     "@context": "https://schema.org",
     "@graph": [website, person, ...locations],
+  }
+}
+
+// Matches the visible breadcrumb on the landing pages. Paths are site
+// relative, as returned by pagePath() and localizedHref().
+export function breadcrumbGraph(items: { name: string; path: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`,
+    })),
   }
 }
 

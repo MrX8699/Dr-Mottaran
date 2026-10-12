@@ -52,19 +52,23 @@ git worktree remove dr-mottaran-build
 ```
 src/
   app/
-    (it)/            Italian pages at /, /about, /services, /approach (route group, not in the URL)
-    en/              English pages at /en, /en/about, /en/services, /en/approach
+    (it)/            Italian pages at /, /about, /services, /approach, /imola, /portomaggiore and
+                     /services/<slug> (route group, not in the URL)
+    en/              The same pages in English under /en
     global-not-found.tsx   Bilingual 404 page (404.html in the static export)
     robots.ts, sitemap.ts  Generated robots.txt and sitemap.xml
     icon.png, apple-icon.png, favicon.ico, fonts/
   components/
-    pages/           Page content shared by both languages (HomeContent, AboutContent, ...)
+    pages/           Page content shared by both languages (HomeContent, AboutContent, ...);
+                     LandingContent is the template for the location and service pages
     RootDocument.tsx <html> shell used by both root layouts (font, JSON-LD, language)
-    Nav.tsx, Footer.tsx, LanguageSwitcher.tsx, JsonLd.tsx, ui/
+    Nav.tsx, Footer.tsx, LanguageSwitcher.tsx, JsonLd.tsx, MoreLink.tsx, ui/
   lib/
     site.ts          Name, phone, email, addresses, hours, social links, site URL (single source of truth)
-    seo.ts           Page titles, descriptions, canonical and hreflang URLs, Open Graph
-    structuredData.ts  schema.org JSON-LD (WebSite, Person, Physiotherapy, ProfilePage)
+    routes.ts        Every page and its URL (pagePath, hreflang alternates, service page slugs)
+    seo.ts           Page titles, descriptions, canonical URLs, Open Graph
+    landingPages.ts  Sections, photos, FAQ count and related links of the location and service pages
+    structuredData.ts  schema.org JSON-LD (WebSite, Person, Physiotherapy, ProfilePage, BreadcrumbList)
     translations.ts  All visible text, in "it" and "en"
     i18n.ts          Language helpers (localizedHref, alternateLanguagePath)
 public/
@@ -75,13 +79,14 @@ Conventions:
 
 - **Text:** every visible string lives in `src/lib/translations.ts`, always in both `it` and `en`. No dashes in visible text.
 - **Contact details:** change phone, addresses or hours only in `src/lib/site.ts`; the page, footer, WhatsApp links and structured data read from it.
-- **Languages:** the language comes from the URL (`/` Italian, `/en` English). Internal links use `localizedHref(language, path)`.
+- **Languages:** the language comes from the URL (`/` Italian, `/en` English). Internal links use `localizedHref(language, path)`, or `pagePath(language, page)` from `src/lib/routes.ts`.
+- **Location and service pages:** `/imola/`, `/portomaggiore/` and `/services/<slug>/` (sports physiotherapy, rehab after surgery, manual therapy and TMJ, shockwave/Tecar/laser) share one template. To add one: a key and URL in `src/lib/routes.ts`, title and description in `src/lib/seo.ts`, sections in `src/lib/landingPages.ts`, text under `landing.<key>.` in `src/lib/translations.ts` (both languages). The sitemap picks it up automatically.
 
 ## Deployment
 
 ### Staging: Vercel (automatic)
 
-The repository is connected to Vercel through the Vercel GitHub app. Every push to `main` builds and deploys the site on Vercel in server mode (`GITHUB_PAGES` is not set there). Use it to check changes before releasing them. There is no Vercel configuration file in this repository; the setup lives in the Vercel dashboard.
+The repository is connected to Vercel through the Vercel GitHub app. Every push to `main` builds and deploys the site on Vercel in server mode (`GITHUB_PAGES` is not set there). Use it to check changes before releasing them. Vercel responses carry `X-Robots-Tag: noindex` (set in `next.config.js` when `VERCEL` is defined), so the staging copy stays out of search results. There is no Vercel configuration file in this repository; the setup lives in the Vercel dashboard.
 
 ### Production: GitHub Pages (manual, by version tag)
 

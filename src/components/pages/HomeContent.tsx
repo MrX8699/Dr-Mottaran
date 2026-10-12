@@ -8,6 +8,8 @@ import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { localizedHref } from "@/lib/i18n"
+import { pagePath } from "@/lib/routes"
+import { MoreLink } from "@/components/MoreLink"
 import { getWhatsAppMessage, whatsappUrl } from "@/lib/whatsapp"
 import { site, formatAddress, mapsUrl } from "@/lib/site"
 import { Nav } from "@/components/Nav"
@@ -219,6 +221,7 @@ export function HomeContent() {
               <p className="text-foreground/70 leading-relaxed text-sm">
                 {t('services.pain.description')}
               </p>
+              <MoreLink href={pagePath(language, "manual")} className="mt-3 text-sm">{t('landing.more')}</MoreLink>
             </div>
 
             <div>
@@ -226,6 +229,7 @@ export function HomeContent() {
               <p className="text-foreground/70 leading-relaxed text-sm">
                 {t('services.postop.description')}
               </p>
+              <MoreLink href={pagePath(language, "postop")} className="mt-3 text-sm">{t('landing.more')}</MoreLink>
             </div>
 
             <div>
@@ -233,6 +237,7 @@ export function HomeContent() {
               <p className="text-foreground/70 leading-relaxed text-sm">
                 {t('services.sports.description')}
               </p>
+              <MoreLink href={pagePath(language, "sports")} className="mt-3 text-sm">{t('landing.more')}</MoreLink>
             </div>
           </div>
         </div>
@@ -375,14 +380,19 @@ export function HomeContent() {
                   </div>
                   <h4 className="font-semibold text-foreground mb-2">{location.label}</h4>
                   <address className="not-italic text-foreground/70 mb-3">{formatAddress(location)}</address>
-                  <a
-                    href={mapsUrl(location)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-primary hover:text-primary/80 font-medium transition-colors"
-                  >
-                    {t('contact.locations.directions')}
-                  </a>
+                  <div className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+                    <a
+                      href={mapsUrl(location)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-primary hover:text-primary/80 font-medium transition-colors"
+                    >
+                      {t('contact.locations.directions')}
+                    </a>
+                    <Link href={pagePath(language, location.id)} className="text-primary hover:text-primary/80 font-medium transition-colors">
+                      {t('landing.location.more')}
+                    </Link>
+                  </div>
                 </Card>
               ))}
             </div>
