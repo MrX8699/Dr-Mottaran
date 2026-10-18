@@ -10,7 +10,7 @@ import { localizedHref, type Language } from "@/lib/i18n"
 export type LocationKey = "imola" | "portomaggiore"
 export type ServiceKey = "sports" | "postop" | "manual" | "instrumental"
 export type LandingKey = LocationKey | ServiceKey
-export type PageKey = "home" | "about" | "services" | "approach" | LandingKey
+export type PageKey = "home" | "about" | "services" | "approach" | "privacy" | LandingKey
 
 // Service pages live under /services/<slug>/. The Italian slug is used in
 // both languages because Italian is the main search market.
@@ -32,6 +32,7 @@ const paths: Record<PageKey, string> = {
   about: "/about/",
   services: "/services/",
   approach: "/approach/",
+  privacy: "/privacy/",
   imola: "/imola/",
   portomaggiore: "/portomaggiore/",
   sports: `/services/${serviceSlugs.sports}/`,

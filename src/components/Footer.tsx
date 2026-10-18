@@ -79,8 +79,9 @@ export function Footer() {
             </div>
           </div>
         </div>
-        <div className="border-t border-white/20 pt-8 text-center text-white/60">
+        <div className="border-t border-white/20 pt-8 flex flex-col sm:flex-row items-center justify-center gap-x-6 gap-y-2 text-center text-white/60">
           <p>&copy; {new Date().getFullYear()} {t('footer.copyright')}</p>
+          <Link href={pagePath(language, "privacy")} className="hover:text-white transition-colors">{t('footer.privacy')}</Link>
         </div>
       </div>
     </footer>

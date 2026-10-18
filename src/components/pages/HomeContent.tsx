@@ -341,6 +341,13 @@ export function HomeContent() {
               <Button type="submit" size="lg" className="w-full bg-primary hover:bg-primary/90">
                 {t('contact.send')}
               </Button>
+              {/* Short notice at the point of collection; the full text is on /privacy/ */}
+              <p className="text-sm text-foreground/60 text-center">
+                {t('contact.privacyNote')}{' '}
+                <Link href={pagePath(language, "privacy")} className="text-primary underline underline-offset-2 hover:text-primary/80 transition-colors">
+                  {t('contact.privacyLink')}
+                </Link>
+              </p>
             </form>
           </Card>
 

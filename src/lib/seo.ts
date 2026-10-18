@@ -26,6 +26,10 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
       title: "Come lavoro: dalla valutazione al recupero",
       description: "Dalla prima visita al recupero: valutazione completa, trattamento personalizzato e monitoraggio dei progressi con il Dott. Luca Mottaran.",
     },
+    privacy: {
+      title: "Informativa privacy",
+      description: "Come tratto i dati personali su drlucamottaran.it: nessun cookie, nessuno strumento di tracciamento, contatti solo tramite WhatsApp, email e telefono.",
+    },
     imola: {
       title: "Fisioterapista a Imola | Dr. Luca Mottaran",
       absolute: true,
@@ -75,6 +79,10 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
     approach: {
       title: "How I work: from assessment to recovery",
       description: "From first visit to full recovery: thorough assessment, tailored treatment and ongoing progress checks with Dr. Luca Mottaran.",
+    },
+    privacy: {
+      title: "Privacy policy",
+      description: "How personal data is handled on drlucamottaran.it: no cookies, no tracking tools, contact only through WhatsApp, email and phone.",
     },
     imola: {
       title: "Physiotherapist in Imola, Italy | Dr. Luca Mottaran",

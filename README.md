@@ -52,15 +52,16 @@ git worktree remove dr-mottaran-build
 ```
 src/
   app/
-    (it)/            Italian pages at /, /about, /services, /approach, /imola, /portomaggiore and
-                     /services/<slug> (route group, not in the URL)
+    (it)/            Italian pages at /, /about, /services, /approach, /privacy, /imola, /portomaggiore
+                     and /services/<slug> (route group, not in the URL)
     en/              The same pages in English under /en
     global-not-found.tsx   Bilingual 404 page (404.html in the static export)
     robots.ts, sitemap.ts  Generated robots.txt and sitemap.xml
     icon.png, apple-icon.png, favicon.ico, fonts/
   components/
     pages/           Page content shared by both languages (HomeContent, AboutContent, ...);
-                     LandingContent is the template for the location and service pages
+                     LandingContent is the template for the location and service pages,
+                     PrivacyContent is the privacy policy
     RootDocument.tsx <html> shell used by both root layouts (font, JSON-LD, language)
     Nav.tsx, Footer.tsx, LanguageSwitcher.tsx, JsonLd.tsx, MoreLink.tsx, ui/
   lib/
@@ -81,6 +82,7 @@ Conventions:
 - **Contact details:** change phone, addresses or hours only in `src/lib/site.ts`; the page, footer, WhatsApp links and structured data read from it.
 - **Languages:** the language comes from the URL (`/` Italian, `/en` English). Internal links use `localizedHref(language, path)`, or `pagePath(language, page)` from `src/lib/routes.ts`.
 - **Location and service pages:** `/imola/`, `/portomaggiore/` and `/services/<slug>/` (sports physiotherapy, rehab after surgery, manual therapy and TMJ, shockwave/Tecar/laser) share one template. To add one: a key and URL in `src/lib/routes.ts`, title and description in `src/lib/seo.ts`, sections in `src/lib/landingPages.ts`, text under `landing.<key>.` in `src/lib/translations.ts` (both languages). The sitemap picks it up automatically.
+- **Privacy:** the privacy policy (`/privacy/`, structure in `src/components/pages/PrivacyContent.tsx`, text under `privacy.` in `src/lib/translations.ts`) describes what the site does today: no cookies, no browser storage, no analytics, nothing loaded from other domains, and a contact form that only opens WhatsApp. Anything that changes this (analytics, an embedded map or video, Google Fonts, a form backend, a booking widget, a new host) must update the policy and its "last updated" date in the same change, and may need a consent banner first. The footer links to the policy on every page, and a short notice under the contact form links to it.
 
 ## Deployment
 
