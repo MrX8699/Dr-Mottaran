@@ -1,7 +1,7 @@
 name: Deploy to GitHub Pages
 
 # Production releases only. This runs when a version tag like v1.2.0 is
-# pushed; normal pushes to main are deployed by Vercel and never reach
+# pushed; normal pushes to main are only checked by ci.yml and never reach
 # GitHub Pages. See "Releasing a new version" in README.md.
 on:
   push:
@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0
 
       # Only release code that is already on main, so the live site never
-      # runs something Vercel hasn't built and previewed first.
+      # runs something the CI check hasn't built first.
       - name: Check that the tag points to a commit on main
         run: |
           git fetch origin main

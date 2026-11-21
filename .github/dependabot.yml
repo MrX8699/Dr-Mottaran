@@ -1,7 +1,8 @@
 # Opens pull requests for dependency updates (see "Dependencies" in
-# README.md). Merging one only deploys to Vercel staging; the live site
-# changes only with a release tag. Major versions are left out on purpose:
-# they need a planned upgrade (Next 16 drops `next lint`, for example).
+# README.md). The CI check (ci.yml) builds each one; merging it changes
+# main only, and the live site changes only with a release tag. npm major
+# versions are left out on purpose: they need a planned upgrade (Next 16
+# drops `next lint`, for example).
 version: 2
 updates:
   - package-ecosystem: npm

@@ -1,0 +1,38 @@
+name: CI
+
+# Checks every push to main and every pull request (Dependabot included)
+# with the same steps the release uses: install, lint and the static
+# GitHub Pages build. Nothing is deployed here; the live site only changes
+# when a version tag is pushed (deploy-pages.yml). See README.md.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+# A newer push to the same branch replaces a check that is still running.
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - run: npm run lint
+
+      - name: Build static export (same as the release)
+        run: npm run build
+        env:
+          GITHUB_PAGES: "true"

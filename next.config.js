@@ -1,10 +1,9 @@
 /** @type {import('next').NextConfig} */
 
-// GitHub Pages serves static files only (no Node server), so a build for it
-// needs `output: "export"`. GitHub Pages also can't send custom HTTP
-// headers, so the security headers below only apply on hosts that run the
-// Next server (Netlify/Vercel) — see README for the GitHub Pages deployment
-// notes.
+// The live site is a static export on GitHub Pages (no Node server), so the
+// release build sets GITHUB_PAGES=true to get `output: "export"`. GitHub
+// Pages can't send custom HTTP headers, so there is no headers() config
+// here. See "Deployment" in README.md.
 const isGithubPages = process.env.GITHUB_PAGES === "true";
 // The site is served from the custom domain root (https://drlucamottaran.it/,
 // see public/CNAME), not the default GitHub Pages project-page subpath
@@ -39,53 +38,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // headers() is unsupported with output: "export" and has no effect on
-  // GitHub Pages anyway, so it's only added for server-based hosts.
-  ...(!isGithubPages && {
-    async headers() {
-      // All routes here are statically prerendered at build time, so the CSP
-      // can't use a per-request nonce (there's no per-request render to embed
-      // it into) — 'unsafe-inline' on script-src is required for Next's own
-      // hydration bootstrap scripts to run.
-      const csp = [
-        "default-src 'self'",
-        "script-src 'self' 'unsafe-inline'",
-        "style-src 'self' 'unsafe-inline'",
-        "img-src 'self' data:",
-        "font-src 'self' data:",
-        "connect-src 'self'",
-        "frame-ancestors 'none'",
-        "base-uri 'self'",
-        "form-action 'self'",
-        "object-src 'none'",
-        "upgrade-insecure-requests",
-      ].join("; ");
-
-      return [
-        {
-          source: "/(.*)",
-          headers: [
-            { key: "X-Content-Type-Options", value: "nosniff" },
-            { key: "X-Frame-Options", value: "DENY" },
-            { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-            {
-              key: "Permissions-Policy",
-              value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
-            },
-            {
-              key: "Strict-Transport-Security",
-              value: "max-age=63072000; includeSubDomains; preload",
-            },
-            { key: "Content-Security-Policy", value: csp },
-            // Vercel is staging only (VERCEL=1 is set there at build and run
-            // time): keep it out of search results so it never competes
-            // with the live site on GitHub Pages.
-            ...(process.env.VERCEL ? [{ key: "X-Robots-Tag", value: "noindex" }] : []),
-          ],
-        },
-      ];
-    },
-  }),
 };
 
 module.exports = nextConfig;

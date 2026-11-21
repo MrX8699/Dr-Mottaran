@@ -10,10 +10,11 @@ Sito web di Dr. Luca Mottaran, Fisioterapista e Chinesiologo.
 
 Bilingual (Italian and English) website built with [Next.js](https://nextjs.org) (App Router), Tailwind CSS and shadcn style UI components.
 
-| Environment | Where | Updated when |
+| What | Where | When |
 |---|---|---|
-| Staging | Vercel (`*.vercel.app`) | Automatically on every push to `main` |
-| Production | GitHub Pages, `https://drlucamottaran.it` | Only when a version tag (`v1.2.0`) is pushed |
+| Preview | `npm run dev` on your computer (`localhost:3000`) | While you work |
+| Check | GitHub Actions, "CI" (lint and the live site's build, nothing deployed) | Every push to `main` and every pull request |
+| Live site | GitHub Pages, `https://drlucamottaran.it` | Only when a version tag (`v1.2.0`) is pushed |
 
 ## Getting started
 
@@ -31,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) for the Italian site and [ht
 | Command | What it does |
 |---|---|
 | `npm run dev` | Development server (Turbopack) |
-| `npm run lint` | TypeScript check (`tsc --noEmit`) and ESLint. Run this before pushing; the release workflow runs it too |
+| `npm run lint` | TypeScript check (`tsc --noEmit`) and ESLint. Run this before pushing; the CI check and the release workflow run it too |
 | `npm run build` | Production build. With `GITHUB_PAGES=true` it is the static export used for GitHub Pages (output in `out/`) |
 | `npm run start` | Serve a production build (server mode) |
 | `npm run format` | Format `src/` with Biome (`biome format --write .`) |
@@ -49,8 +50,8 @@ git worktree remove dr-mottaran-build
 
 ### Dependencies
 
-- **npm only.** `package-lock.json` is the only lockfile, and Vercel and the release workflow both install from it. Don't commit a `bun.lock`, `yarn.lock` or `pnpm-lock.yaml`: a second lockfile can make a host install different versions.
-- **Updates:** `.github/dependabot.yml` opens a pull request once a month with the minor and patch updates (one for npm, one for GitHub Actions). Merging it only deploys to Vercel staging. Major versions (for example Next 16, which drops `next lint`) are not proposed and need a planned upgrade.
+- **npm only.** `package-lock.json` is the only lockfile, and the CI check and the release workflow both install from it with `npm ci`. Don't commit a `bun.lock`, `yarn.lock` or `pnpm-lock.yaml`: a second lockfile can make a tool install different versions.
+- **Updates:** `.github/dependabot.yml` opens a pull request once a month with the minor and patch updates for npm, and one with the GitHub Actions updates. The CI check builds each one; merge it only when it is green. Merging changes `main` only, not the live site. npm major versions (for example Next 16, which drops `next lint`) are not proposed and need a planned upgrade. A GitHub Actions update that touches `upload-pages-artifact` or `deploy-pages` is only really tested by the next release, so check that release's run.
 - **PostCSS override:** `overrides` in `package.json` makes Next.js use the same, patched PostCSS as the rest of the project instead of its own older copy. Remove it once a Next.js release ships a fixed PostCSS.
 - Check with `npm audit`. Install or update packages in a separate worktree when `npm run dev` is running (see above), then copy `package.json` and `package-lock.json` back and run `npm ci` after stopping the dev server.
 
@@ -93,9 +94,11 @@ Conventions:
 
 ## Deployment
 
-### Staging: Vercel (automatic)
+### Check: GitHub Actions CI (automatic)
 
-The repository is connected to Vercel through the Vercel GitHub app. Every push to `main` builds and deploys the site on Vercel in server mode (`GITHUB_PAGES` is not set there). Use it to check changes before releasing them. Vercel responses carry `X-Robots-Tag: noindex` (set in `next.config.js` when `VERCEL` is defined), so the staging copy stays out of search results. There is no Vercel configuration file in this repository; the setup lives in the Vercel dashboard.
+`.github/workflows/ci.yml` runs on every push to `main` and on every pull request, Dependabot's included. It installs with `npm ci` on Node.js 22, runs `npm run lint` and builds the static export exactly like the release does, but deploys nothing. The result shows as a green tick or red cross next to the commit on GitHub and under **Actions → CI**. A red cross means the next release would fail too: fix it before releasing.
+
+There is no staging copy online. Preview changes locally with `npm run dev`, or build the static site in a separate worktree (see "Scripts" above).
 
 ### Production: GitHub Pages (manual, by version tag)
 
@@ -111,7 +114,7 @@ If any step fails, nothing is deployed and the live site stays as it was.
 
 ### Releasing a new version
 
-1. Make sure the change is on `main` and looks right on the Vercel staging deployment.
+1. Make sure the change is on `main`, looked right locally (`npm run dev`), and the **CI** check for the latest commit on `main` is green.
 2. Pick the next version number ([semantic versioning](https://semver.org)):
    - `v1.0.1` for small fixes (typo, image swap)
    - `v1.1.0` for new content or features
@@ -132,12 +135,12 @@ If any step fails, nothing is deployed and the live site stays as it was.
 
 To see which versions exist: `git tag --list "v*"`. The newest tag is what is live.
 
-**With Claude Code:** say **"codia"** to run steps 3 to 5 for you. It releases the current `main` with the next patch version ("codia minor" or "codia major" for bigger bumps), after checking that everything is pushed and `npm run lint` passes, then follows the deploy and checks the live site. "esteban" commits and pushes to `main` (Vercel staging only). Both shortcuts are defined in `CLAUDE.md`.
+**With Claude Code:** say **"codia"** to run steps 3 to 5 for you. It releases the current `main` with the next patch version ("codia minor" or "codia major" for bigger bumps), after checking that everything is pushed, `npm run lint` passes and the CI check is green, then follows the deploy and checks the live site. "esteban" commits and pushes to `main` and reports the CI check; it never changes the live site. Both shortcuts are defined in `CLAUDE.md`.
 
 ### Rolling back
 
 - **Fastest:** in **Actions**, open the "Deploy to GitHub Pages" run of the previous good tag and click **Re-run all jobs**. It rebuilds and redeploys that version.
-- **Or** fix or revert the problem on `main` (`git revert <commit>`, push, check on Vercel) and release a new patch version, for example `v1.1.1`.
+- **Or** fix or revert the problem on `main` (`git revert <commit>`, push, wait for the CI check) and release a new patch version, for example `v1.1.1`.
 
 ### One-time GitHub settings
 
@@ -157,4 +160,4 @@ The live domain is `drlucamottaran.it`. To move the site to a different domain:
 3. Update the site URL used for canonical URLs, hreflang, the sitemap, Open Graph and structured data: the default in `src/lib/site.ts` (or set `NEXT_PUBLIC_SITE_URL` in the workflow's build step).
 4. Release a new version.
 
-GitHub Pages serves static files only: the security headers in `next.config.js` apply on Vercel but not on GitHub Pages.
+GitHub Pages serves static files only and can't send custom HTTP headers (Content Security Policy and similar), so `next.config.js` has none. HTTPS and the `www` to `drlucamottaran.it` redirect are handled by GitHub Pages.
