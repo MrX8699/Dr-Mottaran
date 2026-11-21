@@ -16,7 +16,6 @@ const repoName = "";
 
 const nextConfig = {
   outputFileTracingRoot: __dirname,
-  allowedDevOrigins: ["*.preview.same-app.com"],
   poweredByHeader: false,
   // Lets src/app/global-not-found.tsx serve the 404 page: with two root
   // layouts ("/" Italian, "/en" English) there is no single layout for it.

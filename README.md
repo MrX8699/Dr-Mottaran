@@ -34,7 +34,7 @@ Open [http://localhost:3000](http://localhost:3000) for the Italian site and [ht
 | `npm run lint` | TypeScript check (`tsc --noEmit`) and ESLint. Run this before pushing; the release workflow runs it too |
 | `npm run build` | Production build. With `GITHUB_PAGES=true` it is the static export used for GitHub Pages (output in `out/`) |
 | `npm run start` | Serve a production build (server mode) |
-| `npm run format` | Format with Biome (`bunx biome format --write`, needs Bun) |
+| `npm run format` | Format `src/` with Biome (`biome format --write .`) |
 
 **Do not run `npm run build` or `npm run start` in the same folder while `npm run dev` is running.** They write to the same `.next` folder and corrupt the dev server's cache (the browser shows "Internal Server Error"). If that happens: stop the dev server, delete `.next`, restart `npm run dev`. For a local production check, build in a separate worktree:
 
@@ -46,6 +46,13 @@ GITHUB_PAGES=true npm run build      # static site in ./out
 cd ..
 git worktree remove dr-mottaran-build
 ```
+
+### Dependencies
+
+- **npm only.** `package-lock.json` is the only lockfile, and Vercel and the release workflow both install from it. Don't commit a `bun.lock`, `yarn.lock` or `pnpm-lock.yaml`: a second lockfile can make a host install different versions.
+- **Updates:** `.github/dependabot.yml` opens a pull request once a month with the minor and patch updates (one for npm, one for GitHub Actions). Merging it only deploys to Vercel staging. Major versions (for example Next 16, which drops `next lint`) are not proposed and need a planned upgrade.
+- **PostCSS override:** `overrides` in `package.json` makes Next.js use the same, patched PostCSS as the rest of the project instead of its own older copy. Remove it once a Next.js release ships a fixed PostCSS.
+- Check with `npm audit`. Install or update packages in a separate worktree when `npm run dev` is running (see above), then copy `package.json` and `package-lock.json` back and run `npm ci` after stopping the dev server.
 
 ## Project structure
 

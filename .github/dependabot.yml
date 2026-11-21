@@ -1,0 +1,25 @@
+# Opens pull requests for dependency updates (see "Dependencies" in
+# README.md). Merging one only deploys to Vercel staging; the live site
+# changes only with a release tag. Major versions are left out on purpose:
+# they need a planned upgrade (Next 16 drops `next lint`, for example).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    groups:
+      actions:
+        patterns: ["*"]
