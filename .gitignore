@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local working notes (implementation docs, not part of the site)
 /claude/
+
+# site health check output (scripts/site-health.mjs)
+/monitoring/

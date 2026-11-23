@@ -36,6 +36,7 @@ Open [http://localhost:3000](http://localhost:3000) for the Italian site and [ht
 | `npm run build` | Production build. With `GITHUB_PAGES=true` it is the static export used for GitHub Pages (output in `out/`) |
 | `npm run start` | Serve a production build (server mode) |
 | `npm run format` | Format `src/` with Biome (`biome format --write .`) |
+| `npm run health` | Site health check (`scripts/site-health.mjs`): live pages, redirects, certificate, domain, DNS, releases, CI, Dependabot, `npm audit`. Writes `monitoring/site-health.json` for the Site Health dashboard. Safe while `npm run dev` runs |
 
 **Do not run `npm run build` or `npm run start` in the same folder while `npm run dev` is running.** They write to the same `.next` folder and corrupt the dev server's cache (the browser shows "Internal Server Error"). If that happens: stop the dev server, delete `.next`, restart `npm run dev`. For a local production check, build in a separate worktree:
 
@@ -83,6 +84,9 @@ src/
     i18n.ts          Language helpers (localizedHref, alternateLanguagePath)
 public/
   images/, og.jpg, og-en.jpg, CNAME
+scripts/
+  site-health.mjs    Site health check for the monitoring dashboard ("npm run health")
+monitoring/          Output of the health check and its daily history (gitignored, local only)
 ```
 
 Conventions:
@@ -93,6 +97,15 @@ Conventions:
 - **Location and service pages:** `/imola/`, `/portomaggiore/` and `/services/<slug>/` (sports physiotherapy, rehab after surgery, manual therapy and TMJ, shockwave/Tecar/laser) share one template. To add one: a key and URL in `src/lib/routes.ts`, title and description in `src/lib/seo.ts`, sections in `src/lib/landingPages.ts`, text under `landing.<key>.` in `src/lib/translations.ts` (both languages). The sitemap picks it up automatically.
 - **Visit statistics:** Umami Cloud (Hobby plan, EU data region), dashboard at `https://cloud.umami.is`. The script is added by `src/components/Analytics.tsx` only when `analytics.websiteId` in `src/lib/site.ts` is set, and only counts visits on `drlucamottaran.it`, so local previews are never counted. To switch it off, empty `websiteId` and update the privacy policy.
 - **Privacy:** the privacy policy (`/privacy/`, structure in `src/components/pages/PrivacyContent.tsx`, text under `privacy.` in `src/lib/translations.ts`) describes what the site does today: no cookies, no browser storage, cookieless visit statistics with Umami Cloud (the only script loaded from another domain), and a contact form that only opens WhatsApp. Anything that changes this (another analytics tool, an embedded map or video, Google Fonts, a form backend, a booking widget, a new host) must update the policy and its "last updated" date in the same change, and may need a consent banner first. The footer links to the policy on every page, and a short notice under the contact form links to it.
+
+## Monitoring
+
+The **Site Health dashboard** (a private Claude artifact, link in `CLAUDE.md`) shows whether the site is healthy, what to do about anything that isn't, visits from Umami and search numbers from Google and Bing.
+
+- Every morning a scheduled Claude task (`mottaran-site-health`, in the Claude desktop app) reads Umami, Search Console and Bing in the app's browser, runs `npm run health`, and uploads the result to the dashboard. It runs only while the computer is on and the Claude app is open, and catches up on the next run.
+- To refresh it any time, ask Claude in this project to "refresh the dashboard", or press Run now on the task in the app.
+- `monitoring/history.json` keeps one row per day. It exists only on this computer and is the only copy of the trend, so keep it.
+- Instant alerts come from elsewhere: GitHub emails failed CI and deploy runs, Search Console emails indexing problems. For an email within minutes of the site going down, add a free uptime monitor (for example UptimeRobot) for `https://drlucamottaran.it`.
 
 ## Deployment
 

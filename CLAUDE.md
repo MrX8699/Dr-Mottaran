@@ -16,6 +16,14 @@ The plan for bringing visitors to the site is the Claude artifact "Mottaran Traf
 
 To update it: read it with the Artifact tool (`action: "read"`, that URL), edit the saved file, and publish with the same `url` so the link stays the same. Never create a new playbook artifact. If nothing needs changing, say in the push report that the playbook was checked and is current. If the artifact cannot be read or published, say so in the report and push anyway; don't block the push on it.
 
+## Site Health dashboard
+Monitoring lives in the Claude "Data" artifact "Mottaran Site Health": https://claude.ai/artifact/W7ueYZN7c93Uj5mPipFUkn. Never create a second one.
+- **Refreshed daily** by the scheduled task `mottaran-site-health` (Claude app, every morning around 8:10, while the app is open). Its prompt, in `C:\Users\Max Power\.claude\scheduled-tasks\mottaran-site-health\SKILL.md`, is the procedure: read Umami, Search Console and Bing in the built-in browser into `monitoring/web-stats.json`, run `npm run health` (`scripts/site-health.mjs`), upload `monitoring/site-health.json` to the artifact, point the nine datasets at the new file, delete the old file.
+- **"Refresh the dashboard"** from the user means: follow that same procedure now, in this session.
+- `monitoring/` is gitignored and holds `history.json`, the only copy of the daily history. Don't delete it.
+- The dashboard page (`files/index.html` in the artifact's store) only draws the file's keys `health`, `run`, `visits`, `pages`, `referrers`, `countries`, `search`, `queries`, `history`. If you rename or add a key in `scripts/site-health.mjs`, update the page and datasets in the same pass (read the type's guides first).
+- When a change touches something a check depends on (domain, DNS, repository name, workflow file names, the sitemap, the Umami setup), update `scripts/site-health.mjs` in the same change so the dashboard keeps telling the truth.
+
 ## Deployment and releases
 Documented in `README.md` ("Deployment" and "Releasing a new version"); follow it, don't improvise.
 - Every push to `main` and every pull request runs the **CI** check (`.github/workflows/ci.yml`), which builds the site exactly like the release but deploys nothing. There is no online staging copy and no Vercel anymore; previews are local (`npm run dev`).
