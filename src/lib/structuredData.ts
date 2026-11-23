@@ -81,7 +81,9 @@ export function siteGraph(lang: Language) {
       closes: site.hours.closes,
     },
     employee: { "@id": ids.person },
-    sameAs: site.sameAs,
+    // The studio's Google Maps listing, when it has one, tells Google that
+    // the listing and this page are the same practice.
+    sameAs: location.googleMaps ? [...site.sameAs, location.googleMaps.url] : site.sameAs,
   }))
 
   return {

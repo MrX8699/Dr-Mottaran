@@ -71,9 +71,10 @@ src/
                      LandingContent is the template for the location and service pages,
                      PrivacyContent is the privacy policy
     RootDocument.tsx <html> shell used by both root layouts (font, JSON-LD, language)
+    Analytics.tsx    Umami visit counter script (only when site.analytics.websiteId is set)
     Nav.tsx, Footer.tsx, LanguageSwitcher.tsx, JsonLd.tsx, MoreLink.tsx, ui/
   lib/
-    site.ts          Name, phone, email, addresses, hours, social links, site URL (single source of truth)
+    site.ts          Name, phone, email, addresses, Google Maps listings, hours, social links, site URL, analytics ID (single source of truth)
     routes.ts        Every page and its URL (pagePath, hreflang alternates, service page slugs)
     seo.ts           Page titles, descriptions, canonical URLs, Open Graph
     landingPages.ts  Sections, photos, FAQ count and related links of the location and service pages
@@ -87,10 +88,11 @@ public/
 Conventions:
 
 - **Text:** every visible string lives in `src/lib/translations.ts`, always in both `it` and `en`. No dashes in visible text.
-- **Contact details:** change phone, addresses or hours only in `src/lib/site.ts`; the page, footer, WhatsApp links and structured data read from it.
+- **Contact details:** change phone, addresses or hours only in `src/lib/site.ts`; the page, footer, WhatsApp links and structured data read from it. Keep them identical to the studios' Google Business Profiles. A studio with a profile has its listing link in `googleMaps.url`, which the directions links and structured data use; without one they fall back to an address search.
 - **Languages:** the language comes from the URL (`/` Italian, `/en` English). Internal links use `localizedHref(language, path)`, or `pagePath(language, page)` from `src/lib/routes.ts`.
 - **Location and service pages:** `/imola/`, `/portomaggiore/` and `/services/<slug>/` (sports physiotherapy, rehab after surgery, manual therapy and TMJ, shockwave/Tecar/laser) share one template. To add one: a key and URL in `src/lib/routes.ts`, title and description in `src/lib/seo.ts`, sections in `src/lib/landingPages.ts`, text under `landing.<key>.` in `src/lib/translations.ts` (both languages). The sitemap picks it up automatically.
-- **Privacy:** the privacy policy (`/privacy/`, structure in `src/components/pages/PrivacyContent.tsx`, text under `privacy.` in `src/lib/translations.ts`) describes what the site does today: no cookies, no browser storage, no analytics, nothing loaded from other domains, and a contact form that only opens WhatsApp. Anything that changes this (analytics, an embedded map or video, Google Fonts, a form backend, a booking widget, a new host) must update the policy and its "last updated" date in the same change, and may need a consent banner first. The footer links to the policy on every page, and a short notice under the contact form links to it.
+- **Visit statistics:** Umami Cloud (Hobby plan, EU data region), dashboard at `https://cloud.umami.is`. The script is added by `src/components/Analytics.tsx` only when `analytics.websiteId` in `src/lib/site.ts` is set, and only counts visits on `drlucamottaran.it`, so local previews are never counted. To switch it off, empty `websiteId` and update the privacy policy.
+- **Privacy:** the privacy policy (`/privacy/`, structure in `src/components/pages/PrivacyContent.tsx`, text under `privacy.` in `src/lib/translations.ts`) describes what the site does today: no cookies, no browser storage, cookieless visit statistics with Umami Cloud (the only script loaded from another domain), and a contact form that only opens WhatsApp. Anything that changes this (another analytics tool, an embedded map or video, Google Fonts, a form backend, a booking widget, a new host) must update the policy and its "last updated" date in the same change, and may need a consent banner first. The footer links to the policy on every page, and a short notice under the contact form links to it.
 
 ## Deployment
 

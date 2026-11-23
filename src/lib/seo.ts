@@ -28,7 +28,7 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
     },
     privacy: {
       title: "Informativa privacy",
-      description: "Come tratto i dati personali su drlucamottaran.it: nessun cookie, nessuno strumento di tracciamento, contatti solo tramite WhatsApp, email e telefono.",
+      description: "Come tratto i dati personali su drlucamottaran.it: nessun cookie, statistiche delle visite anonime, contatti solo tramite WhatsApp, email e telefono.",
     },
     imola: {
       title: "Fisioterapista a Imola | Dr. Luca Mottaran",
@@ -82,7 +82,7 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
     },
     privacy: {
       title: "Privacy policy",
-      description: "How personal data is handled on drlucamottaran.it: no cookies, no tracking tools, contact only through WhatsApp, email and phone.",
+      description: "How personal data is handled on drlucamottaran.it: no cookies, anonymous visit statistics, contact only through WhatsApp, email and phone.",
     },
     imola: {
       title: "Physiotherapist in Imola, Italy | Dr. Luca Mottaran",

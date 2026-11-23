@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "@/app/globals.css";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import { JsonLd } from "@/components/JsonLd";
+import { Analytics } from "@/components/Analytics";
 import { siteGraph } from "@/lib/structuredData";
 import type { Language } from "@/lib/i18n";
 
@@ -38,6 +39,7 @@ export function RootDocument({
         <LanguageProvider language={lang}>
           {children}
         </LanguageProvider>
+        <Analytics />
       </body>
     </html>
   );

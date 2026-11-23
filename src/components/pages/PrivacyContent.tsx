@@ -14,8 +14,9 @@ const range = (n: number) => Array.from({ length: n }, (_, i) => i + 1)
 // are labelled by privacy.link.<key>.
 //
 // The policy describes what the site actually does: no cookies, no browser
-// storage, nothing loaded from other domains, contact only through WhatsApp,
-// email and phone. Update it before adding anything that changes that (see
+// storage, cookieless visit statistics with Umami (the only other domain the
+// pages load from, see Analytics.tsx), contact only through WhatsApp, email
+// and phone. Update it before adding anything that changes that (see
 // "Privacy" in README.md).
 type PrivacySection = {
   id: string
@@ -40,6 +41,7 @@ const sections: PrivacySection[] = [
   { id: "email", paragraphs: 2, links: [{ key: "google", href: "https://policies.google.com/privacy" }] },
   { id: "health", paragraphs: 2 },
   { id: "external", paragraphs: 1 },
+  { id: "analytics", paragraphs: 3, links: [{ key: "umami", href: "https://umami.is/privacy" }] },
   {
     id: "cookies",
     paragraphs: 2,
@@ -47,7 +49,7 @@ const sections: PrivacySection[] = [
   },
   { id: "recipients", paragraphs: 2 },
   { id: "transfers", paragraphs: 1 },
-  { id: "retention", paragraphs: 0, items: 3 },
+  { id: "retention", paragraphs: 0, items: 4 },
   { id: "required", paragraphs: 1 },
   { id: "rights", paragraphs: 1, items: 6 },
   { id: "exercise", paragraphs: 2, links: [{ key: "garante", href: "https://www.garanteprivacy.it" }] },
