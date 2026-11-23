@@ -73,7 +73,7 @@ export function siteGraph(lang: Language) {
       addressCountry: location.country,
     },
     hasMap: mapsUrl(location),
-    areaServed: { "@type": "City", name: location.locality },
+    areaServed: (location.areaServed as readonly string[]).map((name) => ({ "@type": "City", name })),
     openingHoursSpecification: {
       "@type": "OpeningHoursSpecification",
       dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],

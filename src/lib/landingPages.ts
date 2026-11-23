@@ -16,7 +16,7 @@ export type LandingSection = {
 }
 
 export type LandingPage = {
-  kind: "location" | "service"
+  kind: "location" | "area" | "service"
   // Hero background photo; without one the hero uses the brand color.
   hero?: string
   sections: LandingSection[]
@@ -31,6 +31,7 @@ export const landingPages: Record<LandingKey, LandingPage> = {
     kind: "location",
     sections: [
       { id: "services", paragraphs: 1, links: serviceKeys },
+      { id: "problems", paragraphs: 1, items: 6 },
       { id: "sport", paragraphs: 1 },
       { id: "booking", paragraphs: 1 },
     ],
@@ -41,11 +42,33 @@ export const landingPages: Record<LandingKey, LandingPage> = {
     kind: "location",
     sections: [
       { id: "services", paragraphs: 1, links: serviceKeys },
+      { id: "problems", paragraphs: 1, items: 6 },
       { id: "area", paragraphs: 1 },
       { id: "booking", paragraphs: 1 },
     ],
     faq: 4,
-    related: ["imola"],
+    related: ["imola", "argenta", "ferrara"],
+  },
+  // Area pages: no studio in the town, the page says which studio is closest.
+  argenta: {
+    kind: "area",
+    sections: [
+      { id: "where", paragraphs: 2 },
+      { id: "services", paragraphs: 1, links: serviceKeys },
+      { id: "booking", paragraphs: 1 },
+    ],
+    faq: 4,
+    related: ["portomaggiore", "ferrara", "imola"],
+  },
+  ferrara: {
+    kind: "area",
+    sections: [
+      { id: "where", paragraphs: 2 },
+      { id: "services", paragraphs: 1, links: serviceKeys },
+      { id: "booking", paragraphs: 1 },
+    ],
+    faq: 4,
+    related: ["portomaggiore", "argenta", "imola"],
   },
   sports: {
     kind: "service",

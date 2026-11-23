@@ -8,7 +8,7 @@ import { Textarea } from "@/components/ui/textarea"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { localizedHref } from "@/lib/i18n"
-import { pagePath } from "@/lib/routes"
+import { areaKeys, pagePath } from "@/lib/routes"
 import { MoreLink } from "@/components/MoreLink"
 import { getWhatsAppMessage, whatsappUrl } from "@/lib/whatsapp"
 import { site, formatAddress, mapsUrl } from "@/lib/site"
@@ -403,6 +403,17 @@ export function HomeContent() {
                 </Card>
               ))}
             </div>
+            <p className="mt-6 text-center text-foreground/75">
+              {t('contact.locations.near')}{' '}
+              {areaKeys.map((key, i) => (
+                <span key={key}>
+                  {i > 0 && ' · '}
+                  <Link href={pagePath(language, key)} className="text-primary hover:text-primary/80 font-medium transition-colors">
+                    {t(`landing.${key}.name`)}
+                  </Link>
+                </span>
+              ))}
+            </p>
           </div>
         </div>
       </section>

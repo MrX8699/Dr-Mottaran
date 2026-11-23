@@ -36,9 +36,19 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
       description: "Fisioterapista a Imola in Via Banfi 42: fisioterapia sportiva, riabilitazione post operatoria, terapia manuale e onde d'urto. Solo su appuntamento.",
     },
     portomaggiore: {
-      title: "Fisioterapista a Portomaggiore | Dr. Luca Mottaran",
+      title: "Fisioterapista a Portomaggiore e Gambulaga | Dr. Luca Mottaran",
       absolute: true,
-      description: "Fisioterapista a Gambulaga di Portomaggiore (FE), in Via Gambulaga Masi 104: riabilitazione, terapia manuale e fisioterapia sportiva. Solo su appuntamento.",
+      description: "Fisioterapista a Gambulaga di Portomaggiore (FE), Via Gambulaga Masi 104, vicino ad Argenta e Ferrara. Riabilitazione, terapia manuale, sport. Solo su appuntamento.",
+    },
+    argenta: {
+      title: "Fisioterapista vicino ad Argenta | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Fisioterapista vicino ad Argenta: studio a Gambulaga di Portomaggiore (FE), Via Gambulaga Masi 104. Riabilitazione, terapia manuale e fisioterapia sportiva su appuntamento.",
+    },
+    ferrara: {
+      title: "Fisioterapista vicino a Ferrara | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Fisioterapista in provincia di Ferrara: studio a Gambulaga di Portomaggiore, Via Gambulaga Masi 104. Riabilitazione, terapia manuale e fisioterapia sportiva su appuntamento.",
     },
     sports: {
       title: "Fisioterapia sportiva a Imola | Dr. Luca Mottaran",
@@ -90,9 +100,19 @@ const pages: Record<Language, Record<PageKey, { title: string; absolute?: boolea
       description: "Physiotherapist in Imola, Italy, at Via Banfi 42: sports physiotherapy, rehab after surgery, manual therapy and shockwave therapy. By appointment only.",
     },
     portomaggiore: {
-      title: "Physiotherapist in Portomaggiore, Ferrara | Dr. Luca Mottaran",
+      title: "Physiotherapist in Portomaggiore and Gambulaga | Dr. Luca Mottaran",
       absolute: true,
-      description: "Physiotherapist in Gambulaga, Portomaggiore (Ferrara), at Via Gambulaga Masi 104: rehabilitation, manual therapy and sports physiotherapy. By appointment only.",
+      description: "Physiotherapist in Gambulaga, Portomaggiore (Ferrara), at Via Gambulaga Masi 104, near Argenta and Ferrara. Rehabilitation, manual therapy, sport. By appointment only.",
+    },
+    argenta: {
+      title: "Physiotherapist near Argenta | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Physiotherapist near Argenta: studio in Gambulaga, Portomaggiore (Ferrara), at Via Gambulaga Masi 104. Rehabilitation, manual therapy and sports physiotherapy by appointment.",
+    },
+    ferrara: {
+      title: "Physiotherapist near Ferrara | Dr. Luca Mottaran",
+      absolute: true,
+      description: "Physiotherapist in the province of Ferrara: studio in Gambulaga, Portomaggiore, at Via Gambulaga Masi 104. Rehabilitation, manual therapy and sports physiotherapy by appointment.",
     },
     sports: {
       title: "Sports physiotherapy in Imola | Dr. Luca Mottaran",

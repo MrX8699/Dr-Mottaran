@@ -4,7 +4,7 @@ import Link from "next/link"
 import { useLanguage } from "@/contexts/LanguageContext"
 import { getTranslation } from "@/lib/translations"
 import { localizedHref } from "@/lib/i18n"
-import { pagePath } from "@/lib/routes"
+import { areaKeys, pagePath } from "@/lib/routes"
 import { site, formatAddress, mapsUrl } from "@/lib/site"
 
 export function Footer() {
@@ -31,6 +31,11 @@ export function Footer() {
               {site.locations.map((location) => (
                 <li key={location.id}>
                   <Link href={pagePath(language, location.id)} className="text-white/80 hover:text-white transition-colors">{t(`landing.${location.id}.name`)}</Link>
+                </li>
+              ))}
+              {areaKeys.map((key) => (
+                <li key={key}>
+                  <Link href={pagePath(language, key)} className="text-white/80 hover:text-white transition-colors">{t(`landing.${key}.name`)}</Link>
                 </li>
               ))}
             </ul>

@@ -29,6 +29,8 @@ export const site = {
       locality: "Imola",
       region: "BO",
       country: "IT",
+      // Towns named on the studio's pages (structured data areaServed).
+      areaServed: ["Imola"],
       // No Google Business Profile for this studio yet.
       googleMaps: null,
     },
@@ -40,6 +42,7 @@ export const site = {
       locality: "Portomaggiore",
       region: "FE",
       country: "IT",
+      areaServed: ["Portomaggiore", "Argenta", "Ostellato", "Ferrara"],
       // Luca's Google Business Profile for this studio. `url` is the stable
       // listing link (cid = the listing's place id); directions links and
       // structured data point at it. `reviewUrl` opens Google's "write a

@@ -61,15 +61,15 @@ git worktree remove dr-mottaran-build
 ```
 src/
   app/
-    (it)/            Italian pages at /, /about, /services, /approach, /privacy, /imola, /portomaggiore
-                     and /services/<slug> (route group, not in the URL)
+    (it)/            Italian pages at /, /about, /services, /approach, /privacy, /imola, /portomaggiore,
+                     /argenta, /ferrara and /services/<slug> (route group, not in the URL)
     en/              The same pages in English under /en
     global-not-found.tsx   Bilingual 404 page (404.html in the static export)
     robots.ts, sitemap.ts  Generated robots.txt and sitemap.xml
     icon.png, apple-icon.png, favicon.ico, fonts/
   components/
     pages/           Page content shared by both languages (HomeContent, AboutContent, ...);
-                     LandingContent is the template for the location and service pages,
+                     LandingContent is the template for the location, area and service pages,
                      PrivacyContent is the privacy policy
     RootDocument.tsx <html> shell used by both root layouts (font, JSON-LD, language)
     Analytics.tsx    Umami visit counter script (only when site.analytics.websiteId is set)
@@ -78,7 +78,7 @@ src/
     site.ts          Name, phone, email, addresses, Google Maps listings, hours, social links, site URL, analytics ID (single source of truth)
     routes.ts        Every page and its URL (pagePath, hreflang alternates, service page slugs)
     seo.ts           Page titles, descriptions, canonical URLs, Open Graph
-    landingPages.ts  Sections, photos, FAQ count and related links of the location and service pages
+    landingPages.ts  Sections, photos, FAQ count and related links of the location, area and service pages
     structuredData.ts  schema.org JSON-LD (WebSite, Person, Physiotherapy, ProfilePage, BreadcrumbList)
     translations.ts  All visible text, in "it" and "en"
     i18n.ts          Language helpers (localizedHref, alternateLanguagePath)
@@ -94,7 +94,8 @@ Conventions:
 - **Text:** every visible string lives in `src/lib/translations.ts`, always in both `it` and `en`. No dashes in visible text.
 - **Contact details:** change phone, addresses or hours only in `src/lib/site.ts`; the page, footer, WhatsApp links and structured data read from it. Keep them identical to the studios' Google Business Profiles. A studio with a profile has its listing link in `googleMaps.url`, which the directions links and structured data use; without one they fall back to an address search.
 - **Languages:** the language comes from the URL (`/` Italian, `/en` English). Internal links use `localizedHref(language, path)`, or `pagePath(language, page)` from `src/lib/routes.ts`.
-- **Location and service pages:** `/imola/`, `/portomaggiore/` and `/services/<slug>/` (sports physiotherapy, rehab after surgery, manual therapy and TMJ, shockwave/Tecar/laser) share one template. To add one: a key and URL in `src/lib/routes.ts`, title and description in `src/lib/seo.ts`, sections in `src/lib/landingPages.ts`, text under `landing.<key>.` in `src/lib/translations.ts` (both languages). The sitemap picks it up automatically.
+- **Area pages:** `/argenta/` and `/ferrara/` are for people searching from nearby towns. There is no studio in those places: each page says so and points to the closest studio (Gambulaga). Never write that the practice is located in a town where it has no studio, and keep the facts on them (towns, addresses) in line with `areaServed` in `src/lib/site.ts`, which feeds the structured data.
+- **Location, area and service pages:** `/imola/`, `/portomaggiore/`, `/argenta/`, `/ferrara/` and `/services/<slug>/` (sports physiotherapy, rehab after surgery, manual therapy and TMJ, shockwave/Tecar/laser) share one template. To add one: a key and URL in `src/lib/routes.ts`, title and description in `src/lib/seo.ts`, sections in `src/lib/landingPages.ts`, text under `landing.<key>.` in `src/lib/translations.ts` (both languages). The sitemap picks it up automatically.
 - **Visit statistics:** Umami Cloud (Hobby plan, EU data region), dashboard at `https://cloud.umami.is`. The script is added by `src/components/Analytics.tsx` only when `analytics.websiteId` in `src/lib/site.ts` is set, and only counts visits on `drlucamottaran.it`, so local previews are never counted. To switch it off, empty `websiteId` and update the privacy policy.
 - **Privacy:** the privacy policy (`/privacy/`, structure in `src/components/pages/PrivacyContent.tsx`, text under `privacy.` in `src/lib/translations.ts`) describes what the site does today: no cookies, no browser storage, cookieless visit statistics with Umami Cloud (the only script loaded from another domain), and a contact form that only opens WhatsApp. Anything that changes this (another analytics tool, an embedded map or video, Google Fonts, a form backend, a booking widget, a new host) must update the policy and its "last updated" date in the same change, and may need a consent banner first. The footer links to the policy on every page, and a short notice under the contact form links to it.
 

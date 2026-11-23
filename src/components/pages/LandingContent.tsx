@@ -16,8 +16,8 @@ import { whatsappUrl } from "@/lib/whatsapp"
 
 const range = (n: number) => Array.from({ length: n }, (_, i) => i + 1)
 
-// Shared template for the location pages (/imola/, /portomaggiore/) and the
-// service pages (/services/<slug>/). Structure comes from landingPages.ts,
+// Shared template for the location pages (/imola/, /portomaggiore/), the area
+// pages (/argenta/, /ferrara/) and the service pages (/services/<slug>/). Structure comes from landingPages.ts,
 // text from translations.ts. A server component: the language is passed in
 // by the route rather than read from context.
 export function LandingContent({ lang, page }: { lang: Language; page: LandingKey }) {
@@ -184,7 +184,7 @@ export function LandingContent({ lang, page }: { lang: Language; page: LandingKe
         <section className={`py-12 ${faq > 0 ? "bg-background" : "bg-muted"}`}>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="font-serif text-3xl md:text-4xl font-medium text-foreground mb-6">
-              {t(kind === "service" ? "landing.related.service" : "landing.related.location")}
+              {t(`landing.related.${kind}`)}
             </h2>
             <div className="grid md:grid-cols-3 gap-6">{related.map(linkCard)}</div>
           </div>
