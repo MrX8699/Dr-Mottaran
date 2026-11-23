@@ -5,6 +5,17 @@ Keep commit messages short. A single concise summary line is enough, no long bod
 
 If the user's message is just "esteban" (or otherwise contains that word as the instruction), treat it as a standing shorthand for: stage all changes, commit with a meaningful message, and push to origin main. Do this without asking for confirmation first — this word is pre-authorization for that specific action. A push to `main` only triggers the CI check (`.github/workflows/ci.yml`: lint and the static build, nothing deployed); it does not change the live site (see below). After pushing, follow the CI run for that commit until it finishes and report the result; if it fails, report the failing step.
 
+Before any push to `main` ("esteban" included), check the traffic playbook first (see "Traffic playbook" below).
+
+## Traffic playbook
+The plan for bringing visitors to the site is the Claude artifact "Mottaran Traffic Playbook": https://claude.ai/artifact/J4ZWWL1nkwBwbcjGqYCsSd. Before every push to `main`, verify it is up to date with what is being pushed and with the current state of the work, and update it in the same pass if it is not. Things that make it stale:
+- pages added, removed or renamed (its URLs, the sitemap count, the pages listed for indexing)
+- a playbook step done by the change (an article, photos, the motorsport page, WhatsApp or social links, analytics), so its status, tick and "Status" tag change
+- changes to contact details, studios, services or the privacy policy that its examples quote
+- Search Console, Bing or other setup done in the session, or new numbers worth recording
+
+To update it: read it with the Artifact tool (`action: "read"`, that URL), edit the saved file, and publish with the same `url` so the link stays the same. Never create a new playbook artifact. If nothing needs changing, say in the push report that the playbook was checked and is current. If the artifact cannot be read or published, say so in the report and push anyway; don't block the push on it.
+
 ## Deployment and releases
 Documented in `README.md` ("Deployment" and "Releasing a new version"); follow it, don't improvise.
 - Every push to `main` and every pull request runs the **CI** check (`.github/workflows/ci.yml`), which builds the site exactly like the release but deploys nothing. There is no online staging copy and no Vercel anymore; previews are local (`npm run dev`).

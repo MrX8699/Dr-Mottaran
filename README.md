@@ -135,7 +135,7 @@ If any step fails, nothing is deployed and the live site stays as it was.
 
 To see which versions exist: `git tag --list "v*"`. The newest tag is what is live.
 
-**With Claude Code:** say **"codia"** to run steps 3 to 5 for you. It releases the current `main` with the next patch version ("codia minor" or "codia major" for bigger bumps), after checking that everything is pushed, `npm run lint` passes and the CI check is green, then follows the deploy and checks the live site. "esteban" commits and pushes to `main` and reports the CI check; it never changes the live site. Both shortcuts are defined in `CLAUDE.md`.
+**With Claude Code:** say **"codia"** to run steps 3 to 5 for you. It releases the current `main` with the next patch version ("codia minor" or "codia major" for bigger bumps), after checking that everything is pushed, `npm run lint` passes and the CI check is green, then follows the deploy and checks the live site. "esteban" commits and pushes to `main` and reports the CI check; it never changes the live site. Before any push to `main`, Claude also checks that the traffic playbook (a Claude artifact with the plan for getting visitors to the site) still matches the site, and updates it if needed. Both shortcuts and the playbook link are in `CLAUDE.md`.
 
 ### Rolling back
 
